@@ -63,7 +63,7 @@ class CommentsController extends Controller
         $this->maxAttempts = $this->config['throttle_max_attempts'];
         $this->lockoutTime = $this->config['throttle_lockout_time'];
 
-        $this->middleware('auth', ['only' => ['update', 'vote']]);
+        $this->middleware('auth', ['only' => ['update']]);
         $this->middleware(AuthorMiddleware::class, ['only' => 'store']);
     }
 
