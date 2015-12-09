@@ -34,6 +34,23 @@ Route::group(['namespace' => 'Hazzard\Comments\Http\Controllers'], function ($ro
         'uses' => 'AdminDashboardController@destroy',
     ]);
 
+    // Moderator routes.
+
+    $router->get('comments/moderator/{board_id}', [
+        'as' => 'comments.moderator.index',
+        'uses' => 'ModeratorDashboardController@index'
+    ]);
+
+    $router->put('comments/moderator/{board_id}/{id?}', [
+        'as' => 'comments.moderator.update',
+        'uses' => 'ModeratorDashboardController@update',
+    ]);
+
+    $router->delete('comments/moderator/{board_id}/{id}', [
+        'as' => 'comments.moderator.destroy',
+        'uses' => 'ModeratorDashboardController@destroy',
+    ]);
+
     // Comments routes.
 
     $router->resource('comments', 'CommentsController', ['only' => ['index', 'store', 'update']]);

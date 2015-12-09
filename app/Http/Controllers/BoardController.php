@@ -80,7 +80,9 @@ class BoardController extends Controller
      */
     public function store(Board $board, CreateBoardrequest $request)
     {
-        $board->create($request->all());
+        $board = $board->create($request->all());
+
+        $board->moderators()->attach(\Auth::user());
 
         return redirect('board');
     }
