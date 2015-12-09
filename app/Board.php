@@ -1,18 +1,33 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Rob
- * Date: 24/11/2015
- * Time: 17:34
- */
 
 namespace App;
+
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-
+/**
+ * Class Board
+ *
+ * @package App
+ */
 class Board extends Eloquent
 {
+
+    /**
+     * @var array
+     *
+     */
     protected $fillable = [
-        'boardname','boardblurb','pincode','admin'
+        'boardname', 'boardblurb', 'pincode', 'admin'
     ];
+
+    /**
+     * Moderators relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function moderators()
+    {
+        return $this->belongsToMany('App\User');
+    }
+
 }

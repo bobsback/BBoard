@@ -10,10 +10,14 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthenticatableContract,
-                                    AuthorizableContract,
-                                    CanResetPasswordContract
+/**
+ * Class User
+ *
+ * @package App
+ */
+class User extends Model implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
+
     use Authenticatable, Authorizable, CanResetPassword;
 
     /**
@@ -38,6 +42,16 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     /**
+     * Boards relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function boards()
+    {
+        return $this->belongsToMany('App\Board');
+    }
+
+    /**
      * Return the user attributes.
 
      * @return array
@@ -45,13 +59,29 @@ class User extends Model implements AuthenticatableContract,
     public function getAuthor()
     {
         return [
-            'id'     => $this->id,
-            'name'   => $this->name,
-            'email'  => $this->email,
-            'url'    => $this->url,  // Optional
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'url' => $this->url,
             'avatar' => 'gravatar',
-            'admin'  => $this->role === 'admin', // bool
+            'admin' => $this->role === 'admin'
         ];
+    }
+
+    /**
+     * Is moderator.
+     *
+     * @param $boardId
+     *
+     * @return bool
+     */
+    public function isModerator($boardId)
+    {
+        if (!$this->boards()->find($boardId)) {
+            return false;
+        }
+
+        return true;
     }
 
 }

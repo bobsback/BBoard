@@ -28,6 +28,8 @@ class VoteComment extends Job implements SelfHandling
      */
     protected $type;
 
+    public $ip;
+
     /**
      * Create a new job instance.
      *
@@ -39,6 +41,7 @@ class VoteComment extends Job implements SelfHandling
     {
         $this->type = $type;
         $this->comment = $comment;
+        $this->ip = 666;
     }
 
     /**
@@ -49,13 +52,19 @@ class VoteComment extends Job implements SelfHandling
      */
     public function handle(Author $author)
     {
+        $ipAddress = ip2long(\Request::ip());
+
         $comment = $this->comment;
 
         if (! in_array($this->type, [Vote::UP, Vote::DOWN, Vote::REMOVE])) {
             return;
         }
 
-        $vote = $comment->votes()->where('user_id', $author->id())->first();
+        if ($author) {
+            $vote = $comment->votes()->where('user_id', $author->id())->first();
+        } else {
+            $vote = $comment->votes()->where('user_id', null)->where('ip', $ipAddress)->first();
+        }
 
         if ($vote) {
             if ($this->type === Vote::REMOVE) {
@@ -78,6 +87,7 @@ class VoteComment extends Job implements SelfHandling
             $comment->votes()->save(new Vote([
                 'user_id' => $author->id(),
                 'type'    => $this->type,
+                'ip'      => $ipAddress
             ]));
 
             $comment->increment($this->type === Vote::UP ? 'upvotes' : 'downvotes');
