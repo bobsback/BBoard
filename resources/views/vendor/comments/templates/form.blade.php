@@ -6,6 +6,9 @@
                 <input type="text" required v-model="authorName" v-disable="loading" class="form-control" placeholder="@lang('comments::all.name')">
             </div>
 
+            <div class="form-group">
+                <input type="email" required v-model="authorEmail" v-disable="loading" class="form-control" placeholder="@lang('comments::all.email')">
+            </div>
         </template>
 
         <div v-if="config.captchaRequired" class="form-group" id="recaptcha"></div>
