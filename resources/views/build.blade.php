@@ -78,13 +78,13 @@
                 <div class="boardname">Board name:</div>
                 <div data-ix="hovername" class="hoverinfo">?</div>
                 <div data-ix="namehoverinitial" class="namehover">This is the name of the bubble board</div>
-                <input id="boardname" type="text" placeholder="Enter your board name" name="boardname" data-name="Boardname 2" class="w-input board-name">
+                <input id="boardname" value="{{ old('boardname') }}"  type="text" placeholder="Enter your board name" name="boardname" data-name="Boardname 2" class="w-input board-name">
                 {!! $errors->first('boardname','<span class="help-block">:message</span>') !!}
 
                 <div class="boardname">Board blurb:</div>
                 <div data-ix="blurbhover" class="hoverinfo">?</div>
                 <div data-ix="intial-hide" class="boardnamehover">A description of the board for the users&nbsp;</div>
-                <input id="board-5" type="text" placeholder="Enter the board purpose" name="boardblurb" data-name="Board 5" class="w-input board-name">
+                <input id="board-5" value="{{ old('boardblurb') }}" type="text" placeholder="Enter the board purpose" name="boardblurb" data-name="Board 5" class="w-input board-name">
 
                 <div class="subtitle">Decide how people enter your board:</div>
 
@@ -97,7 +97,7 @@
                             <div class="reveal-if-active">
                                 <label class="boardname" for="board-6">Set your boards pincode:</label>
 
-                                <input id="board-6" data-require-pair="#PincodeCheckbox" type="text" placeholder="Enter a pin or get a random one" name="pincode" data-name="Board 6" class="require-if-active w-input board-name{{$errors->has('boardname')?'red has-error':''}}">
+                                <input id="board-6" value="{{ old('pincode') }}" data-require-pair="#PincodeCheckbox" type="text" placeholder="Enter a pin or get a random one" name="pincode" data-name="Board 6" class="require-if-active w-input board-name{{$errors->has('boardname')?'red has-error':''}}">
                                 {!! $errors->first('pincode','<span class="help-block">:message</span>') !!}
                                 <!--<a href="#" class="w-button pingenerate">Randomly Generate Pin&nbsp;</a>-->
                             </div>
