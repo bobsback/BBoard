@@ -26,7 +26,6 @@
 
         <div class="comment-body">
             <header>
-
                 <!-- Dropdown -->
                 <div class="pull-right dropdown">
                     <span class="collapse" title="@lang('comments::all.collapse')" v-on="click: collapsed = true">−</span>
@@ -72,7 +71,16 @@
                     <time datetime="@{{ comment.created_at }}" title="@{{ comment.created_at }}"></time>
                 </a>
 
-                <a v-if="config.replies" v-on="click: reply" href="#" class="replycol reply">@lang('comments::all.reply')</a>
+                <a v-if="config.replies" v-on="click: reply" href="#" class="replycol reply">
+                    @lang('comments::all.reply')
+                </a>
+
+
+                @if($user && $user->isModerator($board->id))
+                    <a class="delete-comment" href="#" data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}">
+                        Delete Permanently
+                    </a>
+                @endif
             </footer>
 
             <!-- Edit form -->

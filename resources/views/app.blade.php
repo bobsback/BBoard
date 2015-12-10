@@ -83,6 +83,8 @@
 	<script src="/vendor/comments/js/prism.js"></script> <!-- Optional -->
 	<!-- This must be included before the closing </body> tag! -->
 	<script src="/vendor/comments/js/comments.js"></script>
+	<script src="/vendor/js/bootbox.min.js"></script>
+	<script src="/js/app.js"></script>
 	<!-- Search form -->
 	<script> document.addEventListener("touchstart", function(){}, true);</script>
 
