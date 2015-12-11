@@ -586,6 +586,11 @@ li.comment {
   color: #f05f70 !important;
 }
 
+.comment-body .edit-comment {
+    font-weight: bold;
+    margin-left: 15px;
+}
+
 .comment-body .delete-comment {
     color: red;
     font-weight: bold;

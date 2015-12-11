@@ -77,6 +77,10 @@
 
 
                 @if($user && $user->isModerator($board->id))
+                    <a class="edit-comment" href="#" data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}">
+                        Edit
+                    </a>
+
                     <a class="delete-comment" href="#" data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}">
                         Delete Permanently
                     </a>
@@ -107,6 +111,29 @@
 
                 <alert errors="@{{ errors }}"></alert>
             </form>
+
+            <div class="modal fade moderator-edit-modal" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}" data-comment-status="@{{ comment.status }}">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">×</button>
+                                <h4 class="modal-title">Edit comment</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label for="content">Comment</label>
+                                    <textarea id="content" class="form-control" name="content" data-autosize-on="true" style="overflow-y: visible; overflow-x: hidden; word-wrap: break-word; resize: horizontal;">@{{ comment.content }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <post v-if="showReply" focus="true" config="@{{ config }}" show="@{{@ showReply }}" parent="@{{ comment }}" total="@{{@ total }}"></post>

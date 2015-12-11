@@ -23,9 +23,9 @@ class Moderator
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!($user = \Auth::user()) || !$user->isModerator($request->board_id)) {
+        if (!($user = \Auth::user()) || !$user->isModerator($request->boards)) {
             if ($request->ajax()) {
-                return response()->json('Unauthorized.', 401);
+                return response()->json('Unauthorizedz.', 401);
             }
 
             return redirect('/');
