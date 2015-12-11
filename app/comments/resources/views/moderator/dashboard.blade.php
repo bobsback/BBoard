@@ -88,6 +88,12 @@
                                 <span>
                                     | <a href="#" class="delete" v-on="click: destroy(comment, $event)">Delete Permanently</a>
                                 </span>
+
+                                <span>
+                                    | <a href="#" class="delete ban-user-toggle" data-board-id="{{ $board->id }}" data-user-ip="@{{ comment.author.ip }}">
+                                        Ban User
+                                    </a>
+                                </span>
                             </div>
                         </td>
                         <td>

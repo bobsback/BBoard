@@ -1,3 +1,5 @@
+// Frontend.
+
 $(document).on('click', '.edit-comment', function(e) {
     e.preventDefault();
 
@@ -29,10 +31,33 @@ $(document).on('click', '.delete-comment', function(e) {
     bootbox.confirm('Do you really want to delete this comment?', function(result) {
         if (result) {
             $.ajax({
-                url: '/comments/moderator/' + self.data('board-id') + '/' + self.data('comment-id'),
+                url: '/moderator/boards/' + self.data('board-id') + '/comments/' + self.data('comment-id'),
                 type: 'DELETE',
                 success: function() {
                     location.reload();
+                }
+            });
+        }
+    });
+});
+
+// Admin.
+
+$(document).on('click', '.ban-user-toggle', function(e) {
+    e.preventDefault();
+
+    var self = $(this);
+
+    bootbox.confirm('Do you really want to ban this user?', function(result) {
+        if (result) {
+            $.ajax({
+                url: '/moderator/boards/' + self.data('board-id') + '/bans',
+                type: 'POST',
+                data: {
+                    ip_address: self.data('user-ip')
+                },
+                success: function() {
+                    //location.reload();
                 }
             });
         }
