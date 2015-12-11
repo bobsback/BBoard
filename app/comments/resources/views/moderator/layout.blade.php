@@ -26,16 +26,16 @@
         var adminConfig = {
             csrfToken: "{{ csrf_token() }}",
             routes: {
-                index: "{{ route('comments.moderator.index', request()->board_id) }}",
-                show: "{{ route('comments.admin.show', ':id') }}",
-                update: "{{ route('comments.moderator.update', [request()->board_id, ':id']) }}",
-                destroy: "{{ route('comments.moderator.destroy', [request()->board_id, ':id']) }}",
-                settings: "{{ route('comments.admin.settings') }}",
+                index: "{{ route('moderator.boards.comments.index', request()->boards) }}",
+                update: "{{ route('moderator.boards.comments.update', [request()->boards, ':id']) }}",
+                destroy: "{{ route('moderator.boards.comments.destroy', [request()->boards, ':id']) }}"
             }
         };
     </script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="/vendor/comments/js/admin.js"></script>
+    <script src="/vendor/js/bootbox.min.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

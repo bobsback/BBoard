@@ -1,6 +1,6 @@
 <?php
 
-namespace Hazzard\Comments\Http\Controllers;
+namespace Hazzard\Comments\Http\Controllers\Moderator;
 
 use App\Board;
 use Illuminate\Http\Request;
@@ -12,19 +12,21 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Hazzard\Comments\Http\Middleware\Moderator;
 use Hazzard\Comments\Jobs\FetchCommentsModerator;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Hazzard\Comments\Http\Controllers\BaseDashboardController;
 
 /**
- * Class ModeratorDashboardController
+ * Class BoardsCommentsController
  *
- * @package Hazzard\Comments\Http\Controllers
+ * @package Hazzard\Comments\Http\Controllers\Moderator
  */
-class ModeratorDashboardController extends BaseDashboardController
+class BoardsCommentsController extends BaseDashboardController
 {
 
     use DispatchesJobs, ValidatesRequests;
 
     /**
      * Create a new controller instance.
+     *
      */
     public function __construct()
     {
@@ -36,15 +38,12 @@ class ModeratorDashboardController extends BaseDashboardController
     }
 
     /**
-     * List all comments.
+     * Index.
      *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $id)
+    public function index(Request $request, $boardId)
     {
-        $board = Board::findOrFail($id);
+        $board = Board::findOrFail($boardId);
 
         $args = [
             'page' => (int) $request->input('page', 1),
@@ -61,11 +60,17 @@ class ModeratorDashboardController extends BaseDashboardController
     }
 
     /**
-     * Update a specified comment.
+     * Edit.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
-     * @return \Illuminate\Http\JsonResponse
+     */
+    public function edit($boardId, $id)
+    {
+        return \Response::json(Comment::findOrFail($id));
+    }
+
+    /**
+     * Update.
+     *
      */
     public function update(Request $request, $boardId, $id = null)
     {
@@ -96,12 +101,8 @@ class ModeratorDashboardController extends BaseDashboardController
     }
 
     /**
-     * Delete the specified comment.
+     * Destroy.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     *
-     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(Request $request, $boardId, $id)
     {
