@@ -5,6 +5,22 @@
 @stop
 
 @section('content')
+    <ol class="breadcrumb">
+        <li>
+            <a href="{{ URL::to('/') }}">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="{{ URL::route('moderator.boards.index') }}">
+                Boards
+            </a>
+        </li>
+        <li class="active">
+            Comments
+        </li>
+    </ol>
+
     <div id="comments" v-show="init" style="display: none;">
         <ul class="status-filter">
             <li class="active">

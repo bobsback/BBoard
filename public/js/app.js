@@ -57,7 +57,25 @@ $(document).on('click', '.ban-user-toggle', function(e) {
                     ip_address: self.data('user-ip')
                 },
                 success: function() {
-                    //location.reload();
+                    location.reload();
+                }
+            });
+        }
+    });
+});
+
+$(document).on('click', '.delete-ban-toggle', function(e) {
+    e.preventDefault();
+
+    var self = $(this);
+
+    bootbox.confirm('Do you really want to delete this ban?', function(result) {
+        if (result) {
+            $.ajax({
+                url: self.attr('href'),
+                type: 'DELETE',
+                success: function() {
+                    location.reload();
                 }
             });
         }

@@ -37,9 +37,11 @@ Route::group(['namespace' => 'Hazzard\Comments\Http\Controllers'], function ($ro
     // Moderator routes.
 
     Route::group(['prefix' => 'moderator'], function() use ($router) {
+        $router->resource('boards', 'Moderator\BoardsController', ['only' => 'index']);
+
         $router->resource('boards.comments', 'Moderator\BoardsCommentsController');
 
-        $router->resource('boards.bans', 'Moderator\BoardsBansController', ['only' => 'store']);
+        $router->resource('boards.bans', 'Moderator\BoardsBansController', ['only' => ['index', 'store', 'destroy']]);
     });
 
     // Comments routes.

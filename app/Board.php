@@ -30,4 +30,14 @@ class Board extends Eloquent
         return $this->belongsToMany('App\User');
     }
 
+    /**
+     * Bans relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function bans()
+    {
+        return $this->hasMany('App\BoardBan');
+    }
+
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Board;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Middleware\CheckIfBanned;
 use App\Http\Requests\CreateBoardrequest;
 
 /**
@@ -23,6 +24,8 @@ class BoardController extends Controller
     public function __construct(Board $board)
     {
         $this->board = $board;
+
+        $this->middleware(CheckIfBanned::class, ['except' => 'index']);
     }
 
     /**
