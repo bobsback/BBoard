@@ -55,21 +55,14 @@
             </div>
 
             <!-- author name and reply -->
-            <footer v-if="!showEdit">
-                <span v-if="!comment.author.url" class="author">- @{{ comment.author.name }}</span>
-                <a v-if="comment.author.url" href="@{{ comment.author.url }}" target="_blank" class="author">@{{ comment.author.name }}</a>
+            <footer v-if="!showEdit"><!--
 
-                <a v-if="parent" href="#!comment=@{{ parent.id }}"
-                   title="in reply to @{{ parent.author.name }}"
-                   v-on="click: target = parent.id" class="author"
-                        >
-                    <span class="glyphicon glyphicon-share-alt"></span>
-                    @{{ parent.author.name }}
-                </a>
-
+                -->
                 <a href="#!comment=@{{ comment.id }}" class="author time-ago" v-on="click: target = comment.id">
                     <time datetime="@{{ comment.created_at }}" title="@{{ comment.created_at }}"></time>
                 </a>
+
+
 
                 <a v-if="config.replies" v-on="click: reply" href="#" class="replycol reply">
                     @lang('comments::all.reply')
@@ -77,6 +70,18 @@
 
 
                 @if($user && $user->isModerator($board->id))
+                    <span v-if="!comment.author.url" class="author"> @{{ comment.author.name }}</span>
+                    <a v-if="comment.author.url" href="@{{ comment.author.url }}" target="_blank" class="author">@{{ comment.author.name }}</a>
+
+
+                    <a v-if="parent" href="#!comment=@{{ parent.id }}"
+                       title="in reply to @{{ parent.author.name }}"
+                       v-on="click: target = parent.id" class="author"
+                            >
+                        <span class="glyphicon glyphicon-share-alt"></span>
+                        @{{ parent.author.name }}
+                    </a>
+
                     <a class="edit-comment" href="#" data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}">
                         Edit
                     </a>
