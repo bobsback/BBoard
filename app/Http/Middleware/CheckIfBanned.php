@@ -23,7 +23,7 @@ class CheckIfBanned
     public function handle($request, Closure $next)
     {
         if (
-            BoardBan::where('board_id', '=', $request->boardname->id)
+            $request->boardname && BoardBan::where('board_id', '=', $request->boardname->id)
                 ->where('ip_address', '=', ip2long($request->getClientIp()))
                 ->get()
                 ->count()

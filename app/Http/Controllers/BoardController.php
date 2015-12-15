@@ -101,4 +101,17 @@ class BoardController extends Controller
         return redirect('board');
     }
 
+    /**
+     * Access via pincode.
+     *
+     */
+    public function accessViaPincode(Request $request)
+    {
+        if (!($board = Board::where('pincode', '=', $request->input('pincode'))->first())) {
+            return redirect('/');
+        }
+
+        return redirect('board/' . $board->boardname);
+    }
+
 }
