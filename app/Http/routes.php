@@ -43,6 +43,8 @@ patch('board/{boardname}', 'BoardController@update');
 
 get('build', 'BoardController@create');
 
+post('board/access-via-pincode', ['as' => 'board.access-via-pincode', 'uses' => 'BoardController@accessViaPincode']);
+
 Route::post('build','BoardController@store');
 
 /*Route delete board. Note: currently not working :(*/

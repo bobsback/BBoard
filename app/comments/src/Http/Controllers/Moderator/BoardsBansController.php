@@ -5,7 +5,7 @@ namespace Hazzard\Comments\Http\Controllers\Moderator;
 use App\Board;
 use App\BoardBan;
 use Illuminate\Http\Request;
-use Hazzard\Comments\Http\Middleware\Moderator;
+use Hazzard\Comments\Http\Middleware\BoardModerator;
 use Hazzard\Comments\Http\Controllers\BaseDashboardController;
 
 /**
@@ -22,7 +22,18 @@ class BoardsBansController extends BaseDashboardController
      */
     public function __construct()
     {
-        $this->middleware(Moderator::class);
+        $this->middleware(BoardModerator::class);
+    }
+
+    /**
+     * Index.
+     *
+     */
+    public function index(Request $request, $boardId)
+    {
+        $board = Board::findOrFail($boardId);
+
+        return view('comments::moderator.boards.bans.index')->with(compact('board'));
     }
 
     /**
@@ -39,6 +50,19 @@ class BoardsBansController extends BaseDashboardController
         ]);
 
         $boardBan->save();
+    }
+
+    /**
+     * Destroy.
+     *
+     */
+    public function destroy(Request $request, $boardId, $boardBanId)
+    {
+        Board::findOrFail($boardId);
+
+        $boardBan = BoardBan::findOrFail($boardBanId);
+
+        $boardBan->delete();
     }
 
 }

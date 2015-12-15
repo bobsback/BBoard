@@ -9,8 +9,8 @@ use Hazzard\Comments\Jobs\DeleteComment;
 use Hazzard\Comments\Jobs\UpdateComment;
 use Hazzard\Comments\Jobs\BulkCommentUpdate;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Hazzard\Comments\Http\Middleware\Moderator;
 use Hazzard\Comments\Jobs\FetchCommentsModerator;
+use Hazzard\Comments\Http\Middleware\BoardModerator;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Hazzard\Comments\Http\Controllers\BaseDashboardController;
 
@@ -34,7 +34,7 @@ class BoardsCommentsController extends BaseDashboardController
 
         Comment::$admin = true;
 
-        $this->middleware(Moderator::class);
+        $this->middleware(BoardModerator::class);
     }
 
     /**
