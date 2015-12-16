@@ -582,6 +582,11 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   color: rgba(73, 186, 86, 0.9);
   text-decoration: none;
 }
+.link:focus {
+
+  color: rgba(73, 186, 86, 0.9);
+  text-decoration: none;
+}
 .link3:focus {
 
   color: rgba(73, 186, 86, 0.9);
