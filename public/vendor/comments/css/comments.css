@@ -247,6 +247,8 @@
 }
 .comments{
   padding-bottom: 70px;
+  margin-left: 13px;
+  margin-right: 13px;
 }
 .comments .spinner:not(:required) {
   margin: 0px auto;
@@ -515,7 +517,7 @@ li.comment {
   margin-top: 5px;
 }
 .comment-message {
-  padding: 5px 0;
+  padding: 0px 0;
   line-height: 1.7;
   word-break: break-word;
   font-size: 22px;
@@ -574,7 +576,7 @@ li.comment {
 }
 
 .fixit{
-  position: fixed;
+  /*position: fixed;*/
   left: 0px;
   right: 0px;
   bottom: 0px;
@@ -654,6 +656,7 @@ li.comment {
 }
 .search-container{
   display: inline;
+  margin-right: 50px;
 
 }
 

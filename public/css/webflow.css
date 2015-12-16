@@ -248,7 +248,7 @@ input[type="reset"] {
   background-color: #ffdede;
 }
 label {
-  display: block;
+  display: inline-block;
   margin-bottom: 5px;
   font-weight: bold;
 }
@@ -652,6 +652,12 @@ label {
   margin-left: auto;
   margin-right: auto;
 }
+.w-nav-link a {
+
+  text-decoration: none;
+
+}
+
 .w-nav-link.w--current {
   color: #0082f3;
 }

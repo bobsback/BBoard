@@ -56,3 +56,9 @@ $router->resource('board','BoardController', [
 
 Route::get('home', 'BoardController@index');
 
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/enter', function () {
+    return view('enter');
+});
