@@ -565,7 +565,7 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 
   background-color: transparent;
   color: white;
-  font-size: 16px;
+  font-size: 21px;
 }
 .link:hover {
   background-color: rgba(73, 186, 86, 0.9);
@@ -1141,9 +1141,11 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 }
 
 .board-blurb {
-  margin-top: 30px;
+  margin-top: 15px;
   float: left;
   color: white;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .boardformsection {
@@ -1151,6 +1153,7 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   left: 0px;
   right: 0px;
   bottom: 0px;
+  z-index: 3;
 }
 
 .send {

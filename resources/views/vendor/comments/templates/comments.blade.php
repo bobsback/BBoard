@@ -21,12 +21,30 @@
 
 <div v-if="initialized">
     <div class="alert alert-warning" v-if="!config.authorized">@lang('comments::all.auth')</div>
+    <div class="w-section boardformsection">
+        <div class="w-row">
+            <div class="w-col w-col-2">
+                <div></div>
+            </div>
+            <div class="w-col w-col-10">
+                <div class="w-container messagecontainer">
+                    <div class="w-form">
+                        <div class=" fixit css3-notification">
 
-    <div class="container fixit css3-notification">
+                            <post config="@{{ config }}" comment-list="@{{@ commentList }}" total="@{{@ total }}"></post>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<div class="container fixit css3-notification">
 
     <post config="@{{ config }}" comment-list="@{{@ commentList }}" total="@{{@ total }}"></post>
 
-    </div>
+    </div>-->
 
     <div class="clearfix"></div>
     <div v-show="loading" class="spinner">@lang('comments::all.loading')</div>

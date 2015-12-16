@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>Bubble Board</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
 	<link rel="stylesheet" href="/vendor/comments/css/prism-okaidia.css"> <!-- Optional -->
@@ -61,9 +61,9 @@
                                         <a class="link3" href="{{ url('/auth/logout') }}">Logout</a>
 
                                     </ul>
-
+                                <a href="{{ url('/board') }}"  class="w-nav-link link2">Your Boards</a>
                             @endif
-                            <a href="{{ url('/board') }}"  class="w-nav-link link2">Your Boards</a>
+
                             <a href="{{ url('/about') }}" class="w-nav-link link2">Info</a>
 
 
