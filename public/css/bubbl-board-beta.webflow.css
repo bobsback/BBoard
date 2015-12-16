@@ -105,6 +105,19 @@ p {
   border: 1px solid #292929;
   background-color: #49ba56;
 }
+.yourboardinfo{
+  padding-left: 10%;
+  background-color: #292929;
+}
+.white{
+  color: whitesmoke;
+}
+
+.paddingtop{
+  margin-top: 10px;
+  margin-left: 5px;
+}
+
 /* Bounce CSS */
 .css3-notification {
 
@@ -547,10 +560,65 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   color: white;
   font-size: 21px;
 }
+.link2 {
+  margin-right: 0px;
 
+  background-color: transparent;
+  color: white;
+  font-size: 21px;
+}
 .link:hover {
   background-color: rgba(73, 186, 86, 0.9);
   color: #393939;
+  text-decoration: none;
+}
+.link2:hover {
+
+  color: rgba(73, 186, 86, 0.9);
+  text-decoration: none;
+}
+.link2:focus {
+
+  color: rgba(73, 186, 86, 0.9);
+  text-decoration: none;
+}
+.link3:focus {
+
+  color: rgba(73, 186, 86, 0.9);
+  text-decoration: none;
+}
+.link3:hover {
+
+  color: rgba(73, 186, 86, 0.9);
+  text-decoration: none;
+}
+.link3 {
+  padding-left: 10px;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+}
+.link4{
+  padding-right: 15px;
+  padding-left: 15px;
+  border-bottom: 1px solid #49ba56;
+  border-radius: 5px;
+
+}
+.link4:hover {
+
+  color: rgba(73, 186, 86, 0.9);
+  text-decoration: none;
+}
+
+.panelmargin{
+  margin-top: 20px;
+
+}
+
+.dropdownlog {
+  background-color: #101010;
+
 }
 
 .containersss {
@@ -1073,9 +1141,11 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 }
 
 .board-blurb {
-  margin-top: 30px;
+  margin-top: 15px;
   float: left;
   color: white;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .boardformsection {
@@ -1083,6 +1153,7 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   left: 0px;
   right: 0px;
   bottom: 0px;
+  z-index: 3;
 }
 
 .send {
@@ -1899,14 +1970,8 @@ html.w-mod-js *[data-ix="intial-hide"] {
     color: darkred;
     font-weight: bold;
   }
-  .link {
-    width: auto;
-    margin-right: 0px;
-    border: 2px solid #49ba56;
-    border-radius: 5px;
-    background-color: #282828;
-    font-size: 16px;
-  }
+
+
   .menubutton {
     position: static;
     left: 0px;
