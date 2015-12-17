@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Board;
+use App\Moderator;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Http\Middleware\CheckIfBanned;
 use App\Http\Requests\CreateBoardrequest;
+use App\Http\Middleware\CheckIfBoardSaved;
 
 /**
  * Class BoardController
@@ -25,7 +27,9 @@ class BoardController extends Controller
     {
         $this->board = $board;
 
-        $this->middleware(CheckIfBanned::class, ['except' => 'index']);
+        $this->middleware(CheckIfBanned::class, ['except' => ['index', 'store']]);
+
+        $this->middleware(CheckIfBoardSaved::class, ['only' => ['show']]);
     }
 
     /**
@@ -85,7 +89,7 @@ class BoardController extends Controller
     {
         $board = $board->create($request->all());
 
-        $board->moderators()->attach(\Auth::user());
+        $board->moderators()->attach(Moderator::findByUserIdOrCreate(\Auth::user()->id));
 
         return redirect('board');
     }
@@ -112,6 +116,30 @@ class BoardController extends Controller
         }
 
         return redirect('board/' . $board->boardname);
+    }
+
+    /**
+     * Get authorize.
+     *
+     */
+    public function getAuthorize(Board $board)
+    {
+        return view('board.authorize')->with(compact('board'));
+    }
+
+    /**
+     * Post authorize.
+     *
+     */
+    public function postAuthorize(Request $request, Board $board)
+    {
+        if ($board->pincode != $request->input('pincode')) {
+            return redirect()->route('board.authorize', $board->boardname)->with('error', 'Invalid PIN Code provided');
+        }
+
+        session()->set('board.' . $board->id . '.authorized', true);
+
+        return redirect()->to('board/' . $board->boardname);
     }
 
 }

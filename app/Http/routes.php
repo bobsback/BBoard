@@ -43,6 +43,10 @@ patch('board/{boardname}', 'BoardController@update');
 
 get('build', 'BoardController@create');
 
+get('board/{boardname}/authorize', ['as' => 'board.authorize', 'uses' => 'BoardController@getAuthorize']);
+
+post('board/{boardname}/authorize', ['as' => 'board.authorize.post', 'uses' => 'BoardController@postAuthorize']);
+
 post('board/access-via-pincode', ['as' => 'board.access-via-pincode', 'uses' => 'BoardController@accessViaPincode']);
 
 Route::post('build','BoardController@store');

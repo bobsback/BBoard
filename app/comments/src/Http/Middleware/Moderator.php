@@ -23,7 +23,7 @@ class Moderator
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!($user = \Auth::user()) || !$user->boards->count()) {
+        if (!($user = \Auth::user()) || !$user->moderator || !$user->moderator->boards->count()) {
             if ($request->ajax()) {
                 return response()->json('Unauthorized.', 401);
             }

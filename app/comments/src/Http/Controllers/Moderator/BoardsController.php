@@ -29,7 +29,7 @@ class BoardsController extends BaseDashboardController
      */
     public function index(Request $request)
     {
-        $boards = \Auth::user()->boards;
+        $boards = \Auth::user()->moderator->boards;
 
         return view('comments::moderator.boards.index')->with(compact('boards'));
     }
