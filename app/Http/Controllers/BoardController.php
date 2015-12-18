@@ -28,7 +28,7 @@ class BoardController extends Controller
     {
         $this->board = $board;
 
-        $this->middleware(Authenticate::class, ['only' => 'create']);
+        $this->middleware(Authenticate::class, ['only' => ['index', 'create']]);
 
         $this->middleware(CheckIfBanned::class, ['except' => ['index', 'store']]);
 
@@ -39,9 +39,9 @@ class BoardController extends Controller
      * Index.
      *
      */
-    public function index(Board $board)
+    public function index()
     {
-        $boards = $board->get();
+        $boards = \Auth::user()->boards()->get();
 
         return view('board', compact('boards'));
     }
@@ -91,6 +91,8 @@ class BoardController extends Controller
     public function store(Board $board, CreateBoardrequest $request)
     {
         $board = $board->create($request->all());
+
+        $board->users()->attach(\Auth::user());
 
         $board->moderators()->attach(Moderator::findByUserIdOrCreate(\Auth::user()->id));
 
