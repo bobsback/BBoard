@@ -28,11 +28,11 @@ class BoardController extends Controller
     {
         $this->board = $board;
 
-        $this->middleware(Authenticate::class, ['only' => ['index', 'create']]);
+        $this->middleware(Authenticate::class, ['only' => ['index', 'create', 'save']]);
 
-        $this->middleware(CheckIfBanned::class, ['except' => ['index', 'store']]);
+        $this->middleware(CheckIfBanned::class, ['except' => ['index', 'store', 'save']]);
 
-        $this->middleware(CheckIfBoardSaved::class, ['only' => ['show']]);
+        $this->middleware(CheckIfBoardSaved::class, ['only' => ['show', 'save']]);
     }
 
     /**
@@ -145,6 +145,21 @@ class BoardController extends Controller
         session()->set('board.' . $board->id . '.authorized', true);
 
         return redirect()->to('board/' . $board->boardname);
+    }
+
+    /**
+     * Save.
+     *
+     */
+    public function save(Request $request, Board $board)
+    {
+        $user = \Auth::user();
+
+        if (!$board->users->contains($user)) {
+            $board->users()->attach($user);
+        }
+
+        return redirect()->back();
     }
 
 }

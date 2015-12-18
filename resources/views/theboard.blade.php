@@ -37,7 +37,17 @@
                 </a>
                 <h5>Go beyond feedback</h5>
             </div>
-            <div class="w-clearfix board-div-block"><a href="#" class="w-button link">{{ $board->boardname }}</a>
+            <div class="w-clearfix board-div-block">
+                <a href="#" class="w-button link">{{ $board->boardname }}</a>
+
+                <br>
+
+                <a class="w-button link @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
+                    <i class="fa fa-check"></i>
+
+                    Save Board
+                </a>
+
                 <div class="board-blurb">{{ $board->boardblurb }}</div>
             </div>
             <div class="divblocklogin">
@@ -66,9 +76,23 @@
 
     <!-- This must be included before the closing </body> tag! -->
     <script src="/vendor/comments/js/comments.js"></script>
+    <script src="/vendor/js/bootbox.min.js"></script>
     <!-- Search form -->
     <script> document.addEventListener("touchstart", function(){}, true);</script>
 
+    <script>
+        $(document).on('click', '.save-board-guest-toggle', function(e) {
+            e.preventDefault();
+
+            var self = $(this);
+
+            bootbox.confirm('You must be logged in to save a board', function(result) {
+                if (result) {
+                    location.href = self.attr('href');
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

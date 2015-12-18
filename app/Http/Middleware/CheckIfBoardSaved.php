@@ -23,12 +23,14 @@ class CheckIfBoardSaved
     {
         $redirect = false;
 
+        $storedInSession = session('board.' . $request->boardname->id . '.authorized');
+
         if (!($user = \Auth::user())) {
-            if (!session('board.' . $request->boardname->id . '.authorized')) {
+            if (!$storedInSession) {
                 $redirect = true;
             }
         } else {
-            if (!$user->boards()->find($request->boardname->id)) {
+            if (!$user->boards()->find($request->boardname->id) && !$storedInSession) {
                 $redirect = true;
             }
         }

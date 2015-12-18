@@ -47,6 +47,8 @@ post('board/{boardname}/authorize', ['as' => 'board.authorize.post', 'uses' => '
 
 post('board/access-via-pincode', ['as' => 'board.access-via-pincode', 'uses' => 'BoardController@accessViaPincode']);
 
+get('board/{boardname}/save', ['as' => 'board.save', 'uses' => 'BoardController@save']);
+
 Route::post('build','BoardController@store');
 
 /*Route delete board. Note: currently not working :(*/
