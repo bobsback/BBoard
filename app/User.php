@@ -52,6 +52,16 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     }
 
     /**
+     * Moderator relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function moderator()
+    {
+        return $this->hasOne('App\Moderator');
+    }
+
+    /**
      * Return the user attributes.
 
      * @return array
@@ -77,7 +87,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     public function isModerator($boardId)
     {
-        if (!$this->boards()->find($boardId)) {
+        if (!$this->moderator || !$this->moderator->boards()->find($boardId)) {
             return false;
         }
 

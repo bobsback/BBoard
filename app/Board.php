@@ -27,7 +27,7 @@ class Board extends Eloquent
      */
     public function moderators()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\Moderator');
     }
 
     /**
