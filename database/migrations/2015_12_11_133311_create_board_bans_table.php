@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBoardsBansTable extends Migration
+class CreateBoardBansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateBoardsBansTable extends Migration
      */
     public function up()
     {
-        Schema::create('boards_bans', function (Blueprint $table) {
+        Schema::create('board_bans', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('board_id')->unsigned();
             $table->integer('ip_address');
@@ -29,6 +29,6 @@ class CreateBoardsBansTable extends Migration
      */
     public function down()
     {
-        Schema::drop('boards_bans');
+        Schema::drop('board_bans');
     }
 }

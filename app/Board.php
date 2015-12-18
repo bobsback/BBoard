@@ -21,6 +21,16 @@ class Board extends Eloquent
     ];
 
     /**
+     * Users relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
+
+    /**
      * Moderators relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
