@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Board;
+use App\Moderator;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Middleware\Authenticate;
+use App\Http\Middleware\CheckIfBanned;
 use App\Http\Requests\CreateBoardrequest;
+use App\Http\Middleware\CheckIfBoardSaved;
 
 /**
  * Class BoardController
@@ -23,15 +27,21 @@ class BoardController extends Controller
     public function __construct(Board $board)
     {
         $this->board = $board;
+
+        $this->middleware(Authenticate::class, ['only' => ['index', 'create', 'save']]);
+
+        $this->middleware(CheckIfBanned::class, ['except' => ['index', 'store', 'save']]);
+
+        $this->middleware(CheckIfBoardSaved::class, ['only' => ['show', 'save']]);
     }
 
     /**
      * Index.
      *
      */
-    public function index(Board $board)
+    public function index()
     {
-        $boards = $board->get();
+        $boards = \Auth::user()->boards()->get();
 
         return view('board', compact('boards'));
     }
@@ -82,7 +92,9 @@ class BoardController extends Controller
     {
         $board = $board->create($request->all());
 
-        $board->moderators()->attach(\Auth::user());
+        $board->users()->attach(\Auth::user());
+
+        $board->moderators()->attach(Moderator::findByUserIdOrCreate(\Auth::user()->id));
 
         return redirect('board');
     }
@@ -96,6 +108,58 @@ class BoardController extends Controller
         $board->delete();
 
         return redirect('board');
+    }
+
+    /**
+     * Access via pincode.
+     *
+     */
+    public function accessViaPincode(Request $request)
+    {
+        if (!($board = Board::where('pincode', '=', $request->input('pincode'))->first())) {
+            return redirect('/');
+        }
+
+        return redirect('board/' . $board->boardname);
+    }
+
+    /**
+     * Get authorize.
+     *
+     */
+    public function getAuthorize(Board $board)
+    {
+        return view('board.authorize')->with(compact('board'));
+    }
+
+    /**
+     * Post authorize.
+     *
+     */
+    public function postAuthorize(Request $request, Board $board)
+    {
+        if ($board->pincode != $request->input('pincode')) {
+            return redirect()->route('board.authorize', $board->boardname)->with('error', 'Invalid PIN Code provided');
+        }
+
+        session()->set('board.' . $board->id . '.authorized', true);
+
+        return redirect()->to('board/' . $board->boardname);
+    }
+
+    /**
+     * Save.
+     *
+     */
+    public function save(Request $request, Board $board)
+    {
+        $user = \Auth::user();
+
+        if (!$board->users->contains($user)) {
+            $board->users()->attach($user);
+        }
+
+        return redirect()->back();
     }
 
 }

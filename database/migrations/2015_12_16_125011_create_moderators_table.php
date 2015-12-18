@@ -3,8 +3,13 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBoardsBansTable extends Migration
+/**
+ * Class CreateModeratorsTable
+ *
+ */
+class CreateModeratorsTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -12,13 +17,12 @@ class CreateBoardsBansTable extends Migration
      */
     public function up()
     {
-        Schema::create('boards_bans', function (Blueprint $table) {
+        Schema::create('moderators', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('board_id')->unsigned();
-            $table->integer('ip_address');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('board_id')->references('id')->on('boards')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -29,6 +33,6 @@ class CreateBoardsBansTable extends Migration
      */
     public function down()
     {
-        Schema::drop('boards_bans');
+        Schema::drop('moderators');
     }
 }

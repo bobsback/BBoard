@@ -21,13 +21,33 @@ class Board extends Eloquent
     ];
 
     /**
+     * Users relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->belongsToMany('App\User');
+    }
+
+    /**
      * Moderators relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function moderators()
     {
-        return $this->belongsToMany('App\User');
+        return $this->belongsToMany('App\Moderator');
+    }
+
+    /**
+     * Bans relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function bans()
+    {
+        return $this->hasMany('App\BoardBan');
     }
 
 }

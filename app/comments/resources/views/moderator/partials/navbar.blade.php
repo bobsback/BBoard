@@ -10,7 +10,16 @@
                 </button>
                 <a href="/" class="navbar-brand">Home</a>
             </div>
+
             <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="{{ Route::is('comments.admin.index') ? 'active' : '' }}">
+                        <a href="{{ route('moderator.boards.index') }}">
+                            <span class="glyphicon glyphicon-comment"></span> Boards
+                        </a>
+                    </li>
+                </ul>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/auth/logout">
                         <span class="glyphicon glyphicon-log-out"></span> Log out</a>

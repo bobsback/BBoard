@@ -27,8 +27,10 @@
             <h1 data-ix="slowload">Go beyond feedback</h1>
             <div data-ix="slowload" class="findaboartd">Join a board by entering its pin:</div>
             <div class="w-form sign-up-form">
-                <form name="wf-form-signup-form" data-name="Signup Form" action="http://pinchecker.php" class="w-clearfix">
-                    <input id="Board-Search" type="text" placeholder="Insert board pin code" name="Board-Search" data-name="Board Search" required="required" data-ix="load-from-left" class="w-input field">
+                <form name="wf-form-signup-form" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" class="w-clearfix">
+                    {{ csrf_field() }}
+
+                    <input id="Board-Search" type="text" placeholder="Insert board pin code" name="pincode" data-name="Board Search" required="required" data-ix="load-from-left" class="w-input field">
                     <input type="submit" value="Find your board" data-wait="Please wait..." data-ix="load-from-right" class="w-button button">
                 </form>
 
@@ -146,13 +148,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
-
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/webflow.js"></script>

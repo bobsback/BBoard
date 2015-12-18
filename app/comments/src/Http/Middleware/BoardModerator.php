@@ -6,11 +6,11 @@ use Closure;
 use Illuminate\Http\Request;
 
 /**
- * Class Moderator
+ * Class BoardModerator
  *
  * @package Hazzard\Comments\Http\Middleware
  */
-class Moderator
+class BoardModerator
 {
 
     /**
@@ -23,7 +23,7 @@ class Moderator
      */
     public function handle(Request $request, Closure $next)
     {
-        if (!($user = \Auth::user()) || !$user->moderator || !$user->moderator->boards->count()) {
+        if (!($user = \Auth::user()) || !$user->isModerator($request->boards)) {
             if ($request->ajax()) {
                 return response()->json('Unauthorized.', 401);
             }

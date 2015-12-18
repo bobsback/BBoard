@@ -25,9 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Build', function () {
-    return view('build');
-});
+Route::get('/Build', 'BoardController@create');
 
 Route::get('/about', function () {
     return view('about');
@@ -42,6 +40,14 @@ patch('board/{boardname}', 'BoardController@update');
 /*generate new board*/
 
 get('build', 'BoardController@create');
+
+get('board/{boardname}/authorize', ['as' => 'board.authorize', 'uses' => 'BoardController@getAuthorize']);
+
+post('board/{boardname}/authorize', ['as' => 'board.authorize.post', 'uses' => 'BoardController@postAuthorize']);
+
+post('board/access-via-pincode', ['as' => 'board.access-via-pincode', 'uses' => 'BoardController@accessViaPincode']);
+
+get('board/{boardname}/save', ['as' => 'board.save', 'uses' => 'BoardController@save']);
 
 Route::post('build','BoardController@store');
 
