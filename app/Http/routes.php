@@ -25,9 +25,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/Build', function () {
-    return view('build');
-});
+Route::get('/Build', 'BoardController@create');
 
 Route::get('/about', function () {
     return view('about');

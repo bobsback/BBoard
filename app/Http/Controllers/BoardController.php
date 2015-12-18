@@ -6,6 +6,7 @@ use App\Board;
 use App\Moderator;
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\CheckIfBanned;
 use App\Http\Requests\CreateBoardrequest;
 use App\Http\Middleware\CheckIfBoardSaved;
@@ -26,6 +27,8 @@ class BoardController extends Controller
     public function __construct(Board $board)
     {
         $this->board = $board;
+
+        $this->middleware(Authenticate::class, ['only' => 'create']);
 
         $this->middleware(CheckIfBanned::class, ['except' => ['index', 'store']]);
 
