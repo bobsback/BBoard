@@ -35,7 +35,11 @@
                             {{ $board->boardname }}
                         </td>
                         <td>
-                            <a class="btn btn-primary" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
+                            <a class="btn btn-primary" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                                Edit
+                            </a>
+
+                            <a class="btn btn-warning" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
                                 Comments
                             </a>
 

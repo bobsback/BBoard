@@ -2,6 +2,7 @@
 
 namespace Hazzard\Comments\Http\Controllers\Moderator;
 
+use App\Board;
 use Illuminate\Http\Request;
 use Hazzard\Comments\Http\Middleware\Moderator;
 use Hazzard\Comments\Http\Controllers\BaseDashboardController;
@@ -32,6 +33,30 @@ class BoardsController extends BaseDashboardController
         $boards = \Auth::user()->moderator->boards;
 
         return view('comments::moderator.boards.index')->with(compact('boards'));
+    }
+
+    /**
+     * Edit.
+     *
+     */
+    public function edit(Request $request)
+    {
+        $board = Board::findOrFail($request->boards);
+
+        return view('comments::moderator.boards.edit')->with(compact('board'));
+    }
+
+    /**
+     * Update.
+     *
+     */
+    public function update(Request $request)
+    {
+        $board = Board::findOrFail($request->boards);
+
+        $board->fill($request->input())->save();
+
+        return redirect()->route('moderator.boards.index');
     }
 
 }
