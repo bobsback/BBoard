@@ -30,7 +30,7 @@ class BoardController extends Controller
 
         $this->middleware(Authenticate::class, ['only' => ['index', 'create', 'save']]);
 
-        $this->middleware(CheckIfBanned::class, ['except' => ['index', 'store', 'save']]);
+        $this->middleware(CheckIfBanned::class, ['except' => ['index', 'update', 'store', 'save']]);
 
         $this->middleware(CheckIfBoardSaved::class, ['only' => ['show', 'save']]);
     }
