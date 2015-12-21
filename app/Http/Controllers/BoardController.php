@@ -28,6 +28,8 @@ class BoardController extends Controller
     {
         $this->board = $board;
 
+        $this->user = \Auth::user();
+
         $this->middleware(Authenticate::class, ['only' => ['index', 'create', 'save']]);
 
         $this->middleware(CheckIfBanned::class, ['except' => ['index', 'update', 'store', 'save']]);
@@ -41,7 +43,7 @@ class BoardController extends Controller
      */
     public function index()
     {
-        $boards = \Auth::user()->boards()->get();
+        $boards = $this->user->boards()->get();
 
         return view('board', compact('boards'));
     }
@@ -52,7 +54,10 @@ class BoardController extends Controller
      */
     public function show(Board $board)
     {
-        $boards = \Auth::user()->boards()->get();
+        $boards = [];
+        if ($this->user) {
+            $boards = $this->user->boards()->get();
+        }
 
         return view('theboard', compact('board', 'boards'));
     }
@@ -94,9 +99,9 @@ class BoardController extends Controller
     {
         $board = $board->create($request->all());
 
-        $board->users()->attach(\Auth::user());
+        $board->users()->attach($this->user);
 
-        $board->moderators()->attach(Moderator::findByUserIdOrCreate(\Auth::user()->id));
+        $board->moderators()->attach(Moderator::findByUserIdOrCreate($this->user->id));
 
         return redirect('board');
     }
@@ -157,10 +162,8 @@ class BoardController extends Controller
      */
     public function save(Request $request, Board $board)
     {
-        $user = \Auth::user();
-
-        if (!$board->users->contains($user)) {
-            $board->users()->attach($user);
+        if (!$board->users->contains($this->user)) {
+            $board->users()->attach($this->user);
         }
 
         return redirect()->back();

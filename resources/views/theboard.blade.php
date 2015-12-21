@@ -52,39 +52,35 @@
                 <div class="board-blurb">{{ $board->boardblurb }}</div>
             </div>
             <div class="divblocklogin">
-              @if(auth()->guest())
-                     <div class="board-blurb">Make an account or log in to revisit the board or log in to view your other boards:</div>
-                     @if(!Request::is('auth/login'))
-                         <a class="w-nav-link link"  href="{{ url('/auth/login') }}">Login</a>
-                     @endif
-                     @if(!Request::is('auth/register'))
-                         <a class="w-nav-link link" href="{{ url('/auth/register') }}">Register</a>
-                     @endif
-                 @else
+                @if(auth()->guest())
+                    <div class="board-blurb">
+                        Make an account or log in to revisit the board or log in to view your other boards:
+                    </div>
 
+                    @if(!Request::is('auth/login'))
+                        <a class="w-nav-link link"  href="{{ url('/auth/login') }}">Login</a>
+                    @endif
 
-             @if($boards->count())
+                    @if(!Request::is('auth/register'))
+                        <a class="w-nav-link link" href="{{ url('/auth/register') }}">Register</a>
+                    @endif
+                @else
+                    @if($boards->count())
+                        @foreach($boards as $board)
+                            <div>
+                                <a class="w-button link padtop" href="{{ URL::to('board/' . $board->boardname) }}">
+                                    {{ $board->boardname }}
+                                </a>
 
-                         @foreach($boards as $board)
-                             <div>
-                                 <a class="w-button link padtop" href="{{ URL::to('board/' . $board->boardname) }}">
-                                     {{ $board->boardname }}
-
-                                 </a>
-
-                                 @if($user && $user->isModerator($board->id))
-
-                                     <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
-                                         <i class="fa fa-cogs "></i>
-                                     </a>
-
-                                 @endif
-
-                             </div>
-                         @endforeach
-
-                 @endif
-            @endif
+                                @if($user && $user->isModerator($board->id))
+                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
+                                        <i class="fa fa-cogs "></i>
+                                    </a>
+                                @endif
+                            </div>
+                        @endforeach
+                    @endif
+                @endif
             </div>
         </div>
     </div>
