@@ -30,7 +30,7 @@ class BoardController extends Controller
 
         $this->middleware(Authenticate::class, ['only' => ['index', 'create', 'save']]);
 
-        $this->middleware(CheckIfBanned::class, ['except' => ['index', 'store', 'save']]);
+        $this->middleware(CheckIfBanned::class, ['except' => ['index', 'update', 'store', 'save']]);
 
         $this->middleware(CheckIfBoardSaved::class, ['only' => ['show', 'save']]);
     }
@@ -122,6 +122,8 @@ class BoardController extends Controller
             return redirect('/');
         }
 
+        $this->setAuthorizedBoardSession($board->id);
+
         return redirect('board/' . $board->boardname);
     }
 
@@ -144,7 +146,7 @@ class BoardController extends Controller
             return redirect()->route('board.authorize', $board->boardname)->with('error', 'Invalid PIN Code provided');
         }
 
-        session()->set('board.' . $board->id . '.authorized', true);
+        $this->setAuthorizedBoardSession($board->id);
 
         return redirect()->to('board/' . $board->boardname);
     }
@@ -162,6 +164,16 @@ class BoardController extends Controller
         }
 
         return redirect()->back();
+    }
+
+    /**
+     * Set authorized board session.
+     *
+     * @param $boardId
+     */
+    private function setAuthorizedBoardSession($boardId)
+    {
+        session()->set('board.' . $boardId . '.authorized', true);
     }
 
 }
