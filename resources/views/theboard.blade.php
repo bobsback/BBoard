@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,7 @@
     <div class="w-col w-col-2 colpagechat">
         <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" data-no-scroll="1" class="w-nav lefttayto">
             <div class="w-container">
-                <a href="#" class="w-nav-brand brand">{!! HTML::image('images/bboard logo v1 white.png', 'Logo', array('width' => 199, 'class' => 'logo3'))!!}
+                <a href="{{ url('/') }}" class="w-nav-brand brand">{!! HTML::image('images/bboard logo v1 white.png', 'Logo', array('width' => 199, 'class' => 'logo3'))!!}
                 </a>
                 <h5>Go beyond feedback</h5>
             </div>
@@ -42,7 +43,7 @@
 
                 <br>
 
-                <a class="w-button link @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
+                <a class="w-button save @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
                     <i class="fa fa-check"></i>
 
                     Save Board
@@ -51,8 +52,39 @@
                 <div class="board-blurb">{{ $board->boardblurb }}</div>
             </div>
             <div class="divblocklogin">
-                <div class="logintoview"><a class="loginlink" href="#">Login </a>to view your other boards</div>
-                <div class="logintoview"><a class="loginlink" href="#">Sign up</a>&nbsp;to save this board and revisit it</div>
+              @if(auth()->guest())
+                     <div class="board-blurb">Make an account or log in to revisit the board or log in to view your other boards:</div>
+                     @if(!Request::is('auth/login'))
+                         <a class="w-nav-link link"  href="{{ url('/auth/login') }}">Login</a>
+                     @endif
+                     @if(!Request::is('auth/register'))
+                         <a class="w-nav-link link" href="{{ url('/auth/register') }}">Register</a>
+                     @endif
+                 @else
+
+
+             @if($boards->count())
+
+                         @foreach($boards as $board)
+                             <div>
+                                 <a class="w-button link padtop" href="{{ URL::to('board/' . $board->boardname) }}">
+                                     {{ $board->boardname }}
+
+                                 </a>
+
+                                 @if($user && $user->isModerator($board->id))
+
+                                     <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
+                                         <i class="fa fa-cogs "></i>
+                                     </a>
+
+                                 @endif
+
+                             </div>
+                         @endforeach
+
+                 @endif
+            @endif
             </div>
         </div>
     </div>

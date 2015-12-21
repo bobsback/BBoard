@@ -19,6 +19,9 @@ code,
 .img-thumbnail {
   border-radius: 2px;
 }
+.white {
+  color: white;
+}
 .modal-content {
   border-radius: 4px;
 }
@@ -40,24 +43,28 @@ code,
   outline: none;
   box-shadow: none;
 }
+
+.h100{
+  height: 100px;
+}
 /**
  * Navbar.
  */
 .navbar-top {
   border: none;
   border-radius: 0;
-  background-color: #fff;
-  border-top: 5px solid #f56857;
+  background-color: #292929;
+  border-top: 5px solid #4aba56;
   border-bottom: 1px solid #E2E2E2;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 .navbar-top a {
-  color: #555;
+  color: whitesmoke;
 }
 .navbar-top a:hover,
 .navbar-top a:focus {
-  color: #f1270f;
+  color: #4aba56;
 }
 .navbar-top .navbar-brand {
   font-size: 18px;
@@ -71,33 +78,33 @@ code,
   top: -2px;
 }
 .navbar-top a.navbar-brand {
-  color: #f56857;
+  color: #4aba56;
 }
 .navbar-top a.navbar-brand:hover,
 .navbar-top a.navbar-brand:focus {
-  color: #f1270f;
+  color: #4aba56;
 }
 .navbar-top .nav > li.active a,
 .navbar-top .nav > li.active a:hover,
 .navbar-top .nav > li.active a:focus {
-  background-color: #eee;
+
 }
 .navbar-top .nav > li > a:hover,
 .navbar-top .nav > li > a:focus {
-  color: #f56857;
-  background-color: #fff;
+  color: #4aba56;
+
 }
 .navbar-top .nav > li.open > a,
 .navbar-top .nav > li.open > a:hover,
 .navbar-top .nav > li.open > a:focus {
   color: #fff;
-  background-color: #F56857;
+  background-color: #4aba56;
 }
 .navbar-top .nav > li > .dropdown-menu {
   margin-left: -1px;
 }
 .navbar-top .nav > li > .dropdown-menu > li > a:hover {
-  color: #F56857;
+  color: #4aba56;
 }
 .navbar-top .nav > li > .dropdown-menu > li.active > a {
   color: #fff;
@@ -113,13 +120,13 @@ code,
 .navbar-top .navbar-toggle .icon-bar {
   height: 3px;
   border-radius: 1px;
-  background-color: #f56857;
+  background-color: #4aba56;
 }
 .navbar-top .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 3px;
 }
 .navbar-top .navbar-toggle:hover > .icon-bar {
-  background-color: #f23d27;
+  background-color: #4aba56;
 }
 .navbar-top .navbar-collapse {
   margin: 0px -30px;
@@ -142,7 +149,7 @@ code,
 }
 .alert-danger {
   color: #fff;
-  background: #d83e3e;
+  background: #4aba56;
 }
 .alert-danger .close {
   color: #fff;

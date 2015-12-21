@@ -70,7 +70,8 @@
 
 
                 @if($user && $user->isModerator($board->id))
-                    <span v-if="!comment.author.url" class="author"> @{{ comment.author.name }}</span>
+                    <div class="flr">Admin Options:
+                    <span v-if="!comment.author.url" class="author">Alias = @{{ comment.author.name }}</span>
                     <a v-if="comment.author.url" href="@{{ comment.author.url }}" target="_blank" class="author">@{{ comment.author.name }}</a>
 
 
@@ -89,7 +90,7 @@
                     <a class="delete-comment" href="#" data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}">
                         Delete Permanently
                     </a>
-                @endif
+                @endif</div>
             </footer>
 
             <!-- Edit form -->

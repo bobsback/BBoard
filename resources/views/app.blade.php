@@ -61,7 +61,7 @@
                                         <a class="link3" href="{{ url('/auth/logout') }}">Logout</a>
 
                                     </ul>
-                                <a href="{{ url('/board') }}"  class="w-nav-link link2">Your Boards</a>
+                                <a href="{{ url('/board') }}"  class="w-nav-link link2">Your Stuff</a>
                             @endif
 
                             <a href="{{ url('/about') }}" class="w-nav-link link2">Info</a>
@@ -79,62 +79,15 @@
         </div>
     </div>
     <div class="w-hidden-tiny just-do-it">Beta (but omg it's going to be good)
-        <form class="search-container" action="">
-            <input id="search-box" placeholder="Enter a Board Pin" type="text" class="search-box" name="q" />
+        <form class="search-container" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" >
+            {{ csrf_field() }}
+            <input id="board-search" placeholder="Enter a Board Pin" type="text" class="search-box" name="pincode" data-name="Board Search" required="required" />
             <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
             <input type="submit" id="search-submit" />
         </form>
     </div>
 </div>
 
-<!-- Old Menu
-
- <nav class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-					<span class="sr-only">Toggle Navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="{{ url('/') }}">Laravel</a>
-			</div>
-
-			<div class="collapse navbar-collapse" id="navbar">
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/board') }}">Your Boards</a></li>
-				</ul>
-
-
-				<ul class="nav navbar-nav navbar-right">
-
-
-
-
-					<li><a href="{{ url('/Build') }}">Build</a></li>
-					@if(auth()->guest())
-						@if(!Request::is('auth/login'))
-							<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						@endif
-						@if(!Request::is('auth/register'))
-							<li><a href="{{ url('/auth/register') }}">Register</a></li>
-						@endif
-					@else
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ auth()->user()->name }} <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-
-								<li><a class="link2" href="{{ url('/auth/logout') }}">Logout</a></li>
-
-							</ul>
-						</li>
-					@endif
-				</ul>
-			</div>
-		</div>
-	</nav>
--->
 
 
 	@yield('content')

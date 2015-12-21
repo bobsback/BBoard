@@ -1,7 +1,7 @@
 @extends('comments::moderator.layout')
 
 @section('title')
-    Manage comments on "{{ $board->boardname }}" board
+    Manage {{ $board->boardname }} board
 @stop
 
 @section('content')
@@ -17,15 +17,42 @@
             </a>
         </li>
         <li class="active">
-            Comments
+            Messages
         </li>
     </ol>
+    <h2>Edit {{ $board -> boardname }}</h2>
+
+    {!!Form::model($board, ['url'=>'board/' . $board->boardname,'method'=>'PATCH' ])!!}
+
+
+    <div class="form-group">
+
+        {!!   Form::label('boardname', 'Board Name', array('class' => ''))!!}
+        {!! Form::text('boardname', null, ['class'=>'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!!   Form::label('boardblurb', 'Board Blurb', array('class' => 'w-form-label checkboxtext'))!!} <br>
+        {!! Form::textarea('boardblurb', null, ['class'=>'h100']) !!}
+    </div>
+
+    <div class="form-group">
+        {!!   Form::label('pincode', 'Pincode', array('class' => 'w-form-label checkboxtext'))!!}
+        {!! Form::text('pincode', null, ['class'=>'form-control']) !!}
+    </div>
+
+    {!! Form::submit('Update Board',['class'=>'btn btn-primary']) !!}
+
+    {!!Form::close()!!}
+
+<br>
+
 
     <div id="comments" v-show="init" style="display: none;">
         <ul class="status-filter">
             <li class="active">
                 <a href="?status=all" class="all">
-                    All
+                    All Recent Messages
                 </a>
             </li>
         </ul>
@@ -171,4 +198,12 @@
     </div>
 
     <script type="text/x-template" id="edit-modal-template">@include('comments::admin/partials/edit-modal')</script>
+
+    {!!Form::open(['method' =>'DELETE','route'=>['board.destroy',$board->boardname]])!!}
+
+
+    {!! Form::submit('Permanently Delete Board',['class'=> 'btn btn-danger']) !!}
+
+
+    {!! Form::close() !!}
 @stop

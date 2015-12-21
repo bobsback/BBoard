@@ -52,7 +52,9 @@ class BoardController extends Controller
      */
     public function show(Board $board)
     {
-        return view('theboard', compact('board'));
+        $boards = \Auth::user()->boards()->get();
+
+        return view('theboard', compact('board', 'boards'));
     }
 
     /**

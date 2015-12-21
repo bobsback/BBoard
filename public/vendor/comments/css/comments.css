@@ -444,6 +444,9 @@ li.comment {
   width:37px;
 
 }
+.flr{
+  float: right;
+}
 
 .comment-body .glyphicon {
   font-size: 11px;
