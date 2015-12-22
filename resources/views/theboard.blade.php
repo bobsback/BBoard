@@ -39,14 +39,19 @@
                 <h5>Go beyond feedback</h5>
             </div>
             <div class="w-clearfix board-div-block">
-                <a href="#" class="w-button link">{{ $board->boardname }}</a>
+                <a href="#" class="w-button link">
+                    {{ $board->boardname }}
+                </a>
+
                 <br>
 
-                <a class="w-button save @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
-                    <i class="fa fa-check"></i>
+                @if(!(Auth::user() && Auth::user()->boards->contains($board->id)))
+                    <a class="w-button save @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
+                        <i class="fa fa-check"></i>
 
-                    Save Board
-                </a>
+                        Save Board
+                    </a>
+                @endif
 
                 <div class="board-blurb">{{ $board->boardblurb }}</div>
             </div>
@@ -72,7 +77,7 @@
                                 </a>
 
                                 @if($user && $user->isModerator($b->id))
-                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
+                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index') }}">
                                         <i class="fa fa-cogs "></i>
                                     </a>
                                 @endif
