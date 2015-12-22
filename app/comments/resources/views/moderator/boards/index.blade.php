@@ -31,8 +31,9 @@
                         <td>
                             {{ $board->id }}
                         </td>
-                        <td>
+                        <td><a class="btn" href="{{ URL::to('board/' . $board->boardname) }}">
                             {{ $board->boardname }}
+                                    </a>
                         </td>
                         <td>
                             <a class="btn btn-primary" href="{{ URL::route('moderator.boards.edit', $board->id) }}">

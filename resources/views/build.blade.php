@@ -104,7 +104,7 @@
     <div class="w-container contosinerf"></div>
 </div>
 <div class="w-container">
-    <div class="blurbtext">It's that easy! Check out some of our <a class="basiclink" href="about.html">advance features</a> coming soon.</div>
+    <div class="blurbtext">It's that easy! Check out some of our <a class="basiclink" href="{{ url('/about') }}">advance features</a> coming soon.</div>
 </div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

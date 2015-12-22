@@ -103,7 +103,7 @@
                     <div class="featureinfo">1&nbsp;Admin</div>
                     <div class="featureinfo">Basic&nbsp;User&nbsp;Tracking</div>
                     <div class="featureinfo">No&nbsp;pinned&nbsp;posts</div>
-                    <div class="featureinfo final">Chat&nbsp;Only</div><a href="buildabubble.html" class="w-button buildabb pricei">Build&nbsp;Your&nbsp;Board</a>
+                    <div class="featureinfo final">Chat&nbsp;Only</div><a href="{{ url('/Build') }}" class="w-button buildabb pricei">Build&nbsp;Your&nbsp;Board</a>
                 </div>
                 <div class="w-col w-col-4">
                     <div class="pricetable adv">
@@ -115,7 +115,7 @@
                         <div class="featureinfo">Unlimited&nbsp;Admins</div>
                         <div class="featureinfo">Advance&nbsp;User&nbsp;Tracking</div>
                         <div class="featureinfo">Pinned&nbsp;Posts</div>
-                        <div class="featureinfo final">Chat&nbsp;Only</div><a href="about.html" class="w-button buildabb pricei">Register&nbsp;Interest</a>
+                        <div class="featureinfo final">Chat&nbsp;Only</div><a href="{{ url('/about') }}" class="w-button buildabb pricei">Register&nbsp;Interest</a>
                     </div>
                 </div>
                 <div class="w-col w-col-4">
@@ -129,7 +129,7 @@
                         <div class="featureinfo">Advance&nbsp;User&nbsp;Tracking</div>
                         <div class="featureinfo">Pulse&nbsp;Polls</div>
                         <div class="featureinfo">Advance&nbsp;Analytics</div>
-                        <div class="featureinfo final">?Image&nbsp;+&nbsp;Document&nbsp;uploads</div><a href="about.html" class="w-button buildabb pricei">Register&nbsp;Interest</a>
+                        <div class="featureinfo final">?Image&nbsp;+&nbsp;Document&nbsp;uploads</div><a href="{{ url('/about') }}" class="w-button buildabb pricei">Register&nbsp;Interest</a>
                     </div>
                 </div>
             </div>

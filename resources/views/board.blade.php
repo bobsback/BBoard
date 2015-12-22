@@ -35,7 +35,7 @@
                                 </td>
                                 <td>
                                     @if($user && $user->isModerator($board->id))
-                                        <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
+                                        <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
                                             <i class="fa fa-cogs "></i> Manage
                                         </a>
 

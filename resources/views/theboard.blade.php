@@ -40,7 +40,6 @@
             </div>
             <div class="w-clearfix board-div-block">
                 <a href="#" class="w-button link">{{ $board->boardname }}</a>
-
                 <br>
 
                 <a class="w-button save @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
@@ -66,14 +65,14 @@
                     @endif
                 @else
                     @if($boards->count())
-                        @foreach($boards as $board)
+                        @foreach($boards as $b)
                             <div>
-                                <a class="w-button link padtop" href="{{ URL::to('board/' . $board->boardname) }}">
-                                    {{ $board->boardname }}
+                                <a class="w-button link padtop" href="{{ URL::to('board/' . $b->boardname) }}">
+                                    {{ $b->boardname }}
                                 </a>
 
-                                @if($user && $user->isModerator($board->id))
-                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
+                                @if($user && $user->isModerator($b->id))
+                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
                                         <i class="fa fa-cogs "></i>
                                     </a>
                                 @endif
@@ -88,6 +87,30 @@
         <div class="w-section boardheadersection">
             <div class="w-container rightcontainer">
                 <h2 class="boardnamhead">{{ $board->boardname }}</h2>
+                <div class="rnav2">
+                    <form class="search-container" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" >
+                        {{ csrf_field() }}
+                        <input id="board-search" placeholder="Enter a Board Pin" type="text" class="search-box" name="pincode" data-name="Board Search" required="required" />
+                        <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
+                        <input type="submit" id="search-submit" />
+                    </form>
+                    @if(auth()->guest())
+                    @else
+
+                            <a class="bnavlink2 boardlink" href="{{ url('/auth/logout') }}">Logout</a>
+
+                    @endif
+
+                @if($user && $user->isModerator($board->id))
+                    <div class="modsectionbground">
+                        <h3 class="bnavlink2">Pincode:</h3>
+                        <div class="bnavlink">{{ $board->pincode }}</div>
+                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
+                        <i class="fa fa-cogs "></i> Manage Board
+                    </a>
+                </div>
+                @endif
+                </div>
             </div>
         </div>
         @include('comments::display', ['boardname' => 'page1'])

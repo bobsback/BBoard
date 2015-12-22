@@ -109,7 +109,7 @@
                 <div class="footerh1">This is the site footer</div><a href="{{ url('/') }}" class="footerlink">Find out about Bubble Board</a><a href="{{ url('/auth/login') }}" class="footerlink">Login - login into your board</a><a href="{{ url('/Build') }}" class="footerlink">Build a bubble board</a>
                 <div class="footerh1">Everything here is copyrighted etc etc.&nbsp;</div>
             </div>
-            <div class="w-col w-col-4">{!! HTML::image('images/webclip.png', 'Logo', array('width' => 65))!!}
+            <div class="w-col w-col-4">{!! HTML::image('images\appscomingsoon.png', 'Logo', array('width' => 150))!!}
 
             </div>
         </div>
