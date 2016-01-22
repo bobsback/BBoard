@@ -171,8 +171,8 @@ class CommentsController extends Controller
     protected function validateStoreRequest(Request $request)
     {
         if ($this->author->guest()) {
-            $rules['author_name']  = 'required|max:100';
-            $rules['author_email'] = 'required|email|max:255';
+            $rules['author_name']  = 'max:100';
+            $rules['author_email'] = 'email|max:100';
             $rules['author_url']   = 'url|max:255';
         }
 

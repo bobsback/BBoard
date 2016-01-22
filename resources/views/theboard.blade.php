@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="/vendor/comments/css/prism-okaidia.css"> <!-- Optional -->
     <link rel="stylesheet" href="/vendor/comments/css/comments.css">
-
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     {!! HTML::style('css/normalize.css') !!}
     {!! HTML::style('css/webflow.css') !!}
@@ -39,11 +39,12 @@
                 <h5>Go beyond feedback</h5>
             </div>
             <div class="w-clearfix board-div-block">
-                <a href="#" class="w-button link">
+                <a href="#" class="w-button link active">
                     {{ $board->boardname }}
                 </a>
 
                 <br>
+                <div class="board-blurb">{{ $board->boardblurb }}</div>
 
                 @if(!(Auth::user() && Auth::user()->boards->contains($board->id)))
                     <a class="w-button save @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
@@ -53,12 +54,11 @@
                     </a>
                 @endif
 
-                <div class="board-blurb">{{ $board->boardblurb }}</div>
             </div>
             <div class="divblocklogin">
                 @if(auth()->guest())
                     <div class="board-blurb">
-                        Make an account or log in to revisit the board or log in to view your other boards:
+                        Register to save this board so you can revisit it or log in to view your boards and save this one:
                     </div>
 
                     @if(!Request::is('auth/login'))
@@ -72,7 +72,7 @@
                     @if($boards->count())
                         @foreach($boards as $b)
                             <div>
-                                <a class="w-button link padtop" href="{{ URL::to('board/' . $b->boardname) }}">
+                                <a class="w-button link padtop active" href="{{ URL::to('board/' . $b->boardname) }}">
                                     {{ $b->boardname }}
                                 </a>
 
@@ -106,18 +106,45 @@
 
                     @endif
 
-                @if($user && $user->isModerator($board->id))
-                    <div class="modsectionbground">
-                        <h3 class="bnavlink2">Pincode:</h3>
-                        <div class="bnavlink">{{ $board->pincode }}</div>
-                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
-                        <i class="fa fa-cogs "></i> Manage Board
-                    </a>
-                </div>
-                @endif
                 </div>
             </div>
         </div>
+        <!--Admin Panel-->
+        @if($user && $user->isModerator($board->id))
+
+        <div class="w-section boardheadersection">
+            <div class=" rightcontainer modsectionbground">
+            <div class="">
+                <h3 class="bnavlink2">Mod Control Panel</h3>
+                <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
+                    <i class="fa fa-cogs "></i>
+                </a>
+                <a class="btn btn-info" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                    Invite Users
+                </a>
+                <a class="btn btn-primary" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                    Edit Details
+                </a>
+
+                <a class="btn btn-warning" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
+                    Moderate Comments
+                </a>
+
+                <a class="btn btn-danger" href="{{ URL::route('moderator.boards.bans.index', $board->id) }}">
+                    View Bans
+                </a>
+
+
+                <h4 class="bnavlink2">Password</h4>
+                <div class="bnavlink">{{ $board->pincode }}</div>
+                </div>
+            </div>
+
+
+            </div>
+        @endif
+
+
         @include('comments::display', ['boardname' => 'page1'])
     </div>
 </div>

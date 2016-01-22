@@ -70,9 +70,9 @@
 
 
                 @if($user && $user->isModerator($board->id))
-                    <div class="flr">Admin Options:
-                    <span v-if="!comment.author.url" class="author">Alias = @{{ comment.author.name }}</span>
-                    <a v-if="comment.author.url" href="@{{ comment.author.url }}" target="_blank" class="author">@{{ comment.author.name }}</a>
+                    <div class="flr">Moderator Options:
+                    <span v-if="!comment.author.url" class="author">User: @{{ comment.author.name }} </span>
+                    <a v-if="comment.author.url" href="@{{ comment.author.url }}" target="_blank" class="author">@{{ comment.author.name }} </a>
 
 
                     <a v-if="parent" href="#!comment=@{{ parent.id }}"

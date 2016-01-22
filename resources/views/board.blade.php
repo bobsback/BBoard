@@ -3,14 +3,23 @@
 @section('content')
     <div class="w-section section hero">
         <div class="w-container container">
-            <h1>Your Stuff</h1>
-            <p>Things about your account are here.</p>
+            <h2>Things about your account</h2>
+            <div  class="findaboartd">Go to a new board:</div>
+            <div class="w-form sign-up-form">
+                <form name="wf-form-signup-form" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" class="w-clearfix">
+                    {{ csrf_field() }}
+
+                    <input id="Board-Search" type="text" placeholder="Insert board pin code" name="pincode" data-name="Board Search" required="required"  class="w-input field">
+                    <input type="submit" value="Find your board" data-wait="Please wait..."  class="w-button button">
+                </form>
+
+            </div>
         </div>
     </div>
     <div class="w-section">
         <div class="w-row">
             <div class="w-col w-col-6 yourboardinfo">
-                <h2 class="white">Your Boards</h2>
+                <h2 class="white">Saved Boards</h2>
 
                 <table class="table">
                     <thead>

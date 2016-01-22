@@ -4,7 +4,7 @@
 <div class="w-section">
     <div class="w-section section hero success">
         <div class="w-container container">
-            <h1>Build a Bubble Board</h1>
+            <h2>Build a Bubble Board</h2>
             <p>(It's so easy)</p>
         </div>
     </div>
@@ -16,37 +16,48 @@
             <div class="w-clearfix form-mid{{$errors->has('boardname')?'red has-error':''}}">
                 <div class="subtitle">Hey {{ auth()->user()->name }}, lets make a Bubble Board!</div>
                 <div class="boardname">Board name:</div>
-                <div data-ix="hovername" class="hoverinfo">?</div>
-                <div data-ix="namehoverinitial" class="namehover">This is the name of the bubble board</div>
-                <input id="boardname" value="{{ old('boardname') }}"  type="text" placeholder="Enter your board name" name="boardname" data-name="Boardname 2" class="w-input board-name">
+                <dfn data-info="Board name must be min 2 - 50 characters and unique.">?</dfn>
+                <input id="boardname" required value="{{ old('boardname') }}"  type="text" placeholder="Enter your board name" name="boardname" data-name="Boardname 2" class="w-input board-name">
                 {!! $errors->first('boardname','<span class="help-block">:message</span>') !!}
 
                 <div class="boardname">Board blurb:</div>
-                <div data-ix="blurbhover" class="hoverinfo">?</div>
-                <div data-ix="intial-hide" class="boardnamehover">A description of the board for the users&nbsp;</div>
-                <input id="board-5" value="{{ old('boardblurb') }}" type="text" placeholder="Enter the board purpose" name="boardblurb" data-name="Board 5" class="w-input board-name">
+                <dfn data-info="A description of your board for all your users. Maximum 250 characters.">?</dfn>
 
+                <input id="board-5" value="{{ old('boardblurb') }}" type="text" placeholder="Enter the board purpose" name="boardblurb" data-name="Board 5" class="w-input board-name">
+                {!! $errors->first('boardblurb','<span class="help-block">:message</span>') !!}
                 <div class="subtitle">Decide how people enter your board:</div>
 
 
                 <div class="w-row">
                     <div class="w-col w-col-6">
-                        <div class="w-checkbox checkboxfield">
-                            <input id="PincodeCheckbox" type="checkbox" name="Email-10" data-name="Email 10" class="w-checkbox-input checkbox" checked>
-                            <label for="Email-10" class="w-form-label checkboxtext">Pincode</label>
-                            <div class="reveal-if-active">
-                                <label class="boardname" for="board-6">Set your boards pincode:</label>
 
-                                <input id="board-6" value="{{ old('pincode') }}" data-require-pair="#PincodeCheckbox" type="text" placeholder="Enter a pin or get a random one" name="pincode" data-name="Board 6" class="require-if-active w-input board-name{{$errors->has('boardname')?'red has-error':''}}">
+                        <div class="w-checkbox checkboxfield">
+
+
+                            <input id="PincodeCheckbox" type="checkbox" name="Email-10" data-name="Email 10"  class="w-checkbox-input checkbox" checked>
+
+                            <label for="PincodeCheckbox" class="w-form-label checkboxtext">Password</label>
+                            <dfn data-info="People simply enter your board's password to gain access to it. It must be 2 - 50 characters and unique.">?</dfn>
+
+                            <div class="reveal-if-active">
+                                <label class="boardname" for="board-6">Set your boards password:</label>
+
+                                <input id="board-6" value="{{ old('pincode') }}" data-require-pair="#PincodeCheckbox" type="text" placeholder="Enter an awesome password" name="pincode" data-name="Board 6" class="require-if-active w-input board-name{{$errors->has('boardname')?'red has-error':''}}">
                                 {!! $errors->first('pincode','<span class="help-block">:message</span>') !!}
-                                <!--<a href="#" class="w-button pingenerate">Randomly Generate Pin&nbsp;</a>-->
                             </div>
+
+
+
+
                         </div>
+
                     </div>
                     <div class="w-col w-col-6">
                         <div class="w-checkbox checkboxfield">
                             <input id="Email-11" type="checkbox" name="Email-11" data-name="Email 11" class="w-checkbox-input checkbox">
-                            <label for="Email-11" class="w-form-label checkboxtext greyedout">Email Domain</label>
+                            <label for="Email-11" class="w-form-label checkboxtext greyedout">Work Email</label>
+
+                            <dfn data-info="You will soon be able to restrict your board to only employees using their email accounts.">?</dfn>
                             <div class="reveal-if-active">
                                 <label for="which-dog">Sorry this isn't available yet :(</label>
 
@@ -58,7 +69,7 @@
                     <div class="w-col w-col-4">
                         <div class="w-checkbox checkboxfield">
                             <input id="Email-16" type="checkbox" name="Email-16" data-name="Email 16" class="w-checkbox-input checkbox">
-                            <label for="Email-16" class="w-form-label checkboxtext greyedout">Active directory Sync</label>
+                            <label for="Email-16" class="w-form-label checkboxtext greyedout">QR Codes</label>
                             <div class="reveal-if-active">
                                 <label for="which-dog">Sorry this isn't available yet :(</label>
 

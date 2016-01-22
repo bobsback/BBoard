@@ -368,8 +368,8 @@ li.comment {
   margin-right: 14px;
 }
 .comment .avatar img {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   opacity: 0.8;
 }
@@ -441,7 +441,7 @@ li.comment {
 
 .voting-structure{
   clear:left;
-  width:37px;
+  /*width:51px;*/
 
 }
 .flr{
@@ -625,7 +625,7 @@ li.comment {
     font-size: 15px;
   }
   .comment .children .voting-structure  {
-    width: 29px;
+    /*width: 29px;*/
   }
 
 

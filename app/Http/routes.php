@@ -33,7 +33,7 @@ Route::get('/about', function () {
 
 Route::get('board', 'BoardController@index');
 Route::get('board/{boardname}', 'BoardController@show');
-get('board/{boardname}/edit', 'BoardController@edit');
+
 
 patch('board/{boardname}', 'BoardController@update');
 
@@ -68,3 +68,11 @@ Route::get('/about', function () {
 Route::get('/enter', function () {
     return view('enter');
 });
+
+/*contact form*/
+Route::get('contact',
+    ['as' => 'contact', 'uses' => 'AboutController@create']);
+Route::post('contact',
+    ['as' => 'contact_store', 'uses' => 'AboutController@store']);
+/*Refer your boss*/
+Route::post('referboss', ['as' => 'referboss', 'uses' => 'ReferController@store']);

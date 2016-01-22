@@ -124,7 +124,8 @@ class BoardController extends Controller
     public function accessViaPincode(Request $request)
     {
         if (!($board = Board::where('pincode', '=', $request->input('pincode'))->first())) {
-            return redirect('/');
+
+            return redirect('/')->withErrors(['The board pin code you entered does not match any currently in use :(', 'The Message']);
         }
 
         $this->setAuthorizedBoardSession($board->id);

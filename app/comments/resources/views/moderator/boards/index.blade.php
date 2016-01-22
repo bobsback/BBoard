@@ -19,8 +19,8 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>#</th>
-                <th class="column-author">Board</th>
+
+                <th class="column-author">Your Boards</th>
                 <th class="column-comment">Actions</th>
             </tr>
         </thead>
@@ -28,24 +28,24 @@
             @if($boards->count())
                 @foreach($boards as $board)
                     <tr>
-                        <td>
-                            {{ $board->id }}
-                        </td>
-                        <td><a class="btn" href="{{ URL::to('board/' . $board->boardname) }}">
+                        <td><a class="btn btn-success" href="{{ URL::to('board/' . $board->boardname) }}">
                             {{ $board->boardname }}
                                     </a>
                         </td>
                         <td>
+                            <a class="btn btn-info" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                                Invite Users
+                            </a>
                             <a class="btn btn-primary" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
-                                Edit
+                                Edit Details
                             </a>
 
                             <a class="btn btn-warning" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
-                                Comments
+                                Moderate Comments
                             </a>
 
                             <a class="btn btn-danger" href="{{ URL::route('moderator.boards.bans.index', $board->id) }}">
-                                Bans
+                                View Bans
                             </a>
                         </td>
                     </tr>

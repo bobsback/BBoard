@@ -2,10 +2,10 @@
     <div v-if="focus">
         <template v-if="!config.user">
             <div class="form-group">
-                <input type="text" required v-model="authorName" v-disable="loading" class="form-control" placeholder="@lang('comments::all.name')">
+                <input type="text" v-model="authorName" v-disable="loading" class="form-control" placeholder="@lang('comments::all.name')">
             </div>
             <div class="form-group">
-                <input type="email" required v-model="authorEmail" v-disable="loading" class="form-control" placeholder="@lang('comments::all.email')">
+                <input type="text"  v-model="authorEmail" v-disable="loading" class="form-control" placeholder="@lang('comments::all.email')">
             </div>
             <div class="form-group">
                 <input type="text" v-model="authorUrl" v-disable="loading" class="form-control" placeholder="@lang('comments::all.url')">

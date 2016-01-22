@@ -3,11 +3,12 @@
     <div v-if="focus">
         <template v-if="!config.user">
             <div class="form-group">
-                <input type="text" required v-model="authorName" v-disable="loading" class="form-control" placeholder="@lang('comments::all.name')">
+                <div class="howdesc">Note: name and email are optional. </div>
+                <input type="text"  v-model="authorName" v-disable="loading" class="form-control" placeholder="@lang('comments::all.name')">
             </div>
 
             <div class="form-group">
-                <input type="email" required v-model="authorEmail" v-disable="loading" class="form-control" placeholder="@lang('comments::all.email')">
+                <input type="email"  v-model="authorEmail" v-disable="loading" class="form-control" placeholder="@lang('comments::all.email')">
             </div>
         </template>
 

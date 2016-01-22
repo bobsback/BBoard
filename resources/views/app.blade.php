@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="/vendor/comments/css/prism-okaidia.css"> <!-- Optional -->
 	<link rel="stylesheet" href="/vendor/comments/css/comments.css">
-
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     {!! HTML::style('css/normalize.css') !!}
     {!! HTML::style('css/webflow.css') !!}
@@ -61,7 +61,7 @@
                                         <a class="link3" href="{{ url('/auth/logout') }}">Logout</a>
 
                                     </ul>
-                                <a href="{{ url('/board') }}"  class="w-nav-link link2">Your Stuff</a>
+                                <a href="{{ url('/board') }}"  class="w-nav-link link2">Your Boards</a>
                             @endif
 
                             <a href="{{ url('/about') }}" class="w-nav-link link2">Info</a>
@@ -109,7 +109,7 @@
                 <div class="footerh1">This is the site footer</div><a href="{{ url('/') }}" class="footerlink">Find out about Bubble Board</a><a href="{{ url('/auth/login') }}" class="footerlink">Login - login into your board</a><a href="{{ url('/Build') }}" class="footerlink">Build a bubble board</a>
                 <div class="footerh1">Everything here is copyrighted etc etc.&nbsp;</div>
             </div>
-            <div class="w-col w-col-4">{!! HTML::image('images\appscomingsoon.png', 'Logo', array('width' => 150))!!}
+            <div class="w-col w-col-4">{!! HTML::image('images/appscomingsoon.png', 'Logo', array('width' => 150))!!}
 
             </div>
         </div>

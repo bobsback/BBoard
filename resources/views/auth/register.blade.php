@@ -20,9 +20,9 @@
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
 						{!! csrf_field() !!}
-
+						<div class="h4">REMEMBER: Your Alias and Email are private from other users.</div>
 						<div class="form-group">
-							<label class="col-md-4 control-label">Name</label>
+							<label class="col-md-4 control-label">Alias</label>
 							<div class="col-md-6">
 								<input type="text" class="form-control" name="name" value="{{ old('name') }}">
 							</div>

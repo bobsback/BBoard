@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CreateBoardrequest extends Request
+class ContactFormRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class CreateBoardrequest extends Request
     public function rules()
     {
         return [
-            'boardname'=>'required|unique:boards|max:50|min:2,boardname',
-            'pincode'=>'required|unique:boards|max:20|min:3,pincode'
-
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required',
         ];
     }
 }

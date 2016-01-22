@@ -113,10 +113,9 @@ p {
   color: whitesmoke;
 }
 .modsectionbground{
-  background-color: rgba(255, 0, 0, 0.3);
-  display: inline-block;
+  background-color: rgba(255, 0, 0, 0.15);
   padding: 5px;
-  border-radius: 5px;
+  margin-left: 5px;
 }
 
 .paddingtop{
@@ -136,7 +135,7 @@ p {
   font-size: 32px;
   margin-right: 10px;
   font-weight: 300;
-  border: 2px solid #49ba56;
+  border-bottom: 2px solid #49ba56;
   padding: 10px;
 }
 .rnav2{
@@ -519,7 +518,7 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 .section {
   padding-top: 20px;
   padding-bottom: 20px;
-  font-weight: 300;
+  /*font-weight: 300;*/
   text-align: center;
 }
 
@@ -1103,7 +1102,6 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 }
 
 .boardnamhead {
-  margin-top: 25px;
   margin-right: 25px;
   margin-bottom: 16px;
   padding-left: 10px;
@@ -1600,7 +1598,6 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   background-size: 283px;
   background-repeat: repeat-y;
 }
-
 .hoverinfo {
   position: relative;
   top: 0px;
@@ -1613,7 +1610,81 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   border: 2px solid #49ba56;
   border-radius: 30px;
   font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
 }
+
+/* hover boxes*/
+dfn {
+  top: 0px;
+  right: 0px;
+  display: block;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-style: normal;
+  float: left;
+  clear: right;
+  border: 2px solid #49ba56;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: help;
+  position: relative;
+}
+
+dfn::after {
+  content: attr(data-info);
+  display: inline;
+  position: absolute;
+  top: 22px;
+  left: 0;
+  opacity: 0;
+  width: 230px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5em;
+  padding: 0.5em 0.8em;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  pointer-events: none;
+  /* This prevents the box from apearing when hovered. */
+  transition: opacity 250ms, top 250ms;
+}
+
+dfn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: solid transparent 5px;
+  border-bottom-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 250ms, top 250ms;
+}
+
+dfn:hover {
+  z-index: 2;
+}
+
+
+/* Keeps the info boxes on top of other elements */
+
+dfn:hover::after,
+dfn:hover::before {
+  opacity: 1;
+}
+
+dfn:hover::after {
+  top: 30px;
+}
+
+dfn:hover::before {
+  top: 20px;
+}
+
 
 .namehover {
   position: relative;
@@ -1947,6 +2018,7 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   display: inline-block;
   float: none;
   text-align: center;
+
 }
 
 .checkboxtext {
@@ -2243,4 +2315,84 @@ html.w-mod-js *[data-ix="intial-hide"] {
     float: none;
   }
 }
+/* Hero Tesxt CSS */
 
+.word {
+  position: absolute;
+  width: 650px;
+  opacity: 0;
+}
+
+.letter {
+  display: inline-block;
+  position: relative;
+  float: left;
+  transform: translateZ(25px);
+  transform-origin: 50% 50% 25px;
+}
+
+.letter.out {
+  transform: rotateX(90deg);
+  transition: transform 0.32s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+.letter.behind {
+  transform: rotateX(-90deg);
+}
+
+.letter.in {
+  transform: rotateX(0deg);
+  transition: transform 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wisteria {
+  color: #980499;
+}
+
+.belize {
+  color: #efc31e;
+}
+
+.pomegranate {
+  color: #bc0f00;
+}
+
+.white {
+  color: #f5f8ff;
+}
+
+.midnight {
+  color: #051589;
+}
+.para{
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}
+.h12 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 18%;
+  padding-right: 0px;
+  padding-left: 0px;
+  color: black;
+  font-size: 44px;
+  line-height: 54px;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+  letter-spacing: 0px;
+  text-indent: 0px;
+  text-shadow: none;
+}
+@media (max-width: 991px) {
+  .h12 {
+    margin-left: 0px;
+  }
+}
+@media (max-width: 640px) {
+  .h12 {
+    font-size:30px;
+    margin-left: 0px;
+  }
+}
