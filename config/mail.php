@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'mailgun'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'some@some.com', 'name' => 'some'],
+    'from' => ['address' => 'rob@bubbleboard.co.uk', 'name' => 'some'],
 
     /*
     |--------------------------------------------------------------------------

@@ -42,13 +42,13 @@
     <div class="w-col w-col-10 col2">
         <div class="w-section boardheadersection">
             <div class="w-container rightcontainer">
-                <h2 class="boardnamhead">Not a Bubble Board :(</h2>
+                <h2 class="boardnamhead">Not quite made it :(</h2>
             </div>
         </div>
         <div class="w-section bgounrdnoaccess">
             <div class="w-container noacesscont">
                 <div data-ix="load" class="divacess">
-                    <p>Yo, enter the bubble pin or <a class="loginlink" href="{{ url('/auth/login') }}">login </a>to access your boards!&nbsp;</p>
+                    <p>Yo, enter the bubble board password or <a class="loginlink" href="{{ url('/auth/login') }}">login </a>to access your boards!&nbsp;</p>
                     <div class="w-form formwrapper">
                         <form action="{{ URL::route('board.authorize.post', $board->boardname) }}" method="POST" class="w-clearfix">
                             {{ csrf_field() }}
@@ -88,10 +88,11 @@
                         </div>
                     </div>
                     <div class="w-col w-col-4 footer-central-colum">
-                        <div class="footerh1">This is the site footer</div><a href="about.html" class="footerlink">About - Find out about bubble board</a><a href="#" class="footerlink">Login - login into your board</a><a href="buildabubble.html" class="footerlink">Build a bubble board</a>
+                        <div class="footerh1">This is the site footer</div><a href="{{ url('/') }}" class="footerlink">Find out about Bubble Board</a><a href="{{ url('/auth/login') }}" class="footerlink">Login - login into your board</a><a href="{{ url('/Build') }}" class="footerlink">Build a bubble board</a>
                         <div class="footerh1">Everything here is copyrighted etc etc.&nbsp;</div>
                     </div>
-                    <div class="w-col w-col-4"><img width="65" src="images/webclip.png">
+                    <div class="w-col w-col-4">{!! HTML::image('images/appscomingsoon.png', 'Logo', array('width' => 150))!!}
+
                     </div>
                 </div>
             </div>

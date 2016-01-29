@@ -115,9 +115,9 @@
         <div class="w-section boardheadersection">
             <div class=" rightcontainer modsectionbground">
             <div class="">
-                <h3 class="bnavlink2">Mod Control Panel</h3>
-                <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
-                    <i class="fa fa-cogs "></i>
+                <div class="bnavlink2 Controlpannel">Moderator<br>Control Panel</div>
+                <a class="btn btn-primary greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
+                    Manage Boards
                 </a>
                 <a class="btn btn-info" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
                     Invite Users
@@ -135,7 +135,7 @@
                 </a>
 
 
-                <h4 class="bnavlink2">Password</h4>
+                <siv class="bnavlink2 Controlpannel">Board's<br>password:</siv>
                 <div class="bnavlink">{{ $board->pincode }}</div>
                 </div>
             </div>

@@ -16,10 +16,11 @@
             </div>
         </div>
     </div>
-    <div class="w-section">
-        <div class="w-row">
-            <div class="w-col w-col-6 yourboardinfo">
-                <h2 class="white">Saved Boards</h2>
+    <div class="w-section yourboardinfo">
+        <div class="w-container container">
+
+            <div class="">
+                <h2 class="white">Your Saved Boards</h2>
 
                 <table class="table">
                     <thead>
@@ -61,12 +62,7 @@
                     @endif
                     </tbody>
                 </table>
-
             </div>
-            <div class="w-col w-col-6">
-                <p> Activity Centre Coming soon</p>
-
-
             </div>
         </div>
     </div>

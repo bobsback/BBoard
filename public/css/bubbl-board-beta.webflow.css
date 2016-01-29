@@ -100,13 +100,17 @@ p {
   text-align: center;
   text-decoration: none;
 }
+.Controlpannel{
+  color: grey;
+  text-align: center;
+  padding-right: 5px;
+}
 
 .button:hover {
   border: 1px solid #292929;
   background-color: #49ba56;
 }
 .yourboardinfo{
-  padding-left: 10%;
   background-color: #292929;
 }
 .white{
@@ -132,10 +136,9 @@ p {
 .bnavlink{
   display: inline-block;
   position: relative;
-  font-size: 32px;
-  margin-right: 10px;
+  font-size: 22px;
+
   font-weight: 300;
-  border-bottom: 2px solid #49ba56;
   padding: 10px;
 }
 .rnav2{
@@ -144,6 +147,7 @@ p {
   margin-top: 3px;
   padding: 10px 10px 10px 0px;
   text-align: right;
+
 }
 .boardlink{
   font-weight: 300;

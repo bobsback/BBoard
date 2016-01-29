@@ -113,8 +113,8 @@
         <ul class="cd-faq-categories">
             <li><a href="#Contact">Contact</a></li>
             <li><a href="#basics">About</a></li>
-            <li><a href="#mobile">The Team</a></li>
-            <li><a href="#account">Account</a></li>
+            <li><a href="#mobile">Mobile Apps</a></li>
+            <li><a href="#account">Moderator</a></li>
         </ul> <!-- cd-faq-categories -->
 
         <div class="cd-faq-items">
@@ -123,7 +123,10 @@
                 <li>
                     <a class="cd-faq-trigger" href="#0">Contact us</a>
                     <div class="cd-faq-content">
+                        Any feedback about bubble board use our bubble board password: 'bubble' at <a href="http://bubbleboard.dev/board/bubbleboard"> Bubbles Board</a> or contact us directly:
+                        <br>
                             @include ('about.contact')
+                        <p>Or hit me up directly at rob@bubbleboard.co.uk</p>
                     </div> <!-- cd-faq-content -->
                 </li>
             </ul>
@@ -144,7 +147,7 @@
                 <li>
                     <a class="cd-faq-trigger" href="#0">Feature Developement</a>
                     <div class="cd-faq-content"><p>
-                        The final product will have a few more features, advance passwords that time out or have different levels of access, subboards, advance ways to join a board,
+                        We are looking to include a few more features; advance passwords that time out or have different levels of access, subboards, advance ways to join a board,
                         with more advance user analysis, discussion options and business to customer interactions.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
@@ -157,7 +160,7 @@
                 </li>
 
                 <li>
-                    <a class="cd-faq-trigger" href="#0">Do I need an Account?</a>
+                    <a class="cd-faq-trigger" href="#0">Do I need an account to access a board?</a>
                     <div class="cd-faq-content">
                         <p>You do not need an account to enter a board and leave some feedback. <br>
                         You do need an account to build a board and you need an account to save boards to revisit them.</p>
@@ -165,70 +168,59 @@
                 </li>
 
                 <li>
-                    <a class="cd-faq-trigger" href="#0">How long will the beta be?</a>
+                    <a class="cd-faq-trigger" href="#0">How long will the beta be for?</a>
                     <div class="cd-faq-content">
-                        <p>The time frame is for the product to be in beta for 2-4 months before the final version is finalised.</p>
+                        <p>The time frame is for the product to be in beta for 2-4 months before the final version.</p>
+                    </div> <!-- cd-faq-content -->
+                </li>
+                <li>
+                    <a class="cd-faq-trigger" href="#0">What can people do on the boards?</a>
+                    <div class="cd-faq-content">
+                        <p>The discussion system is a multi-level comment system with voting, users can also post images using URLs, we are working to include file uploads and polls.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
             </ul> <!-- cd-faq-group -->
 
             <ul id="mobile" class="cd-faq-group">
-                <li class="cd-faq-title"><h2>The Team</h2></li>
+                <li class="cd-faq-title"><h2>Mobile Apps</h2></li>
                 <li>
-                    <a class="cd-faq-trigger" href="#0">How does syncing work?</a>
+                    <a class="cd-faq-trigger" href="#0">When are the mobile apps coming?</a>
                     <div class="cd-faq-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit quidem delectus rerum eligendi
-                            mollitia, repudiandae quae beatae. Et repellat quam atque corrupti iusto architecto impedit explicabo
-                            repudiandae qui similique aut iure ipsum quis inventore nulla error aliquid alias quia dolorem dolore,
-                            odio excepturi veniam odit veritatis. Quo iure magnam, et cum. Laudantium, eaque non? Tempore nihil corporis
-                            cumque dolor ipsum accusamus sapiente aliquid quis ea assumenda deserunt praesentium voluptatibus, accusantium
-                            a mollitia necessitatibus nostrum voluptatem numquam modi ab, sint rem.</p>
+                        <p>The first iteration of the mobile apps (android and iphone) will hopefully be available in 1-2 months time.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
 
                 <li>
-                    <a class="cd-faq-trigger" href="#0">How do I upload files from my phone or tablet?</a>
+                    <a class="cd-faq-trigger" href="#0">What will be in the mobile apps?</a>
                     <div class="cd-faq-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi tempore, placeat quisquam rerum! Eligendi fugit dolorum tenetur modi
-                            fuga nisi rerum, autem officiis quaerat quos. Magni quia, quo quibusdam odio. Error magni aperiam amet architecto adipisci aspernatu
-                            r! Officia, quaerat magni architecto nostrum magnam fuga nihil, ipsum laboriosam similique voluptatibus facilis nobis? Eius non asper
-                            iores, nesciunt suscipit veniam blanditiis veritatis provident possimus iusto voluptas, eveniet architecto quidem quos molestias, aperiam
-                            eum reprehenderit dolores ad deserunt eos amet. Vero molestiae commodi unde dolor dicta maxime alias, velit, nesciunt cum dolorem, ipsam
-                            soluta sint suscipit maiores mollitia assumenda ducimus aperiam neque enim! Quas culpa dolorum ipsam? Ipsum voluptatibus numquam natus? E
-                            ligendi explicabo eos, perferendis voluptatibus hic sed ipsam rerum maiores officia! Beatae, molestias!</p>
+                        <p>The first iteration of the mobile apps (android and iphone) will just be for users who want to enter the boards and leave comments.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
 
-                <li>
-                    <a class="cd-faq-trigger" href="#0">How do I link to a file or folder?</a>
-                    <div class="cd-faq-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis, reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit, magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
-                    </div> <!-- cd-faq-content -->
-                </li>
             </ul> <!-- cd-faq-group -->
 
             <ul id="account" class="cd-faq-group">
-                <li class="cd-faq-title"><h2>Mobile Apps</h2></li>
+                <li class="cd-faq-title"><h2>Moderator</h2></li>
                 <li>
-                    <a class="cd-faq-trigger" href="#0">How do I change my password?</a>
+                    <a class="cd-faq-trigger" href="#0">How can people access my board?</a>
                     <div class="cd-faq-content">
-                        <p>For the beta bubble board is currently a web app in a browser, but mobile apps on andoird and iphone for easy board access are in developement.
+                        <p>It's very simple, they either enter the password on bubble boards homepage or visit the board url directly and then use the boards password.
                         </p>
                     </div> <!-- cd-faq-content -->
 
                 </li>
 
                 <li>
-                    <a class="cd-faq-trigger" href="#0">How do I change my account settings?</a>
+                    <a class="cd-faq-trigger" href="#0">How do I ban users?</a>
                     <div class="cd-faq-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis provident officiis, reprehenderit numquam. Praesentium veritatis eos tenetur magni debitis inventore fugit, magnam, reiciendis, saepe obcaecati ex vero quaerat distinctio velit.</p>
+                        <p>You can ban users by using the 'Moderate comments' tab, finding the users comment and clicking ban (which appears when you hover over the comment) this bans the users ip address and they wont be able to enter the board. You can unban users by visiting the 'view bans' tab from the moderator control panel.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
 
                 <li>
-                    <a class="cd-faq-trigger" href="#0">I forgot my password. How do I reset it?</a>
+                    <a class="cd-faq-trigger" href="#0">How should I share my board with people?</a>
                     <div class="cd-faq-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum at aspernatur iure facere ab a corporis mollitia molestiae quod omnis minima, est labore quidem nobis accusantium ad totam sunt doloremque laudantium impedit similique iste quasi cum! Libero fugit at praesentium vero. Maiores non consequuntur rerum, nemo a qui repellat quibusdam architecto voluptatem? Sequi, possimus, cupiditate autem soluta ipsa rerum officiis cum libero delectus explicabo facilis, odit ullam aperiam reprehenderit! Vero ad non harum veritatis tempore beatae possimus, ex odio quo.</p>
+                        <p>All people need to enter your board is the password you set, so if you send them that they can access the board from the homepage, you can change the password at any time to prevent people from finding your board but the board will be saved for users who logged in and saved the board.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
             </ul> <!-- cd-faq-group -->

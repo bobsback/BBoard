@@ -11,7 +11,10 @@
         "illuminate/html": "^5.0",
         "s9e/text-formatter": "^0.2.1",
         "marwelln/recaptcha" : "~2.0",
-        "pusher/pusher-php-server" : "~2.0"
+        "pusher/pusher-php-server" : "~2.0",
+        "guzzlehttp/guzzle": "~5.3|~6.0"
+
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

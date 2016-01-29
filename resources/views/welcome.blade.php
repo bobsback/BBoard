@@ -58,7 +58,7 @@
             <div class="w-row">
                 <div data-ix="load-from-left" class="w-col w-col-6">
                     <h1>What?</h1>
-                    <div class="desctext">A flexible semi-anonymous private discussion platform for feedback, strategy and ideas.
+                    <div class="desctext">A flexible anonymous private discussion platform for feedback, strategy and ideas.
                     </div>
                     <div style="padding-top: 56.17021276595745%;" class="w-embed w-video video">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/IkUKFdacHvo" frameborder="0" allowfullscreen></iframe>
@@ -149,13 +149,7 @@
         <div class="w-container convo">
             <h2>Refer your Boss</h2>
             <p>Suggest&nbsp;Bubble&nbsp;Board&nbsp;to&nbsp;someone</p>
-            <div class="w-form">
-                {!! Form::open(array('route' => 'referboss', 'class' => 'w-clearfix emaillist')) !!}
-                <!-- <form id="email-form" name="email-form" data-name="Email Form" action="{{ URL::route('referboss') }}" method="post" class=""></form> -->
-                    <label for="email" class="keepup">Enter&nbsp;an&nbsp;email&nbsp;address&nbsp;to&nbsp;get&nbsp;an&nbsp;introductory&nbsp;to&nbsp;Bubble&nbsp;Board&nbsp;or&nbsp;to&nbsp;stay&nbsp;in&nbsp;touch.</label>
-                    <input id="email" type="email" placeholder="Enter an email address" name="email" data-name="Email" required="required" class="w-input field">
-                {!! Form::submit('Submit', array('class'=>'w-button button')) !!}
-                {!! Form::close() !!}
+            @include ('about.refer')
 
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/webflow.js"></script>
@@ -222,7 +216,7 @@
 
 
 </script>
-    </div>
+
     </div>
     </div>
     </body>

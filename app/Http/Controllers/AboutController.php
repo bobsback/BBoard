@@ -17,6 +17,7 @@ class AboutController extends Controller
 
 public function store(ContactFormRequest $request)
 {
+
     \Mail::send('emails.contact',
         array(
             'name' => $request->get('name'),
@@ -28,7 +29,7 @@ public function store(ContactFormRequest $request)
             $message->to('robseger92@gmail.com', 'Admin')->subject('BB Contact Form');
         });
 
-    return \Redirect::route('contact')
+    return view('about')
         ->with('message', 'Thanks for contacting us!');
 
 }
