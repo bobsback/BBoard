@@ -135,8 +135,8 @@
                 </a>
 
 
-                <siv class="bnavlink2 Controlpannel">Board's<br>password:</siv>
-                <div class="bnavlink">{{ $board->pincode }}</div>
+
+                <div class="bnavlink floatright">{{ $board->pincode }}</div> <div class="bnavlink2 Controlpannel floatright">Board's<br>password:</div>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@
         @endif
 
 
-        @include('comments::display', ['boardname' => 'page1'])
+        @include('comments::display', ['id' => 'page1'])
     </div>
 </div>
 

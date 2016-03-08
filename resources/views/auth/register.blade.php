@@ -5,8 +5,8 @@
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default panelmargin">
-				<div class="panel-heading">Register</div>
-				<div class="panel-body">
+				<div class="panel-heading"><p>Register</p></div>
+				<p class="">
 					@if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -20,7 +20,7 @@
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
 						{!! csrf_field() !!}
-						<div class="h4">REMEMBER: Your Alias and Email are private from other users.</div>
+						<p>Dont worry your Alias and Email are private from other users.</p>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Alias</label>
 							<div class="col-md-6">

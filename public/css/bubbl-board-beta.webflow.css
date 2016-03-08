@@ -402,6 +402,10 @@ text-decoration: none;
   box-shadow: #b59143 0px 0px 0px 2px inset;
 }
 
+.floatright {
+  float: right;
+}
+
 .reveal-if-active {
   opacity: 0;
   max-height: 0;

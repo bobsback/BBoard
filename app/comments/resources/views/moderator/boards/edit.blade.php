@@ -31,12 +31,6 @@
         <input name="_method" type="hidden" value="PUT">
 
         <div class="form-group">
-            {!! Form::label('boardname', 'Board Name', ['class' => '']) !!}
-
-            {!! Form::text('boardname', $board->boardname, ['class' => 'form-control']) !!}
-        </div>
-
-        <div class="form-group">
             {!! Form::label('boardblurb', 'Board Blurb', ['class' => 'w-form-label checkboxtext']) !!} <br>
 
             {!! Form::textarea('boardblurb', $board->boardblurb, ['class' => 'h100']) !!}

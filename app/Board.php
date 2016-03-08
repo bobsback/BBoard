@@ -20,6 +20,8 @@ class Board extends Eloquent
         'boardname', 'boardblurb', 'pincode', 'admin'
     ];
 
+    protected $hidden = ['pincode', 'admin', 'id'];
+
     /**
      * Users relationship.
      *
