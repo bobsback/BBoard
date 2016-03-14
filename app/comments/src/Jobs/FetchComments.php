@@ -14,10 +14,9 @@ namespace Hazzard\Comments\Jobs;
 use Hazzard\Comments\Author\Author;
 use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Comments\Paginator;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Hazzard\Comments\Events\CommentsWereFetched;
 
-class FetchComments extends Job implements SelfHandling
+class FetchComments extends Job implements 
 {
     const SORT_NEWEST = 1;
     const SORT_OLDEST = 2;

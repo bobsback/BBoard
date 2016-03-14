@@ -14,11 +14,10 @@ namespace Hazzard\Comments\Jobs;
 use Hazzard\Comments\Author\Author;
 use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Comments\Moderator;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Hazzard\Comments\Events\CommentWasPosted;
 use Hazzard\Comments\Events\CommentWillBeSaved;
 
-class PostComment extends Job implements SelfHandling
+class PostComment extends Job implements 
 {
     /**
      * @var array

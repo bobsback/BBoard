@@ -4,14 +4,13 @@ namespace Hazzard\Comments\Jobs;
 
 use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Comments\Paginator;
-use Illuminate\Contracts\Bus\SelfHandling;
 
 /**
  * Class FetchCommentsModerator
  *
  * @package Hazzard\Comments\Jobs
  */
-class FetchCommentsModerator extends Job implements SelfHandling
+class FetchCommentsModerator extends Job implements 
 {
 
     /**
