@@ -12,11 +12,10 @@
 namespace Hazzard\Comments\Jobs;
 
 use Hazzard\Comments\Comments\Comment;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Hazzard\Comments\Events\CommentWasDeleted;
 use Hazzard\Comments\Events\CommentWillBeDeleted;
 
-class BulkCommentUpdate extends Job implements SelfHandling
+class BulkCommentUpdate extends Job implements
 {
     /**
      * @var array

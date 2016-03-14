@@ -41,5 +41,4 @@ class CheckIfBoardSaved
 
         return $next($request);
     }
-
 }

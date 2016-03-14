@@ -25,7 +25,8 @@ trait ThrottlesPosts
     {
         return $this->rateLimiter->tooManyAttempts(
             $this->getKey($request),
-            $this->maxPostAttempts(), $this->lockoutTime() / 60
+            $this->maxPostAttempts(),
+            $this->lockoutTime() / 60
         );
     }
 
