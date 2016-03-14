@@ -33,5 +33,4 @@ class Moderator
 
         return $next($request);
     }
-
 }

@@ -13,9 +13,9 @@
 
 /*binding*/
 
-Route::bind('boardname',function ($slug)
-{
-    return App\Board::where('boardname',$slug)->first();
+Route::bind('boardname', function ($slug) {
+
+    return App\Board::where('boardname', $slug)->first();
 
 });
 
@@ -49,11 +49,11 @@ post('board/access-via-pincode', ['as' => 'board.access-via-pincode', 'uses' => 
 
 get('board/{boardname}/save', ['as' => 'board.save', 'uses' => 'BoardController@save']);
 
-Route::post('build','BoardController@store');
+Route::post('build', 'BoardController@store');
 
 /*Route delete board. Note: currently not working :(*/
 
-$router->resource('board','BoardController', [
+$router->resource('board', 'BoardController', [
    'only'=>['destroy']
 
 ]);
@@ -70,16 +70,20 @@ Route::get('/enter', function () {
 });
 
 /*contact form*/
-Route::get('contact',
-    ['as' => 'contact', 'uses' => 'AboutController@create']);
-Route::post('contact',
-    ['as' => 'contact_store', 'uses' => 'AboutController@store']);
+Route::get(
+    'contact',
+    ['as' => 'contact', 'uses' => 'AboutController@create']
+);
+Route::post(
+    'contact',
+    ['as' => 'contact_store', 'uses' => 'AboutController@store']
+);
 /*Refer your boss*/
 Route::post('referboss', ['as' => 'referboss', 'uses' => 'ReferController@store']);
 
 /* board api non dingo */
 
-Route::group(['prefix' => 'api/v1'], function(){
+Route::group(['prefix' => 'api/v1'], function () {
     Route::resource('boardapi', 'BoardAPIController');
 });
 

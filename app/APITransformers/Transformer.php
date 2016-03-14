@@ -8,7 +8,6 @@
 
 namespace Trans;
 
-
 abstract class Transformer
 {
 

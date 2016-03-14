@@ -51,7 +51,7 @@ class CommentsServiceProvider extends ServiceProvider
            __DIR__.'/../public/css' => public_path('vendor/comments/css'),
            __DIR__.'/../public/js'  => public_path('vendor/comments/js'),
            __DIR__.'/../public/img' => public_path('vendor/comments/img'),
-       ], 'public');
+        ], 'public');
     }
 
     /**
@@ -85,7 +85,7 @@ class CommentsServiceProvider extends ServiceProvider
             $config = $app['comments.settings']->config();
 
             if (! isset($config['comments.user_model'])) {
-               $app['config']['comments.user_model'] = $this->getUserModel();
+                $app['config']['comments.user_model'] = $this->getUserModel();
             }
 
             $app['config']['comments.captcha_required'] = $this->captchaRequired();
@@ -166,7 +166,9 @@ class CommentsServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Settings::class, function ($app) {
             $settings = new Settings(
-                $app['db']->connection(), $app['config'], $app['cache.store']
+                $app['db']->connection(),
+                $app['config'],
+                $app['cache.store']
             );
 
             $settings->load();
@@ -187,7 +189,7 @@ class CommentsServiceProvider extends ServiceProvider
         $this->app['events']->listen(CommentWasPosted::class, SendCommentNotification::class);
 
         if ($this->app['config']['comments.real_time']) {
-            $this->app['events']->listen(CommentWasPosted::class, function(CommentWasPosted $event) {
+            $this->app['events']->listen(CommentWasPosted::class, function (CommentWasPosted $event) {
                 if ($event->comment->status == Comment::APPROVED) {
                     $this->app['events']->fire(new BroadcastCommentWasPosted($event->comment));
                 }

@@ -51,5 +51,4 @@ class Board extends Eloquent
     {
         return $this->hasMany('App\BoardBan');
     }
-
 }

@@ -110,5 +110,4 @@ class BoardsCommentsController extends BaseDashboardController
 
         return \Response::json(null, 204);
     }
-
 }
