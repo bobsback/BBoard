@@ -179,5 +179,4 @@ class BoardController extends Controller
     {
         session()->set('board.' . $boardId . '.authorized', true);
     }
-
 }

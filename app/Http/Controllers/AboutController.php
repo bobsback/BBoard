@@ -15,22 +15,25 @@ class AboutController extends Controller
         return view('about.contact');
     }
 
-public function store(ContactFormRequest $request)
-{
+    public function store(ContactFormRequest $request)
+    {
 
-    \Mail::send('emails.contact',
-        array(
+        \Mail::send(
+            'emails.contact',
+            array(
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'user_message' => $request->get('message')
-        ), function($message)
-        {
-            $message->from('robseger92@gmail.com');
-            $message->to('robseger92@gmail.com', 'Admin')->subject('BB Contact Form');
-        });
+            ),
+            function ($message) {
+        
+                $message->from('robseger92@gmail.com');
+                $message->to('robseger92@gmail.com', 'Admin')->subject('BB Contact Form');
+            }
+        );
 
-    return view('about')
+        return view('about')
         ->with('message', 'Thanks for contacting us!');
 
-}
+    }
 }

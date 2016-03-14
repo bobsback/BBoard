@@ -35,5 +35,4 @@ class BaseDashboardController extends Controller
 
         return $this->getValidationFactory()->make($input, $rules);
     }
-
 }
