@@ -16,7 +16,7 @@ use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Comments\Paginator;
 use Hazzard\Comments\Events\CommentsWereFetched;
 
-class FetchComments extends Job implements 
+class FetchComments extends Job implements
 {
     const SORT_NEWEST = 1;
     const SORT_OLDEST = 2;

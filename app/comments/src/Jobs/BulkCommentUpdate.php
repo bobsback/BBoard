@@ -15,7 +15,7 @@ use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Events\CommentWasDeleted;
 use Hazzard\Comments\Events\CommentWillBeDeleted;
 
-class BulkCommentUpdate extends Job implements 
+class BulkCommentUpdate extends Job implements
 {
     /**
      * @var array

@@ -15,7 +15,7 @@ use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Comments\Paginator;
 use Hazzard\Comments\Events\CommentsWereFetched;
 
-class FetchCommentsAdmin extends Job implements 
+class FetchCommentsAdmin extends Job implements
 {
     /**
      * @var array
