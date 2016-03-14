@@ -10,7 +10,7 @@ use Hazzard\Comments\Comments\Paginator;
  *
  * @package Hazzard\Comments\Jobs
  */
-class FetchCommentsModerator extends Job implements 
+class FetchCommentsModerator extends Job implements
 {
 
     /**

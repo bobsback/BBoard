@@ -17,7 +17,7 @@ use Hazzard\Comments\Comments\Moderator;
 use Hazzard\Comments\Events\CommentWasPosted;
 use Hazzard\Comments\Events\CommentWillBeSaved;
 
-class PostComment extends Job implements 
+class PostComment extends Job implements
 {
     /**
      * @var array

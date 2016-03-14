@@ -18,7 +18,7 @@ use Hazzard\Comments\Comments\Moderator;
 use Hazzard\Comments\Events\CommentWasUpdated;
 use Hazzard\Comments\Events\CommentWillBeSaved;
 
-class UpdateComment extends Job implements 
+class UpdateComment extends Job implements
 {
     /**
      * @var \Hazzard\Comments\Comments\Comment

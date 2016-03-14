@@ -15,7 +15,7 @@ use Hazzard\Comments\Author\Author;
 use Hazzard\Comments\Comments\Vote;
 use Hazzard\Comments\Comments\Comment;
 
-class VoteComment extends Job implements 
+class VoteComment extends Job implements
 {
     /**
      * @var \Hazzard\Comments\Comments\Comment

@@ -15,7 +15,7 @@ use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Events\CommentWasDeleted;
 use Hazzard\Comments\Events\CommentWillBeDeleted;
 
-class DeleteComment extends Job implements 
+class DeleteComment extends Job implements
 {
     /**
      * @var int
