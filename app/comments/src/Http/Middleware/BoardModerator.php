@@ -33,5 +33,4 @@ class BoardModerator
 
         return $next($request);
     }
-
 }

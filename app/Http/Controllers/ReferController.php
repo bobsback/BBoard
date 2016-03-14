@@ -12,14 +12,17 @@ class ReferController extends Controller
 {
     public function store(referRequest $request)
     {
-        \Mail::send('emails.refer',
+        \Mail::send(
+            'emails.refer',
             array(
                 'email' => $request->get('email'),
-            ), function($message)
-            {
+            ),
+            function ($message) {
+            
                 $message->from('robseger92@gmail.com');
                 $message->to('robseger92@gmail.com', 'Admin')->subject('This person wants to be refered');
-            });
+            }
+        );
 
         return \Redirect::route('/')
             ->with('message', 'Thanks for refering someone!');

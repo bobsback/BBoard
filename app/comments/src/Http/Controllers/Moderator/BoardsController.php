@@ -58,5 +58,4 @@ class BoardsController extends BaseDashboardController
 
         return redirect()->route('moderator.boards.index');
     }
-
 }

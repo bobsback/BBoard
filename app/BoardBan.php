@@ -29,5 +29,4 @@ class BoardBan extends Eloquent
     {
         return $this->belongsTo('App\Board');
     }
-
 }

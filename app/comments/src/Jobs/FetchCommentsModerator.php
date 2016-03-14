@@ -106,5 +106,4 @@ class FetchCommentsModerator extends Job implements SelfHandling
 
         return $query->getQuery()->lists('aggregate', 'status');
     }
-
 }

@@ -21,5 +21,4 @@ class AppViewComposer
     {
         $view->with('user', \Auth::user());
     }
-
 }

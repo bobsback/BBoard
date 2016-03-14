@@ -64,5 +64,4 @@ class BoardsBansController extends BaseDashboardController
 
         $boardBan->delete();
     }
-
 }

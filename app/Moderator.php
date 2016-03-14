@@ -57,5 +57,4 @@ class Moderator extends Eloquent
 
         return $moderator;
     }
-
 }

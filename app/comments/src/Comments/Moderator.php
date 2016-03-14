@@ -78,7 +78,9 @@ class Moderator
         $keys = $this->config[$type];
 
         foreach ($keys as $key) {
-            if (empty($key)) continue;
+            if (empty($key)) {
+                continue;
+            }
 
             if (is_array($data)) {
                 foreach ($data as $field) {
