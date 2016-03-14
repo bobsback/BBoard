@@ -13,10 +13,9 @@ namespace Hazzard\Comments\Jobs;
 
 use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Comments\Paginator;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Hazzard\Comments\Events\CommentsWereFetched;
 
-class FetchCommentsAdmin extends Job implements SelfHandling
+class FetchCommentsAdmin extends Job implements 
 {
     /**
      * @var array

@@ -15,11 +15,10 @@ use Illuminate\Support\Arr;
 use Hazzard\Comments\Author\Author;
 use Hazzard\Comments\Comments\Comment;
 use Hazzard\Comments\Comments\Moderator;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Hazzard\Comments\Events\CommentWasUpdated;
 use Hazzard\Comments\Events\CommentWillBeSaved;
 
-class UpdateComment extends Job implements SelfHandling
+class UpdateComment extends Job implements 
 {
     /**
      * @var \Hazzard\Comments\Comments\Comment
