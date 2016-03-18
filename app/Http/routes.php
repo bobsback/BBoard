@@ -55,7 +55,6 @@ Route::post('build','BoardController@store');
 
 $router->resource('board','BoardController', [
    'only'=>['destroy']
-
 ]);
 
 /*Routes Home to Board. Note: Need to look at auth middleware to reroute to Board or redirect to previous page*/
@@ -81,13 +80,4 @@ Route::post('referboss', ['as' => 'referboss', 'uses' => 'ReferController@store'
 
 Route::group(['prefix' => 'api/v1'], function(){
     Route::resource('boardapi', 'BoardAPIController');
-});
-
-/* board api dingo */
-$api = app('Dingo\Api\Routing\Router');
-$api->version('v1', function ($api) {
-    $api->get('boardapi', 'App\Http\Controllers\BoardAPIController@index');
-});
-$api->version('v1', function ($api) {
-    $api->post('boardaccessapi', 'App\Http\Controllers\BoardAPIController@accessViaPincode');
 });
