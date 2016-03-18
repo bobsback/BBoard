@@ -79,5 +79,6 @@ Route::post('referboss', ['as' => 'referboss', 'uses' => 'ReferController@store'
 /* board api non dingo */
 
 Route::group(['prefix' => 'api/v1'], function(){
-    Route::resource('boardapi', 'BoardAPIController');
+    Route::controller('auth', 'Api\AuthController');
+    Route::resource('boards', 'Api\BoardController');
 });
