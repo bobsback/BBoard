@@ -20,7 +20,7 @@ class Board extends Eloquent
         'boardname', 'boardblurb', 'pincode', 'admin'
     ];
 
-    protected $hidden = ['pincode', 'admin', 'id'];
+    protected $hidden = ['pincode', 'admin'];
 
     /**
      * Users relationship.
@@ -52,4 +52,18 @@ class Board extends Eloquent
         return $this->hasMany('App\BoardBan');
     }
 
+    /**
+     * Fetch boards for specific user
+     *
+     * @param $query
+     * @param $user
+     * @return \Illuminate\Database\Query\Builder
+     */
+    public function scopeForUser($query, $user)
+    {
+        return $query->whereHas('users', function($query) use ($user)
+        {
+            $query->where('id', $user->id);
+        });
+    }
 }

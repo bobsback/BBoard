@@ -113,7 +113,6 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
-        Dingo\Api\Provider\LaravelServiceProvider::class,
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -137,10 +136,12 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+
         Bestmomo\Scafold\ScafoldServiceProvider::class,
         Illuminate\Html\HtmlServiceProvider::class,
         Hazzard\Comments\CommentsServiceProvider::class,
         Marwelln\Recaptcha\RecaptchaServiceProvider::class,
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -199,9 +200,14 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Form' => Illuminate\Html\FormFacade::class,
-        'HTML'=> Illuminate\Html\HtmlFacade::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
+        'HTML'      => Illuminate\Html\HtmlFacade::class,
 
+        /**
+         * Custom facades
+         */
+        'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory'=> Tymon\JWTAuth\Facades\JWTFactory::class,
     ],
 
 ];
