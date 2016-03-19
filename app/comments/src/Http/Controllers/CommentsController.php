@@ -64,7 +64,7 @@ class CommentsController extends Controller
         $this->lockoutTime = $this->config['throttle_lockout_time'];
 
         $this->middleware('auth', ['only' => ['update']]);
-        $this->middleware(AuthorMiddleware::class, ['only' => 'store']);
+        $this->middleware('auth.pin', ['only' => ['store']]);
     }
 
     /**
