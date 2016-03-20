@@ -69,17 +69,14 @@ Route::get('/enter', function () {
 });
 
 /*contact form*/
-Route::get('contact',
-    ['as' => 'contact', 'uses' => 'AboutController@create']);
-Route::post('contact',
-    ['as' => 'contact_store', 'uses' => 'AboutController@store']);
+Route::get('contact', ['as' => 'contact', 'uses' => 'AboutController@create']);
+Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@store']);
 /*Refer your boss*/
 Route::post('referboss', ['as' => 'referboss', 'uses' => 'ReferController@store']);
 
-/* board api non dingo */
-
 Route::group(['prefix' => 'api/v1'], function(){
-    Route::post('boards/pincode', 'Api\BoardController@accessViaPincode');
     Route::controller('auth', 'Api\AuthController');
+
+    Route::post('boards/pincode', 'Api\BoardController@accessViaPincode');
     Route::resource('boards', 'Api\BoardController');
 });

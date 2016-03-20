@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Board;
 use App\Moderator;
 use App\Http\Requests;
+use App\Services\AuthPinService;
 use Illuminate\Http\Request;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\CheckIfBanned;
@@ -119,16 +120,18 @@ class BoardController extends Controller
 
     /**
      * Access via pincode.
-     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Services\AuthPinService $service
+     * @return $this|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function accessViaPincode(Request $request)
+    public function accessViaPincode(Request $request, AuthPinService $service)
     {
-        if (!($board = Board::where('pincode', '=', $request->input('pincode'))->first())) {
-
+        if (! $board = Board::where('pincode', '=', $request->input('pincode'))->first()) {
             return redirect('/')->withErrors(['The board pin code you entered does not match any currently in use :(', 'The Message']);
         }
 
         $this->setAuthorizedBoardSession($board->id);
+        $service->login($board);
 
         return redirect('board/' . $board->boardname);
     }
