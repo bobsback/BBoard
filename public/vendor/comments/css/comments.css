@@ -446,6 +446,9 @@ li.comment {
 }
 .flr{
   float: right;
+  background-color: rgba(255, 0, 0, 0.15);
+  padding: 3px;
+  border: 2px solid #49ba56;
 }
 
 .comment-body .glyphicon {

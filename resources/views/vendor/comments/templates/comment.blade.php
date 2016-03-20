@@ -88,7 +88,7 @@
                     </a>
 
                     <a class="delete-comment" href="#" data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}">
-                        Delete Permanently
+                        Delete
                     </a>
                 @endif</div>
             </footer>
