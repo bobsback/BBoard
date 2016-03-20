@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="/vendor/comments/css/comments.css">
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
-    {!! HTML::style('css/normalize.css') !!}
-    {!! HTML::style('css/webflow.css') !!}
-    {!! HTML::style('css/bubbl-board-beta.webflow.css') !!}
+    {!! Html::style('css/normalize.css') !!}
+    {!! Html::style('css/webflow.css') !!}
+    {!! Html::style('css/bubbl-board-beta.webflow.css') !!}
 
             <!-- Fonts -->
     <link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
@@ -34,7 +34,7 @@
     <div class="w-col w-col-2 colpagechat">
         <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" data-no-scroll="1" class="w-nav lefttayto">
             <div class="w-container">
-                <a href="{{ url('/') }}" class="w-nav-brand brand">{!! HTML::image('images/bboard logo v1 white.png', 'Logo', array('width' => 199, 'class' => 'logo3'))!!}
+                <a href="{{ url('/') }}" class="w-nav-brand brand">{!! Html::image('images/bboard logo v1 white.png', 'Logo', array('width' => 199, 'class' => 'logo3'))!!}
                 </a>
                 <h5>Go beyond feedback</h5>
             </div>
@@ -139,13 +139,9 @@
                 <div class="bnavlink floatright">{{ $board->pincode }}</div> <div class="bnavlink2 Controlpannel floatright">Board's<br>password:</div>
                 </div>
             </div>
-
-
             </div>
         @endif
-
-
-        @include('comments::display', ['id' => 'page1'])
+        @include('comments::display', ['pageId' => $board->id])
     </div>
 </div>
 
