@@ -74,9 +74,11 @@ Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@stor
 /*Refer your boss*/
 Route::post('referboss', ['as' => 'referboss', 'uses' => 'ReferController@store']);
 
-Route::group(['prefix' => 'api/v1'], function(){
-    Route::controller('auth', 'Api\AuthController');
+Route::controller('invites', 'InviteController');
 
+Route::group(['prefix' => 'api/v1'], function(){
     Route::post('boards/pincode', 'Api\BoardController@accessViaPincode');
+
+    Route::controller('auth', 'Api\AuthController');
     Route::resource('boards', 'Api\BoardController');
 });
