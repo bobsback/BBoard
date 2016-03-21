@@ -2,6 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Invite;
+use App\Services\AuthPinService;
+use Auth;
 use Closure;
 
 /**
@@ -11,6 +14,20 @@ use Closure;
  */
 class CheckIfBoardSaved
 {
+    /**
+     * @var \App\Services\AuthPinService
+     */
+    private $authPinService;
+
+    /**
+     * CheckIfBoardSaved constructor.
+     *
+     * @param \App\Services\AuthPinService $authPinService
+     */
+    public function __construct(AuthPinService $authPinService)
+    {
+        $this->authPinService = $authPinService;
+    }
 
     /**
      * Handle an incoming request.
@@ -21,11 +38,21 @@ class CheckIfBoardSaved
      */
     public function handle($request, Closure $next)
     {
+        if($request->has('access_key') && $invite = Invite::whereAccessKey($request->get('access_key'))->first())
+        {
+            if($invite->pincode === $invite->board->pincode)
+            {
+                $this->authPinService->login($invite->board);
+
+                return redirect()->to('board/' . $invite->board->boardname);
+            }
+        }
+
         $redirect = false;
 
-        $storedInSession = session('board.' . $request->boardname->id . '.authorized');
+        $storedInSession = $this->authPinService->check($request->boardname);
 
-        if (!($user = \Auth::user())) {
+        if (!($user = Auth::user())) {
             if (!$storedInSession) {
                 $redirect = true;
             }
