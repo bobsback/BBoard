@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Invite;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Invite::saving(function($invite)
+        {
+            $invite->access_key = str_random(60);
+        });
     }
 
     /**
