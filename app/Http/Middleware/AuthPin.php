@@ -55,8 +55,8 @@ class AuthPin
      */
     private function getBoard()
     {
-        if($this->request->has('page_id') &&  preg_match('/'. $this->getUrl() .'\/(\w+)/', $this->request->get('page_id'), $matches) === 1)
-            return Board::where('boardname', $matches[1])->firstOrFail();
+        if($this->request->has('page_id'))
+            return Board::whereId($this->request->get('page_id'))->firstOrFail();
 
         if(preg_match('/'. $this->getUrl() .'\/(\w+)/', $this->request->fullUrl(), $matches) === 1)
             return Board::where('boardname', $matches[1])->firstOrFail();
