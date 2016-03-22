@@ -21,8 +21,8 @@
         </li>
     </ol>
 
-    <h2>
-        Edit {{ $board->boardname }}
+    <h2 class="page-subheader">
+        Edit {{ $board->boardname }} details
     </h2>
 
     <form action="{{ URL::route('moderator.boards.update', $board->id) }}" method="POST">
@@ -31,13 +31,13 @@
         <input name="_method" type="hidden" value="PUT">
 
         <div class="form-group">
-            {!! Form::label('boardblurb', 'Board Blurb', ['class' => 'w-form-label checkboxtext']) !!} <br>
+            {!! Form::label('boardblurb', 'Change the Board Blurb:', ['class' => 'w-form-label checkboxtext']) !!} <br>
 
             {!! Form::textarea('boardblurb', $board->boardblurb, ['class' => 'h100']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('pincode', 'Pincode', ['class' => 'w-form-label checkboxtext']) !!}
+            {!! Form::label('pincode', 'Change the boards passkey:', ['class' => 'w-form-label checkboxtext']) !!}
 
             {!! Form::text('pincode', $board->pincode, ['class' => 'form-control']) !!}
         </div>

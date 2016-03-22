@@ -33,7 +33,7 @@
                                     </a>
                         </td>
                         <td>
-                            <a class="btn btn-info" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                            <a class="btn btn-info" href="{{ URL::route('boards.invites', $board->id) }}">
                                 Invite Users
                             </a>
                             <a class="btn btn-primary" href="{{ URL::route('moderator.boards.edit', $board->id) }}">

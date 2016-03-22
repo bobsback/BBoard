@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'rob@bubbleboard.co.uk', 'name' => 'some'],
+    'from' => ['address' => 'from@example.com', 'name' => 'Example'],
 
     /*
     |--------------------------------------------------------------------------

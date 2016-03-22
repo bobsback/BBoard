@@ -6,6 +6,7 @@ body {
 }
 a {
   text-decoration: none;
+  color:#4aba56;
 }
 a:hover,
 a:focus {
@@ -197,11 +198,21 @@ code,
   margin-bottom: 20px;
 }
 .page-header {
-  margin: 0px 0 20px;
+color: #49ba56;
+  font-size: 44px;
+  font-weight: 400;
 }
+
 .page-header .close {
   float: none;
 }
+
+.page-subheader {
+  color: #49ba56;
+  font-size: 30px;
+  font-weight: 400;
+}
+
 .navbar-top .glyphicon {
   margin-bottom: 3px;
   vertical-align: middle;

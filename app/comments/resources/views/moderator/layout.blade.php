@@ -12,11 +12,13 @@
     @include('comments::moderator.partials.navbar')
 
     <div class="container">
-        <div id="admin" class="col-md-11 col-md-offset-1">
-            <h3 class="page-header">
-                @yield('title')
-            </h3>
+        <h3 class="page-header col-md-11 col-md-offset-1">
+            @yield('title')
+        </h3>
+    </div>
 
+    <div class="container">
+        <div id="admin" class="col-md-11 col-md-offset-1">
             @yield('content')
         </div>
     </div>

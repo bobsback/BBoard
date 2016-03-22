@@ -43,6 +43,10 @@ Route::group(['namespace' => 'Hazzard\Comments\Http\Controllers'], function ($ro
 
         $router->resource('boards.bans', 'Moderator\BoardsBansController', ['only' => ['index', 'store', 'destroy']]);
     });
+    $router->get('invites', [
+        'as' => 'boards.invites',
+        'uses' => 'Moderator\BoardsController@invites',
+    ]);
 
     // Comments routes.
 

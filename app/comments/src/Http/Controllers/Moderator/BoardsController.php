@@ -59,4 +59,11 @@ class BoardsController extends BaseDashboardController
         return redirect()->route('moderator.boards.index');
     }
 
+    public function invites(Request $request)
+    {
+        $boards = \Auth::user()->moderator->boards;
+
+        return view('comments::moderator.boards.invite')->with(compact('boards'));
+    }
+
 }
