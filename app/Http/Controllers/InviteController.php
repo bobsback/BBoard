@@ -38,6 +38,9 @@ class InviteController extends Controller
             $message->from('noreply@bubbleboard.com', 'Bubble Board Inc.');
         });
 
-        return response()->json($invite, 201);
+        if($request->ajax())
+            return response()->json($invite, 201);
+
+        return redirect()->back()->with('success', 'Invite was sent successfully');
     }
 }
