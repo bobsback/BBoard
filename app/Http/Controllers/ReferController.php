@@ -2,27 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\referRequest;
+use Mail;
 
 class ReferController extends Controller
 {
     public function store(referRequest $request)
     {
-        \Mail::send('emails.refer',
-            array(
-                'email' => $request->get('email'),
-            ), function($message)
-            {
-                $message->from('robseger92@gmail.com');
-                $message->to('robseger92@gmail.com', 'Admin')->subject('This person wants to be refered');
-            });
+        $email = $request->get('email');
 
-        return \Redirect::route('/')
-            ->with('message', 'Thanks for refering someone!');
+        Mail::queue('emails.refer', ['email' => $email], function($message) use ($email)
+        {
+            $message->subject('test');
+            $message->from('noreply@bubbleboard.com');
+            $message->to($email);
+        });
 
+        return redirect()->to('/')->with('message', 'Thanks for refering someone!');
     }
 }

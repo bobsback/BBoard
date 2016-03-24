@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Tymon\JWTAuth\Exceptions\JWTException;
+use Tymon\JWTAuth\Exceptions\TokenInvalidException;
 
 class Handler extends ExceptionHandler
 {
@@ -42,6 +44,25 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if($request->ajax())
+        {
+            switch(true)
+            {
+                case $e instanceof ModelNotFoundException:
+                case $e instanceof NotFoundHttpException:
+                    return response()->json(['message' => 'Resource not found'], 404);
+
+                case $e instanceof TokenInvalidException:
+                    return response()->json(['message' => 'Invalid token'], 400);
+
+                case $e instanceof JWTException:
+                    return response()->json(['message' => 'Unauthorized'], 401);
+
+                default:
+                    return parent::render($request, $e);
+            }
+        }
+
         if ($e instanceof ModelNotFoundException) {
             $e = new NotFoundHttpException($e->getMessage(), $e);
         }
