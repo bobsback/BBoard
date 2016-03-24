@@ -39,7 +39,7 @@ class FetchCommentsModerator extends Job implements SelfHandling
         $query = Comment::orderBy('created_at', 'DESC')
             ->loadUser()
             ->with('parent.user')
-            ->where('page_id', 'LIKE', '%' . rawurlencode($this->args['board']->boardname) . '%');
+            ->where('page_id', '=', $this->args['board']->id);
 
         if ($this->args['status'] === 'all') {
             $query->where('status', Comment::APPROVED)->orWhere('status', Comment::PENDING);
