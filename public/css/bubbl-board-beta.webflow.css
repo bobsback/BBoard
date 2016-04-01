@@ -136,9 +136,10 @@ p {
 .bnavlink{
   display: inline-block;
   position: relative;
-  font-size: 22px;
-
-  font-weight: 300;
+  border: 2px none #49ba56;
+  border-radius: 14px;
+  font-size: 19px;
+  font-weight: 500;
   padding: 10px;
 }
 .rnav2{

@@ -237,6 +237,16 @@ color: #49ba56;
   color: #999;
   font-weight: 400;
 }
+.howtitle {
+  display: block;
+  margin-bottom: 12px;
+  padding-top: 7px;
+  padding-bottom: 0px;
+  border: 2px none #49ba56;
+  border-radius: 14px;
+  font-size: 19px;
+  font-weight: 500;
+}
 .mark {
   background-color: #fff;
 }

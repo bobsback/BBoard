@@ -14,7 +14,7 @@ class ReferController extends Controller
 
         Mail::queue('emails.refer', ['email' => $email], function($message) use ($email)
         {
-            $message->subject('test');
+            $message->subject('Someone just referred you to Bubble Board. omg exciting!');
             $message->from('noreply@bubbleboard.com');
             $message->to($email);
         });

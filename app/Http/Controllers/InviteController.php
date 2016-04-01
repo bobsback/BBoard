@@ -32,7 +32,7 @@ class InviteController extends Controller
 
         Mail::queue('emails.invite', ['data' => $invite->toArray()], function($message) use ($invite)
         {
-            $message->subject('Invite to bubble boad');
+            $message->subject('Invite to bubble board');
 
             $message->to($invite->email);
             $message->from('noreply@bubbleboard.com', 'Bubble Board Inc.');

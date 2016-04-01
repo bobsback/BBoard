@@ -36,13 +36,13 @@
 
                             <input id="PincodeCheckbox" type="checkbox" name="Email-10" data-name="Email 10"  class="w-checkbox-input checkbox" checked>
 
-                            <label for="PincodeCheckbox" class="w-form-label checkboxtext">Password</label>
+                            <label for="PincodeCheckbox" class="w-form-label checkboxtext">Passkey</label>
                             <dfn data-info="People simply enter your board's password to gain access to it. It must be 2 - 50 characters and unique.">?</dfn>
 
                             <div class="reveal-if-active">
-                                <label class="boardname" for="board-6">Set your boards password:</label>
+                                <label class="boardname" for="board-6">Set your boards passkey:</label>
 
-                                <input id="board-6" value="{{ old('pincode') }}" data-require-pair="#PincodeCheckbox" type="text" placeholder="Enter an awesome password" name="pincode" data-name="Board 6" class="require-if-active w-input board-name{{$errors->has('boardname')?'red has-error':''}}">
+                                <input id="board-6" value="{{ old('pincode') }}" data-require-pair="#PincodeCheckbox" type="text" placeholder="Enter an awesome passkey" name="pincode" data-name="Board 6" class="require-if-active w-input board-name{{$errors->has('boardname')?'red has-error':''}}">
                                 {!! $errors->first('pincode','<span class="help-block">:message</span>') !!}
                             </div>
 

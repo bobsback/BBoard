@@ -34,12 +34,12 @@
                     <span class="word midnight">feedback.</span>
                 </div>
             </div>
-            <div data-ix="slowload" class="findaboartd">Join a board by entering its password:</div>
+            <div data-ix="slowload" class="findaboartd">Join a board by entering its passkey:</div>
             <div class="w-form sign-up-form">
                 <form name="wf-form-signup-form" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" class="w-clearfix">
                     {{ csrf_field() }}
 
-                    <input id="Board-Search" type="text" placeholder="Insert board pin code" name="pincode" data-name="Board Search" required="required" data-ix="load-from-left" class="w-input field">
+                    <input id="Board-Search" type="text" placeholder="Insert board passkey" name="pincode" data-name="Board Search" required="required" data-ix="load-from-left" class="w-input field">
                     <input type="submit" value="Find your board" data-wait="Please wait..." data-ix="load-from-right" class="w-button button">
                 </form>
                 @if($errors->any())
@@ -87,16 +87,16 @@
                     <div class="howdesc">Simply choose a board name and the board blurb.</div><img src="images/Board page v21.jpg">
                 </div>
                 <div data-ix="scrollin" class="w-col w-col-3 colum2">
-                    <div class="howtitle">2 Choose your bubble password</div>
-                    <div class="howdesc">People access your board using the bubble password. So just choose your password.&nbsp;</div><img width="108" src="images/pin code icon.png" class="pincodeicon">
+                    <div class="howtitle">2 Choose your bubble passkey</div>
+                    <div class="howdesc">People access your board using the bubble boards passkey.&nbsp;</div><img width="108" src="images/pin code icon.png" class="pincodeicon">
                 </div>
                 <div data-ix="scrollin-2" class="w-col w-col-3">
                     <div class="howtitle">3 Spread the word</div>
-                    <div class="howdesc">Hey presto you have your bubble board. Now distribute the password to the intended users, we have guides on the best ways to do this.</div><img width="85" src="images/shout icon.png" class="shouticopn">
+                    <div class="howdesc">Hey presto you have your bubble board. Now distribute the passkey to the intended users using links or just the passkey.</div><img width="85" src="images/shout icon.png" class="shouticopn">
                 </div>
                 <div data-ix="scrollin-2" class="w-col w-col-3">
                     <div class="howtitle">4 Watch the genius flow</div>
-                    <div class="howdesc">Sit back and watch the power of collective intelligence.</div><a href="{{ url('/Build') }}" class="w-button buildabb">Build a Bubble Board!</a>
+                    <div class="howdesc">Sit back and watch the power of collective discussion.</div><a href="{{ url('/Build') }}" class="w-button buildabb">Build a Bubble Board!</a>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@
                     <h2 class="pricetable">Free&nbsp;</h2>
                     <h4>Simple yet&nbsp;Brilliant</h4>
                     <div class="featureinfo">1&nbsp;Board</div>
-                    <div class="featureinfo">Pin&nbsp;Code&nbsp;Access</div>
+                    <div class="featureinfo">Passkey&nbsp;Access</div>
                     <div class="featureinfo">1&nbsp;Admin</div>
                     <div class="featureinfo">Basic&nbsp;User&nbsp;Tracking</div>
                     <div class="featureinfo">No&nbsp;pinned&nbsp;posts</div>
@@ -117,11 +117,11 @@
                 </div>
                 <div class="w-col w-col-4">
                     <div class="pricetable adv">
-                        <h2 class="pricetable">?Better</h2>
+                        <h2 class="pricetable">Better</h2>
                         <h4>Feature Packed</h4>
                         <div class="featureinfo">Unlimmited&nbsp;Subboards</div>
-                        <div class="featureinfo">Pin&nbsp;Code&nbsp;+&nbsp;Domain&nbsp;Access</div>
-                        <div class="featureinfo">Timed&nbsp;&amp;&nbsp;Permission based Pins</div>
+                        <div class="featureinfo">Passkey&nbsp;+&nbsp;Domain&nbsp;Access</div>
+                        <div class="featureinfo">Timed&nbsp;&amp;&nbsp;Permission based passkeys</div>
                         <div class="featureinfo">Unlimited&nbsp;Admins</div>
                         <div class="featureinfo">Advance&nbsp;User&nbsp;Tracking</div>
                         <div class="featureinfo">Pinned&nbsp;Posts</div>
@@ -131,7 +131,7 @@
                 <div class="w-col w-col-4">
                     <div class="pricetable adv">
                         <h2 class="pricetable">Enterprise</h2>
-                        <h4>?The&nbsp;Ultimate&nbsp;Tool</h4>
+                        <h4>The Ultimate Tool</h4>
                         <div class="featureinfo">Feature&nbsp;Info</div>
                         <div class="featureinfo">Active&nbsp;Directory&nbsp;Sync</div>
                         <div class="featureinfo">GPS&nbsp;Location&nbsp;Access</div>
@@ -139,7 +139,7 @@
                         <div class="featureinfo">Advance&nbsp;User&nbsp;Tracking</div>
                         <div class="featureinfo">Pulse&nbsp;Polls</div>
                         <div class="featureinfo">Advance&nbsp;Analytics</div>
-                        <div class="featureinfo final">?Image&nbsp;+&nbsp;Document&nbsp;uploads</div><a href="{{ url('/about') }}" class="w-button buildabb pricei">Register&nbsp;Interest</a>
+                        <div class="featureinfo final">Image&nbsp;+&nbsp;Document&nbsp;uploads</div><a href="{{ url('/about') }}" class="w-button buildabb pricei">Register&nbsp;Interest</a>
                     </div>
                 </div>
             </div>

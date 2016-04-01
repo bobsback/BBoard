@@ -147,7 +147,7 @@
                 <li>
                     <a class="cd-faq-trigger" href="#0">Feature Developement</a>
                     <div class="cd-faq-content"><p>
-                        We are looking to include a few more features; advance passwords that time out or have different levels of access, subboards, advance ways to join a board,
+                        We are looking to include a few more features; advance passkey that time out or have different levels of access, subboards, advance ways to join a board,
                         with more advance user analysis, discussion options and business to customer interactions.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
@@ -155,7 +155,7 @@
                 <li>
                     <a class="cd-faq-trigger" href="#0">How can people access a bubble board?</a>
                     <div class="cd-faq-content">
-                        <p>For the beta each boards password is unique, anyone with a board's password can access that board via the homepage or by visiting the boarsd url.</p>
+                        <p>For the beta each boards passkey is unique, anyone with a board's passkey can access that board via the homepage or by visiting the boarsd url.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
 
@@ -204,7 +204,7 @@
                 <li>
                     <a class="cd-faq-trigger" href="#0">How can people access my board?</a>
                     <div class="cd-faq-content">
-                        <p>It's very simple, they either enter the password on bubble boards homepage or visit the board url directly and then use the boards password.
+                        <p>It's very simple, they either enter the passkey on bubble boards homepage or visit the board url directly and then use the boards passkey.
                         </p>
                     </div> <!-- cd-faq-content -->
 
@@ -220,7 +220,7 @@
                 <li>
                     <a class="cd-faq-trigger" href="#0">How should I share my board with people?</a>
                     <div class="cd-faq-content">
-                        <p>All people need to enter your board is the password you set, so if you send them that they can access the board from the homepage, you can change the password at any time to prevent people from finding your board but the board will be saved for users who logged in and saved the board.</p>
+                        <p>All people need to enter your board is the passkey you set, so if you send them that they can access the board from the homepage, you can change the passkey at any time to prevent people from finding your board but the board will be saved for users who logged in and saved the board.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
             </ul> <!-- cd-faq-group -->
@@ -253,7 +253,7 @@
                 <div class="footerh1">This is the site footer</div><a href="{{ url('/') }}" class="footerlink">Find out about Bubble Board</a><a href="{{ url('/auth/login') }}" class="footerlink">Login - login into your board</a><a href="{{ url('/Build') }}" class="footerlink">Build a bubble board</a>
                 <div class="footerh1">Everything here is copyrighted etc etc.&nbsp;</div>
             </div>
-            <div class="w-col w-col-4">{!! HTML::image('images/appscomingsoon.png', 'Logo', array('width' => 150))!!}
+            <div class="w-col w-col-4">{!! Html::image('images/appscomingsoon.png', 'Logo', array('width' => 150))!!}
 
             </div>
         </div>

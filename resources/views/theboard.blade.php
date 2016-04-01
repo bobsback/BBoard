@@ -119,7 +119,7 @@
                 <a class="btn btn-primary greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
                     Manage Boards
                 </a>
-                <a class="btn btn-info" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                <a class="btn btn-info" href="{{ URL::route('boards.invites', $board->id) }}">
                     Invite Users
                 </a>
                 <a class="btn btn-primary" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
@@ -136,7 +136,7 @@
 
 
 
-                <div class="bnavlink floatright">{{ $board->pincode }}</div> <div class="bnavlink2 Controlpannel floatright">Board's<br>password:</div>
+                <div class="bnavlink floatright">{{ $board->pincode }}</div> <div class="bnavlink2 Controlpannel floatright">Passkey:</div>
                 </div>
             </div>
             </div>
