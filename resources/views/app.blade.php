@@ -9,12 +9,11 @@
 
 	<link rel="stylesheet" href="/vendor/comments/css/prism-okaidia.css"> <!-- Optional -->
 	<link rel="stylesheet" href="/vendor/comments/css/comments.css">
-    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
 
     {!! HTML::style('css/normalize.css') !!}
     {!! HTML::style('css/webflow.css') !!}
     {!! HTML::style('css/bubbl-board-beta.webflow.css') !!}
-
+    {!! Html::favicon('images/favicon.ico') !!}
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
