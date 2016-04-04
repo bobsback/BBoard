@@ -50,4 +50,11 @@
 
         {!! Form::submit('Update Board', ['class' => 'btn btn-primary']) !!}
     </form>
+    {!!Form::open(['method' =>'DELETE','route'=>['board.destroy',$board->boardname]])!!}
+
+
+    {!! Form::submit('Permanently Delete Board',['class'=> 'btn btn-danger']) !!}
+
+
+    {!! Form::close() !!}
 @stop

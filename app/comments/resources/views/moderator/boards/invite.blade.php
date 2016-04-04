@@ -40,7 +40,7 @@
                @foreach($boards as $board)
                    <tr>
                        <td>
-                   <div class="btn btn-success" href="{{ URL::to('board/' . $board->boardname) }}">{{ $board->boardname }}</div>
+                   <a class="btn btn-success" href="{{ URL::to('board/' . $board->boardname) }}">{{ $board->boardname }}</a>
 
                        </td>
                        <td><div class="howtitle">{{ $board->pincode }}</div>
@@ -55,16 +55,19 @@
             </table>
 
             The passkey can be entered on:<ol>
-            <li><a href="{{ URL::to('/') }}">bubbleboard.co 's homepage</a> </li>
-              <li>  the boards direct URL eg bubbleboard.co/board/YourBoardsName</li>
-               <li> Bubble Boards official apps (beta release may 2016)<br></li>
+            <li><a href="{{ URL::to('/') }}">Bubbleboard.co 's homepage</a> .</li>
+              <li>  The boards direct URL page eg bubbleboard.co/board/YourBoardsName.</li>
+               <li> Bubble Boards official mobile apps (beta release may 2016).<br></li>
             </p>
             </ol>
         </div>
 
         <div class="col-md-8">
             <h3>Use a Direct Link or Email</h3>
-            <p>In the email is a direct link to your board, the link includes your boards passkey so goes direct to the board. You can copy this link and use it anywhere, the link becomes null if a second is sent to the same email address or if the pincode is changed.   </p>
+            <p>By-pass the need for users to input the passkey by generating unique URL's (links to the board) via invite email. Each email
+                contains an invite to your Bubble Board with a unique link that expires if another invite is sent to the same address.
+                Test by sending yourself an invite (you can use that link on a website or social media).
+                 </p>
             @if(Session::has('success'))
                 <div class="alert alert-success">{{ Session::get('success') }}</div>
             @endif
