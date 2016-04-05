@@ -4,7 +4,7 @@
 <html data-wf-site="55ddf3cd589f44b96aee07cd" data-wf-page="55eee37bffeb9dfb4814f650">
 <head>
     <meta charset="utf-8">
-    <title>PIn required page</title>
+    <title>Passkey required page</title>
     <meta name="description" content="A discussion platform hidden behind a pin code for feedback, idea's and strategy discussion. Employees or customers can post and interact anonymously.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:description" content="A discussion platform hidden behind a pin code for feedback, idea's and strategy discussion. Employees or customers can post and interact anonymously to maximise honesty.">
@@ -48,17 +48,17 @@
         <div class="w-section bgounrdnoaccess">
             <div class="w-container noacesscont">
                 <div data-ix="load" class="divacess">
-                    <p>Yo, enter the bubble board password or <a class="loginlink" href="{{ url('/auth/login') }}">login </a>to access your boards!&nbsp;</p>
+                    <p>Yo, enter the bubble board passkey or <a class="loginlink" href="{{ url('/auth/login') }}">login </a>to access your boards!&nbsp;</p>
                     <div class="w-form formwrapper">
                         <form action="{{ URL::route('board.authorize.post', $board->boardname) }}" method="POST" class="w-clearfix">
                             {{ csrf_field() }}
 
                             <div class="form-group">
                                 <label>
-                                    Enter PIN Code
+                                    Enter Passkey Code
                                 </label>
 
-                                <input class="w-input pinentry" placeholder="Enter the pin" name="pincode" type="text">
+                                <input class="w-input pinentry" placeholder="Enter the Passkey" name="pincode" type="text">
                             </div>
 
                             <div class="form-group">
