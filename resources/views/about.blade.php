@@ -123,7 +123,7 @@
                 <li>
                     <a class="cd-faq-trigger" href="#0">Contact us</a>
                     <div class="cd-faq-content">
-                        Any feedback about bubble board use our bubble board password: 'bubble' at <a href="http://bubbleboard.dev/board/bubbleboard"> Bubbles Board</a> or contact us directly:
+                        Any feedback about bubble board use our bubble board password: 'bubble' at <a href="http://bubbleboard.co/board/bubbleboard"> Bubbles Board</a> or contact us directly:
                         <br>
                             @include ('about.contact')
                         <p>Or hit me up directly at rob@bubbleboard.co.uk</p>
@@ -139,7 +139,7 @@
                             feedback and communicate ideas (thought bubbles). We want to ultimately be
                             inspirational in facilitating positive change in businesses and organisation through the power of their
                             employees and customers. Why hire consultants to tell you whats wrong when all the answers are already in your grasp.
-                            At the moment we are currently testing our beta product and looking for customers.
+                            At the moment we are currently testing our beta product and looking for users.
                         <img width="147" src="images/face.jpg" class="myface">
                         <div class="imagesubhead">BB's brave leader (2010)</div></p>
                     </div> <!-- cd-faq-content -->
@@ -155,7 +155,7 @@
                 <li>
                     <a class="cd-faq-trigger" href="#0">How can people access a bubble board?</a>
                     <div class="cd-faq-content">
-                        <p>For the beta each boards passkey is unique, anyone with a board's passkey can access that board via the homepage or by visiting the boarsd url.</p>
+                        <p>For the beta each boards passkey is unique, anyone with a board's passkey can access that board via the homepage, by visiting the boarsd url or using a passkey link generated via email.</p>
                     </div> <!-- cd-faq-content -->
                 </li>
 

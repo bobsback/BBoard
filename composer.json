@@ -13,7 +13,9 @@
         "marwelln/recaptcha" : "~2.0",
         "pusher/pusher-php-server" : "~2.0",
         "guzzlehttp/guzzle": "~5.3|~6.0",
-        "tymon/jwt-auth": "^0.5.9"
+        "tymon/jwt-auth": "^0.5.9",
+        "sendgrid/sendgrid": "^4.0"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
