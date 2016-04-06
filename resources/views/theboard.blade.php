@@ -168,9 +168,9 @@
             var self = $(this);
 
             bootbox.confirm('You must be logged in to save a board', function(result) {
-                <!--if (result) {
+                if (result) {
                     location.href = self.attr('href');
-                }-->
+                }
             });
         });
     </script>

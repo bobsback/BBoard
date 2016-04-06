@@ -40,8 +40,10 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">This is a dang 404 error, something went and goofed, if something should be here hit me up.</div>
-        <a href="{{ url('/') }}" class="footerlink">Find out about Bubble Board</a><a href="{{ url('/auth/login') }}" class="footerlink">Login - login into your board</a><a href="{{ url('/Build') }}" class="footerlink">Build a bubble board</a>
+        <div class="title">This is a dang 404 error, something went and not worked, if something should be here hit me up.</div>
+        <a href="{{ url('/') }}" class="footerlink">Find out about Bubble Board</a><br>
+        <a href="{{ url('/auth/login') }}" class="footerlink">Login - login into your board</a><br>
+        <a href="{{ url('/Build') }}" class="footerlink">Build a bubble board</a><br>
 
         <div class="w-col w-col-4">{!! Html::image('images/appscomingsoon.png', 'Logo', array('width' => 150))!!}
     </div>
