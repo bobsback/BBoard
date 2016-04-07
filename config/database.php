@@ -91,7 +91,7 @@ return [
             'port'      => '13306',
             'database'  => 'bubbleboard',
             'username'  => 'bubbleboard',
-            'password'  => 'password',
+            'password'  => env('DB_PASSWORD', ''),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
