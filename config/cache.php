@@ -1,4 +1,24 @@
 <?php
+$servers = [[
+    'host' => env('MEMCACHED_HOST', '127.0.0.1'),
+    'port' => env('MEMCACHED_PORT', 11211),
+    'weight' => 100,
+]];
+if (isset($_SERVER['APP_SECRETS'])) {
+    $secrets = json_decode(file_get_contents($_SERVER['APP_SECRETS']), true);
+    $servers = [[
+        'host' => $secrets['MEMCACHE']['HOST1'],
+        'port' => $secrets['MEMCACHE']['PORT1'],
+        'weight' => 100
+    ]];
+    if ($secrets['MEMCACHE']['COUNT'] > 1) {
+        $servers []= [
+            'host' => $secrets['MEMCACHE']['HOST2'],
+            'port' => $secrets['MEMCACHE']['PORT2'],
+            'weight' => 100
+        ];
+    }
+}
 
 return [
 
@@ -49,11 +69,7 @@ return [
 
         'memcached' => [
             'driver'  => 'memcached',
-            'servers' => [
-                [
-                    'host' => '127.0.0.1', 'port' => 11211, 'weight' => 100,
-                ],
-            ],
+            'servers' => $servers
         ],
 
         'redis' => [

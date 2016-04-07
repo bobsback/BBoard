@@ -51,5 +51,11 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
-
+$app->configureMonologUsing(function($monolog) {
+    // chose the error_log handler
+    $handler = new \Monolog\Handler\ErrorLogHandler();
+    // time will already be logged -> change default format
+    $handler->setFormatter(new \Monolog\Formatter\LineFormatter('%channel%.%level_name%: %message% %context% %extra%'));
+    $monolog->pushHandler($handler);
+});
 return $app;
