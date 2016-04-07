@@ -1,5 +1,17 @@
 <?php
+// header was not provided
+if (empty($_SERVER['REMOTE_USER'])) {
+    header('WWW-Authenticate: Basic realm="My Realm"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo 'Need auth!';
+    exit;
+}
 
+// extract user and pw from encoded auth data
+list($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']) = explode(
+    ':',
+    base64_decode(substr($_SERVER['REMOTE_USER'], 6))
+);
 /*
 |--------------------------------------------------------------------------
 | Create The Application
