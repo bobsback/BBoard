@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="w-hidden-tiny just-do-it">Beta (but omg it's going to be good)
+    <div class="w-hidden-tiny just-do-it">Beta.fr (but omg it's going to be good)
         <form class="search-container" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" >
             {{ csrf_field() }}
             <input id="board-search" placeholder="Enter a Board Pin" type="text" class="search-box" name="pincode" data-name="Board Search" required="required" />
