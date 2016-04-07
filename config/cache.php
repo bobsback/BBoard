@@ -33,7 +33,7 @@ return [
     |
     */
 
-    'default' => env('CACHE_DRIVER', 'memcached'),
+    'default' => env('CACHE_DRIVER', 'database'),
 
     /*
     |--------------------------------------------------------------------------
@@ -69,7 +69,7 @@ return [
 
         'memcached' => [
             'driver'  => 'memcached',
-            'servers' => $servers
+            'servers' => $servers,
         ],
 
         'redis' => [
