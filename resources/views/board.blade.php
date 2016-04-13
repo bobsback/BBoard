@@ -9,7 +9,7 @@
                 <form name="wf-form-signup-form" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" class="w-clearfix">
                     {{ csrf_field() }}
 
-                    <input id="Board-Search" type="text" placeholder="Insert board pin code" name="pincode" data-name="Board Search" required="required"  class="w-input field">
+                    <input id="Board-Search" type="text" placeholder="Insert board passkey" name="pincode" data-name="Board Search" required="required"  class="w-input field">
                     <input type="submit" value="Find your board" data-wait="Please wait..."  class="w-button button">
                 </form>
 

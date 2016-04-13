@@ -54,11 +54,18 @@
                 </tbody>
             </table>
 
-            The passkey can be entered on:<ol>
+            The passkey can be used to enter your board from:<ol>
             <li><a href="{{ URL::to('/') }}">Bubbleboard.co 's homepage</a> .</li>
               <li>  The boards direct URL page eg bubbleboard.co/board/YourBoardsName.</li>
                <li> Bubble Boards official mobile apps (beta release may 2016).<br></li>
             </p>
+            </ol>
+            Giving the passkey to your target market:
+            <ol>
+                <li>Physically market it on signs, stickers or business cards.</li>
+                <li>Include the passkey in emails.</li>
+                <li>Include in websites.<br></li>
+                </p>
             </ol>
         </div>
 
