@@ -82,9 +82,9 @@ class Formatter
      */
     public function flush()
     {
-        $this->cache->forget('comments.formatter.parser');
+        \Cache::store('file')->forget('comments.formatter.parser');
 
-        $this->cache->forget('comments.formatter.renderer');
+        \Cache::store('file')->forget('comments.formatter.renderer');
     }
 
     /**
@@ -125,7 +125,7 @@ class Formatter
     {
         $cacheKey = 'comments.formatter.' . $key;
 
-        return $this->cache->rememberForever($cacheKey, function () use ($key) {
+        return \Cache::store('file')->rememberForever($cacheKey, function () use ($key) {
             return $this->getConfigurator()->finalize()[$key];
         });
     }
