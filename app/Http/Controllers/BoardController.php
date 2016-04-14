@@ -133,13 +133,28 @@ class BoardController extends Controller
         return redirect('board/' . $board->boardname);
     }
 
-    /**
-     * Get authorize.
-     *
-     */
     public function getAuthorize(Board $board)
     {
         return view('board.authorize')->with(compact('board'));
+    }
+
+    /**
+     * @param \Illuminate\Http\Request $request
+     * @param Board $board
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function postAuthorize(Request $request, Board $board)
+    {
+        $this->validate($request, [
+            'pincode' => 'required'
+        ]);
+
+        if($board->pincode !== $request->get('pincode'))
+            return redirect()->back()->withErrors(['pincode' => 'Incorrect pincode']);
+
+        $this->authPinService->login($board);
+
+        return redirect('board/' . $board->boardname);
     }
 
     /**
