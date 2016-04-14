@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:description" content="A discussion platform hidden behind a pin code for feedback, idea's and strategy discussion. Employees or customers can post and interact anonymously to maximise honesty.">
     <meta name="generator" content="Webflow">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     {!! HTML::style('css/normalize.css') !!}
     {!! HTML::style('css/webflow.css') !!}
     {!! HTML::style('css/bubbl-board-beta.webflow.css') !!}
@@ -54,17 +55,20 @@
                             {{ csrf_field() }}
 
                             <div class="form-group">
-                                <label>
-                                    Enter Passkey Code
-                                </label>
-
+                                <label>Enter Passkey Code</label>
                                 <input class="w-input pinentry" placeholder="Enter the Passkey" name="pincode" type="text">
                             </div>
 
+                            @if($errors->any())
+                                <div class="alert alert-danger" role="alert">
+                                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                    <span class="sr-only">Error:</span>
+                                    {{$errors->first()}}
+                                </div>
+                            @endif
+
                             <div class="form-group">
-                                <button class="w-button send" type="submit">
-                                    Enter
-                                </button>
+                                <button class="w-button send" type="submit">Enter</button>
                             </div>
                         </form>
 

@@ -15,8 +15,7 @@
 
 Route::bind('boardname',function ($slug)
 {
-    return App\Board::where('boardname',$slug)->first();
-
+    return App\Board::where('boardname',$slug)->firstOrFail();
 });
 
 /*page routing*/
@@ -32,8 +31,6 @@ Route::get('/about', function () {
 });
 
 Route::get('board', 'BoardController@index');
-Route::get('board/{boardname}', 'BoardController@show');
-
 
 patch('board/{boardname}', 'BoardController@update');
 
@@ -50,6 +47,8 @@ post('board/access-via-pincode', ['as' => 'board.access-via-pincode', 'uses' => 
 get('board/{boardname}/save', ['as' => 'board.save', 'uses' => 'BoardController@save']);
 
 Route::post('build','BoardController@store');
+
+Route::get('board/{boardname}', 'BoardController@show');
 
 /*Route delete board. Note: currently not working :(*/
 
