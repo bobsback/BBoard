@@ -53,8 +53,6 @@
                     <div class="w-container navbar2" id="navbar1">
                         <nav role="navigation" class="w-nav-menu">
 
-
-
                             @if(auth()->guest())
                                 @if(!Request::is('auth/login'))
                                     <a class="w-nav-link link2"  href="{{ url('/auth/login') }}">Login</a>
@@ -259,3 +257,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/webflow.js"></script>
+
+<!--[if lte IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif]-->
+<!-- Hero text JS -->

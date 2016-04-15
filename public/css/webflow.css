@@ -28,6 +28,7 @@
 }
 html {
   height: 100%;
+  width:100%;
 }
 body {
   margin: 0;
@@ -668,20 +669,49 @@ label {
 
 .w-nav-overlay {
   position: absolute;
-  overflow: hidden;
   display: none;
   top: 100%;
   left: 0;
   right: 0;
   width: 100%;
 }
+.w--nav-link-open {
+  display: block;
+  position: relative;
+}
+
+.w--nav-menu-open {
+  display: block !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-image: url('../images/top bar backgrounddarkers.png');
+  text-align: center;
+  overflow: visible;
+  min-width: 200px;
+}
+.w-nav-overlay .w--nav-menu-open {
+  top: 0;
+}
 
 .w-nav[data-animation="over-left"] .w-nav-overlay {
   width: auto;
 }
-
+.w-nav[data-animation="over-left"] .w-nav-overlay,
+.w-nav[data-animation="over-left"] .w--nav-menu-open {
+  right: auto;
+  z-index: 1;
+  top: 0;
+}
 .w-nav[data-animation="over-right"] .w-nav-overlay {
   width: auto;
+}
+.w-nav[data-animation="over-right"] .w-nav-overlay,
+.w-nav[data-animation="over-right"] .w--nav-menu-open {
+  left: auto;
+  z-index: 1;
+  top: 0;
 }
 
 .w-nav-button {

@@ -135,8 +135,9 @@
                 </a>
 
 
-
-                <div class="bnavlink floatright">{{ $board->pincode }}</div> <div class="bnavlink2 Controlpannel floatright">Passkey:</div>
+<div class="bnavlink2">
+                <div class="bnavlink floatright">Passkey: {{ $board->pincode }}</div>
+</div>
                 </div>
             </div>
             </div>
@@ -144,11 +145,6 @@
         @include('comments::display', ['pageId' => $board->id])
     </div>
 </div>
-
-
-
-
-
     <!-- Scripts -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>

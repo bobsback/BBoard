@@ -30,7 +30,7 @@
     <div class="w-col w-col-2">
         <div data-collapse="medium" data-animation="default" data-duration="400" data-contain="1" data-no-scroll="1" class="w-nav lefttayto">
             <div class="w-container">
-                <a href="#" class="w-nav-brand brand">{!! HTML::image('images/bboard logo v1 white.png', 'Logo', array('width' => 199, 'class' => 'logo3'))!!}
+                <a href="{{ url('/') }}" class="w-nav-brand brand">{!! HTML::image('images/bboard logo v1 white.png', 'Logo', array('width' => 199, 'class' => 'logo3'))!!}
                 </a>
                 <h5>Go beyond feedback</h5>
             </div>

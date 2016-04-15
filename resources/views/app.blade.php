@@ -6,9 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bubble Board</title>
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/comments/css/prism-okaidia.css"> <!-- Optional -->
 
-	<link rel="stylesheet" href="/vendor/comments/css/prism-okaidia.css"> <!-- Optional -->
-	<link rel="stylesheet" href="/vendor/comments/css/comments.css">
+    <link rel="stylesheet" href="/vendor/comments/css/comments.css">
 
     {!! HTML::style('css/normalize.css') !!}
     {!! HTML::style('css/webflow.css') !!}
@@ -114,11 +114,14 @@
     </div>
 </div>
 	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 	<!-- This must be included before the closing </body> tag! -->
-	<script src="/vendor/comments/js/comments.js"></script>
+<script src="/vendor/comments/js/comments.js"></script>
+
 	<!-- Search form -->
 	<script> document.addEventListener("touchstart", function(){}, true);</script>
 

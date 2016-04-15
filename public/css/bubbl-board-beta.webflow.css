@@ -1215,6 +1215,7 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   color: white;
   margin-left: 5px;
   margin-right: 5px;
+  text-align: center;
 }
 
 .boardformsection {
@@ -2222,10 +2223,9 @@ html.w-mod-js *[data-ix="intial-hide"] {
   }
   .board-blurb {
     display: inline-block;
-    margin-top: -1px;
-    margin-right: 15px;
-    margin-left: 5px;
-    float: right;
+    margin-top: 10px;
+    
+    text-align:center;
   }
   .board-div-block {
     display: block;
@@ -2327,8 +2327,14 @@ html.w-mod-js *[data-ix="intial-hide"] {
 
 .word {
   position: absolute;
-  width: 650px;
+  width: 500px;
   opacity: 0;
+}
+@media (max-width: 1200px) {
+.word{width:400px;}
+}
+@media (max-width: 700px) {
+  .word{width:250px;}
 }
 
 .letter {
