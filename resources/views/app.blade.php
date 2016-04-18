@@ -76,7 +76,7 @@
             </div>
         </div>
     </div>
-    <div class="w-hidden-tiny just-do-it">Beta.fr (but omg it's going to be good)
+    <div class="w-hidden-tiny just-do-it">Beta (but omg it's going to be good)
         <form class="search-container" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" >
             {{ csrf_field() }}
             <input id="board-search" placeholder="Enter a Board Pin" type="text" class="search-box" name="pincode" data-name="Board Search" required="required" />
@@ -85,9 +85,6 @@
         </form>
     </div>
 </div>
-
-
-
 	@yield('content')
 <div class="w-section section grey">
     <div class="w-container">
@@ -105,7 +102,7 @@
             </div>
             <div class="w-col w-col-4 footer-central-colum">
                 <div class="footerh1">This is the site footer</div><a href="{{ url('/') }}" class="footerlink">Find out about Bubble Board</a><a href="{{ url('/auth/login') }}" class="footerlink">Login - login into your board</a><a href="{{ url('/Build') }}" class="footerlink">Build a bubble board</a>
-                <div class="footerh1">Everything here is copyrighted etc etc.&nbsp;</div>
+                <div class="footerh1">Everything here is copyrighted etc etc.</div>
             </div>
             <div class="w-col w-col-4">{!! HTML::image('images/appscomingsoon.png', 'Logo', array('width' => 150))!!}
 

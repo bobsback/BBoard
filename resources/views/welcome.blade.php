@@ -84,7 +84,7 @@
             <div class="w-row">
                 <div data-ix="scrollin" class="w-col w-col-3 howcol1">
                     <div class="howtitle">1 Build a Board</div>
-                    <div class="howdesc">Simply choose a board name and the board blurb.</div><img src="images/Board page v21.jpg">
+                    <div class="howdesc">Simply choose a board name and the board blurb.</div><img width="108px" src="images/Board page v21.jpg">
                 </div>
                 <div data-ix="scrollin" class="w-col w-col-3 colum2">
                     <div class="howtitle">2 Choose your bubble passkey</div>
@@ -148,9 +148,10 @@
     <div id="Email" class="w-section social-section">
         <div class="w-container convo">
             <h2>Refer your Boss</h2>
-            <p>Suggest&nbsp;Bubble&nbsp;Board&nbsp;to&nbsp;someone</p>
+            <p>Suggest Bubble Board to someone</p>
             @include ('about.refer')
-
+        </div>
+    </div>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
             <script type="text/javascript" src="js/webflow.js"></script>
 
@@ -213,14 +214,8 @@
     changeWord();
     setInterval(changeWord, 4000);
 
-
-
-
-
 </script>
 
-    </div>
-    </div>
     </body>
 </html>
 @endsection

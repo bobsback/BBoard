@@ -690,6 +690,7 @@ label {
   text-align: center;
   overflow: visible;
   min-width: 200px;
+  border-radius: 20px;
 }
 .w-nav-overlay .w--nav-menu-open {
   top: 0;
