@@ -100,6 +100,7 @@
 
 <div class="w-section section hero">
     <div class="w-container container">
+        hello!
         @if (session('status'))
             <div class="alert alert-success">
                 {{ session('status') }}

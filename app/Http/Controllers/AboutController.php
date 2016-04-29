@@ -29,7 +29,7 @@ public function store(ContactFormRequest $request)
             $message->to('robseger92@gmail.com', 'Admin')->subject('BB Contact Form');
         });
 
-    return view('about')->with('status', 'Thanks for contacting us!');
+    return redirect()->to('about')->with('status', 'Thanks for contacting us!');
 
 }
 }
