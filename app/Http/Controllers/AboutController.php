@@ -30,7 +30,7 @@ public function store(ContactFormRequest $request)
         });
 
     return view('about')
-        ->with('message', 'Thanks for contacting us!');
+        ->with('status', 'Thanks for contacting us!');
 
 }
 }

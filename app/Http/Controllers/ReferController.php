@@ -27,12 +27,12 @@ class ReferController extends Controller
 
             ), function($message) use ($email)
             {
-                
+
                 $message->from('rob@bubbleboard.co.uk');
                 $message->to($email, 'Admin')->subject('Someone just referred you to Bubble Board. omg exciting!');
 
             });
 
-        return redirect()->to('/')->with('message', 'Thanks for refering someone!');
+        return redirect()->to('/')->with('status', 'Thanks for refering someone!');
     }
 }
