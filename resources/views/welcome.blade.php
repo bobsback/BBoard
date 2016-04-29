@@ -22,6 +22,11 @@
 
     </head>
     <body>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <div id="PinSearch" class="w-section section hero">
         <div class="w-container container">
             <div class="h12">
