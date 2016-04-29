@@ -100,15 +100,15 @@
 
 <div class="w-section section hero">
     <div class="w-container container">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
         <h2>About & FAQ</h2>
         <p>Where are you</p>
     </div>
 </div>
-@if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-@endif
 <div class="w-section aboutsection">
 
     <section class="cd-faq">
