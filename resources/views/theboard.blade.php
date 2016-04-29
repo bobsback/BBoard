@@ -95,23 +95,19 @@
                 <div class="rnav2">
                     <form class="search-container" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" >
                         {{ csrf_field() }}
-                        <input id="board-search" placeholder="Enter a Board Pin" type="text" class="search-box" name="pincode" data-name="Board Search" required="required" />
+                        <input id="board-search" placeholder="Enter a Board Passkey" type="text" class="search-box" name="pincode" data-name="Board Search" required="required" />
                         <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
                         <input type="submit" id="search-submit" />
                     </form>
                     @if(auth()->guest())
                     @else
-
                             <a class="bnavlink2 boardlink" href="{{ url('/auth/logout') }}">Logout</a>
-
                     @endif
-
                 </div>
             </div>
         </div>
         <!--Admin Panel-->
         @if($user && $user->isModerator($board->id))
-
         <div class="w-section boardheadersection">
             <div class=" rightcontainer modsectionbground">
             <div class="">
@@ -133,8 +129,6 @@
                 <a class="btn btn-danger" href="{{ URL::route('moderator.boards.bans.index', $board->id) }}">
                     View Bans
                 </a>
-
-
 <div class="bnavlink2">
                 <div class="bnavlink floatright">Passkey: {{ $board->pincode }}</div>
 </div>
