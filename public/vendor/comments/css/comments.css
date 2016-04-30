@@ -552,7 +552,7 @@ li.comment {
 .comment-message .emoji {
   width: 18px;
 }
-@media (min-width: 800px) {
+@media (max-width: 800px) {
 
   .comment-message{
     line-height: 1.2;
@@ -560,7 +560,7 @@ li.comment {
     font-size: 18px;
   }
 }
-@media (min-width: 500px) {
+@media (max-width: 500px) {
 
   .comment-message{
     line-height: 1.0;
