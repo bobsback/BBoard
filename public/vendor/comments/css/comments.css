@@ -559,6 +559,10 @@ li.comment {
 
     font-size: 18px;
   }
+  li.comment{
+    padding: 7px 7px;
+    margin-bottom:5px;
+  }
 }
 @media (max-width: 500px) {
 
@@ -566,6 +570,10 @@ li.comment {
     line-height: 1.0;
 
     font-size: 15px;
+  }
+  li.comment{
+    padding: 5px 5px;
+    margin-bottom:5px;
   }
 }
 
