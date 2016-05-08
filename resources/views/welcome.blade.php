@@ -75,9 +75,7 @@
                         Find out what your smartest employee and your quietest customer really thinks.
                         </div>
                     <div style="padding-top: 56.17021276595745%;" class="w-embed w-video video">
-
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ouVzjuntgxo" frameborder="0" allowfullscreen></iframe>
-
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/71CYF4wuaAk" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>

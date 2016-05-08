@@ -16,7 +16,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="{{ Route::is('comments.admin.index') ? 'active' : '' }}">
-                        <a class="white" href="{{ route('moderator.boards.index') }}">
+                        <a class="white" href="{{ url('/board') }}">
                             <span class="glyphicon glyphicon-comment"></span> Your Boards
                         </a>
 

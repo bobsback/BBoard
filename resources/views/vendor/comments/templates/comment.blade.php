@@ -71,7 +71,11 @@
 
                 @if($user && $user->isModerator($board->id))
                     <div class="flr">
+                        @if($user=null)
+                            <span v-if="!comment.author.url" class="author">Alias:  @{{ comment.author.name }} </span>
+                            @else
                     <span v-if="!comment.author.url" class="author">Alias:  @{{ comment.author.name }} </span>
+                        @endif
                     <a v-if="comment.author.url" href="@{{ comment.author.url }}" target="_blank" class="author">@{{ comment.author.name }} </a>
 
 

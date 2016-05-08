@@ -6,6 +6,7 @@ use App\Board;
 use App\BoardBan;
 use Illuminate\Http\Request;
 use Hazzard\Comments\Http\Middleware\BoardModerator;
+use Hazzard\Comments\Http\Middleware\Moderator;
 use Hazzard\Comments\Http\Controllers\BaseDashboardController;
 
 /**

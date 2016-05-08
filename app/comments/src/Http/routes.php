@@ -35,6 +35,7 @@ Route::group(['namespace' => 'Hazzard\Comments\Http\Controllers'], function ($ro
     ]);
 
     // Moderator routes.
+    Route::get('board', 'BoardController@index');
 
     Route::group(['prefix' => 'moderator'], function() use ($router) {
         $router->resource('boards', 'Moderator\BoardsController', ['only' => ['index', 'edit', 'update']]);

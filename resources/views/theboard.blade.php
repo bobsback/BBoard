@@ -77,7 +77,7 @@
                                 </a>
 
                                 @if($user && $user->isModerator($b->id))
-                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.index') }}">
+                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
                                         <i class="fa fa-cogs "></i>
                                     </a>
                                 @endif
@@ -112,22 +112,8 @@
             <div class=" rightcontainer modsectionbground">
             <div class="">
                 <div class="bnavlink2 Controlpannel">Moderator<br>Control Panel</div>
-                <a class="btn btn-primary greenbground" href="{{ URL::route('moderator.boards.index', $board->id) }}">
-                    Manage Boards
-                </a>
-                <a class="btn btn-info" href="{{ URL::route('boards.invites', $board->id) }}">
-                    Invite Users
-                </a>
-                <a class="btn btn-primary" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
-                    Edit Details
-                </a>
-
-                <a class="btn btn-warning" href="{{ URL::route('moderator.boards.comments.index', $board->id) }}">
-                    Moderate Comments
-                </a>
-
-                <a class="btn btn-danger" href="{{ URL::route('moderator.boards.bans.index', $board->id) }}">
-                    View Bans
+                <a class="btn btn-primary greenbground" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                    Manage Board
                 </a>
 <div class="bnavlink2">
                 <div class="bnavlink floatright">Passkey: {{ $board->pincode }}</div>

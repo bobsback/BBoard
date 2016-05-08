@@ -88,6 +88,7 @@ class BoardController extends Controller
      */
     public function create(Board $board, Request $request)
     {
+
         return view('build');
     }
 
@@ -102,8 +103,8 @@ class BoardController extends Controller
         $board->users()->attach($this->user);
 
         $board->moderators()->attach(Moderator::findByUserIdOrCreate($this->user->id));
-
-        return redirect('board');
+        return redirect('board/' . $board->boardname);
+        /*return redirect('board');*/
     }
 
     /**
