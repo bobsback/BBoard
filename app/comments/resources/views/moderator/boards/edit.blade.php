@@ -28,7 +28,9 @@
 
         </li>
     </ol>
-
+    @if(Session::has('success'))
+        <div class="alert alert-success">{{ Session::get('success') }}</div>
+    @endif
     <h2 class="page-subheader">
         <a class="anchor" name="editdetails">.</a> Edit Details
     </h2>
@@ -151,10 +153,8 @@
                 contains an invite to your Bubble Board with a unique link that expires if another invite is sent to the same address.
                 Test by sending yourself an invite (you can use that link on a website or social media).
             </p>
-            @if(Session::has('success'))
-                <div class="alert alert-success">{{ Session::get('success') }}</div>
-            @endif
-            <form style="z-index: 1" method="post" action="/invites">
+
+            <form method="post" action="/invites">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="board_id">Choose your Board</label>
@@ -169,7 +169,7 @@
                     <input id="email" type="text" class="form-control" name="email" placeholder="Email..." value="{{ old('email') }}"/>
                     <p class="help-block">{{ $errors->first('email') }}</p>
                 </div>
-                <button class="btn btn-primary" type="submit">Invite</button>
+                <button class="btn btn-success" type="submit">Invite</button>
             </form>
 
 
@@ -196,7 +196,7 @@
                     <option value="0">Bulk Actions</option>
                     <option value="delete">Delete Permanently</option>
                 </select>
-                <button type="submit" class="btn btn-primary btn-sm">Apply</button>
+                <button type="submit" class="btn btn-success btn-sm">Apply</button>
             </div>
 
             <div class="table-responsive">
