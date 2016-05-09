@@ -30,7 +30,7 @@ class InviteController extends Controller
         $invite->pincode = $invite->board->pincode;
         $invite->save();
 
-        Mail::queue('emails.invite', ['data' => $invite->toArray()], function($message) use ($invite)
+        \Mail::queue('emails.invite', ['data' => $invite->toArray()], function($message) use ($invite)
         {
             $message->subject('Invite to bubble board');
             $message->to($invite->email);
