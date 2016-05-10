@@ -10,6 +10,7 @@
             Quick Links
         </li>
         <li>
+
             <a class="btn btn-primary" href="#editdetails">
                 Edit Details
             </a>
@@ -31,8 +32,11 @@
     @if(Session::has('success'))
         <div class="alert alert-success">{{ Session::get('success') }}</div>
     @endif
+    @if(Session::has('updatesuccess'))
+        <div class="alert alert-success">{{ Session::get('updatesuccess') }}</div>
+    @endif
     <h2 class="page-subheader">
-        <a class="anchor" name="editdetails">.</a> Edit Details
+        Edit Details<a class="anchor" name="editdetails">.</a>
     </h2>
 
     <form style="z-index: 1" action="{{ URL::route('moderator.boards.update', $board->id) }}" method="POST">
@@ -41,19 +45,23 @@
         <input name="_method" type="hidden" value="PUT">
 
         <div class="form-group">
-            {!! Form::label('boardname', 'Change the Board name:', ['class' => 'w-form-label checkboxtext']) !!} <br>
-
+            {!! Form::label('boardname', 'Board Name', ['class' => 'w-form-label h3 checkboxtext']) !!}
+            <dfn data-info="Change your board name it must be 2 - 50 characters and unique.">?</dfn>
+            <br>
             {!! Form::text('boardname', $board->boardname, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('boardblurb', 'Change the Board Blurb:', ['class' => 'w-form-label checkboxtext']) !!} <br>
+            {!! Form::label('boardblurb', 'Board Blurb', ['class' => 'w-form-label h3 checkboxtext']) !!}
+            <dfn data-info="A description of your board for all your users. Maximum 250 characters.">?</dfn>
+            <br>
 
             {!! Form::textarea('boardblurb', $board->boardblurb, ['class' => 'h100']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('pincode', 'Change the boards passkey:', ['class' => 'w-form-label checkboxtext']) !!}
+            {!! Form::label('pincode', 'Board Passkey', ['class' => 'w-form-label h3 checkboxtext']) !!}
+            <dfn data-info="The passkey is a way for people to enter the board. It must be 2 - 50 characters and unique.">?</dfn>
 
             {!! Form::text('pincode', $board->pincode, ['class' => 'form-control']) !!}
         </div>
@@ -61,120 +69,125 @@
         {!! Form::submit('Update Board', ['class' => 'btn btn-success']) !!}
     </form>
 
-    <h2 class="page-subheader" >
-        <a class="anchor" name="viewbans">.</a> View Bans
-    </h2>
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th class="column-author">IP Address</th>
-            <th class="column-comment">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        @if($board->bans->count())
-            @foreach($board->bans as $ban)
-                <tr>
-                    <td>
-                        {{ $ban->id }}
-                    </td>
-                    <td>
-                        {{ long2ip($ban->ip_address) }}
-                    </td>
-                    <td>
-                        <a class="btn btn-danger delete-ban-toggle" href="{{ URL::route('moderator.boards.bans.destroy', [$board->id, $ban->id]) }}">
-                            Unban
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-        @else
-            <tr>
-                <td colspan="3">
-                    No board bans found.
-                </td>
-            </tr>
-        @endif
-        </tbody>
-    </table>
 
             <h2 class="page-subheader" >
-                <a class="anchor" name="inviteusers">. </a>Invite Users
+                Invite People<a class="anchor" name="inviteusers">.</a>
             </h2>
-            <p> Anyone can enter your Bubble Board using the boards passkey.<br><br>
-                Your board passkeys:
-            <table class="table table-striped">
-                <thead>
-                <tr>
+            <p> Anyone can enter your Bubble Board using the boards passkey (your passkey is <span style="font-weight: bold">{{ $board->pincode }}</span> hint hint nudge nudge).<br><br>
 
-                    <th class="column-author">Your Boards</th>
-                    <th class="column-comment">Passkey</th>
-                    <th class="column-comment"></th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($boards as $board)
-                    <tr>
-                        <td>
-                            <a class="btn btn-success" href="{{ URL::to('board/' . $board->boardname) }}">{{ $board->boardname }}</a>
-
-                        </td>
-                        <td><div class="howtitle">{{ $board->pincode }}</div>
-                        </td><td>
-                            <a class="btn btn-primary" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
-                                Edit Passkey
-                            </a>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
-
-            The passkey can be used to enter your board from:<ol>
-                <li><a href="{{ URL::to('/') }}">Bubbleboard.co 's homepage</a> .</li>
-                <li>  The boards direct URL page eg bubbleboard.co/board/YourBoardsName.</li>
-                <li> Bubble Boards official mobile apps (beta release may 2016).<br></li>
-                </p>
-            </ol>
-            Giving the passkey to your target market:
-            <ol>
-                <li>Physically market it on signs, stickers or business cards.</li>
-                <li>Include the passkey in emails.</li>
-                <li>Include in websites.<br></li>
-                </p>
-            </ol>
-
-
+            The passkey can be used on:
+    <div class="row">
+        <div class="col-sm-4 linktitle">The website(duh)<br><a class="" href="{{ URL::to('/') }}">Bubbleboard.co</a></div>
+        <div class="col-sm-4 linktitle">Your boards page:<br><a class="" href="{{ url('/board/' . $board->boardname) }}">Bubbleboard.co/board/{{$board->boardname}}</a></div>
+        <div class="col-sm-4 linktitle">{!!   HTML::image('images/appscomingsoon.png','apps coming soon',array('width'=>'150px')) !!}</div>
+    </div>
         <div class="col-md-8">
-            <h3>Use a Direct Link or Email</h3>
-            <p>By-pass the need for users to input the passkey by generating unique URL's (links to the board) via invite email. Each email
-                contains an invite to your Bubble Board with a unique link that expires if another invite is sent to the same address.
-                Test by sending yourself an invite (you can use that link on a website or social media).
+            <h3>Invite via Direct Link</h3>
+            <p>A direct link by-passes the need for users to input the passkey.
             </p>
 
             <form method="post" action="/invites">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                    <label for="board_id">Choose your Board</label>
+                    <label for="board_id">Your Board:</label>
                     <select id="board_id" class="form-control" name="board_id">
-                        @foreach($boards as $board)
+
                             <option  value="{{ $board->id }}">{{ $board->boardname }}</option>
-                        @endforeach
+
                     </select>
                 </div>
                 <div class="form-group {{ $errors->first('email') ? 'has-error' : '' }}">
-                    <label for="email">Email the board invite to:</label>
+                    <label for="email">Email a {{ $board->boardname }} board invite to:</label>
+                    <dfn data-info="A simple email is sent to the receiver with the board name and direct link.">?</dfn>
                     <input id="email" type="text" class="form-control" name="email" placeholder="Email..." value="{{ old('email') }}"/>
                     <p class="help-block">{{ $errors->first('email') }}</p>
                 </div>
                 <button class="btn btn-success" type="submit">Invite</button>
             </form>
+            <h3>Direct Link History</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Sent at</th>
+                    <th class="column-author">Sent To</th>
+                    <th class="column-comment">Direct Link</th>
+                    <th class="column-comment">Active<dfn data-info="Invites are linked to your pincode, if you change your pincode the link becomes invalid. Keep an eye out as we are looking to include additional functionality">?</dfn></th>
+                </tr>
+                </thead>
+                <tbody>
+                @if($board->invites->count())
+                    @foreach($board->invites as $invite)
+                        <tr>
+                            <td>
+                                {{ $invite->created_at }}
+                            </td>
+                            <td>
+                                {{ $invite->email }}
+                            </td>
+                            <td>
+                                <a class="" href="{{ url('/board/' . $board->boardname . '?access_key=' . $invite->access_key) }}">
+                                   Unique Link
+                            </td>
+                            <td>@if($invite->pincode == $board->pincode)
 
-
+                                <a>
+                                    Yes
+                                </a>@else
+                                    <a class="red">No</a>
+                                    @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="4">
+                            No invites found.
+                        </td>
+                    </tr>
+                @endif
+                </tbody>
+            </table>
             <h2 class="page-subheader" >
-                <a class="anchor" name="viewbans">.</a> Advance Comment Moderation
+                View Bans<a class="anchor" name="viewbans">.</a>
+            </h2>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="column-author">IP Address</th>
+                    <th class="column-comment">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @if($board->bans->count())
+                    @foreach($board->bans as $ban)
+                        <tr>
+                            <td>
+                                {{ $ban->id }}
+                            </td>
+                            <td>
+                                {{ long2ip($ban->ip_address) }}
+                            </td>
+                            <td>
+                                <a class="btn btn-danger delete-ban-toggle" href="{{ URL::route('moderator.boards.bans.destroy', [$board->id, $ban->id]) }}">
+                                    Unban
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="3">
+                            No board bans found.
+                        </td>
+                    </tr>
+                @endif
+                </tbody>
+            </table>
+            <h2 class="page-subheader" >
+                Advance Comment Moderation<a class="anchor" name="viewbans">.</a>
             </h2>
 
     <div id="comments" v-show="init" style="display: none;">
@@ -335,6 +348,7 @@
 
 
     {!! Form::close() !!}
+
 
 
 @stop

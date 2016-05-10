@@ -53,6 +53,16 @@ class Board extends Eloquent
     }
 
     /**
+     * Bans relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function invites()
+    {
+        return $this->hasMany('App\Invite');
+    }
+
+    /**
      * Fetch boards for specific user
      *
      * @param $query

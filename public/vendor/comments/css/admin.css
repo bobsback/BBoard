@@ -1,4 +1,5 @@
 @import url(//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Amaranth);
 body {
   padding-top: 70px;
   background-color: #f3f3f4;
@@ -19,6 +20,14 @@ code,
 .dropdown-menu,
 .img-thumbnail {
   border-radius: 2px;
+}
+.linktitle{
+  font-family:'Amaranth', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 5px;
+
 }
 .white {
   color: white;
@@ -51,6 +60,9 @@ z-index: 0;
 
 .h100{
   height: 100px;
+}
+.red{
+  color: red;
 }
 /**
  * Navbar.
@@ -371,4 +383,74 @@ select.form-control {
   margin-bottom: 15px;
   border-left: 4px solid #dd3d36;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+/* hover boxes*/
+dfn {
+  top: 0px;
+  right: 0px;
+
+  padding-right: 5px;
+  padding-left: 5px;
+  font-style: normal;
+
+  clear: right;
+  border: 2px solid #49ba56;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: help;
+  position: relative;
+}
+
+dfn::after {
+  content: attr(data-info);
+  display: inline;
+  position: absolute;
+  top: 22px;
+  left: 0;
+  opacity: 0;
+  width: 230px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5em;
+  padding: 0.5em 0.8em;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  pointer-events: none;
+  /* This prevents the box from apearing when hovered. */
+  transition: opacity 250ms, top 250ms;
+}
+
+dfn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: solid transparent 5px;
+  border-bottom-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 250ms, top 250ms;
+}
+
+dfn:hover {
+  z-index: 2;
+}
+
+
+/* Keeps the info boxes on top of other elements */
+
+dfn:hover::after,
+dfn:hover::before {
+  opacity: 1;
+}
+
+dfn:hover::after {
+  top: 30px;
+}
+
+dfn:hover::before {
+  top: 20px;
 }

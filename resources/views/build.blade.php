@@ -37,7 +37,7 @@
                             <input id="PincodeCheckbox" type="checkbox" name="Email-10" data-name="Email 10"  class="w-checkbox-input checkbox" checked>
 
                             <label for="PincodeCheckbox" class="w-form-label checkboxtext">Passkey</label>
-                            <dfn data-info="People simply enter your board's password to gain access to it. It must be 2 - 50 characters and unique.">?</dfn>
+                            <dfn data-info="People simply enter your board's passkey to gain access to it. It must be 2 - 50 characters and unique.">?</dfn>
 
                             <div class="reveal-if-active">
                                 <label class="boardname" for="board-6">Set your boards passkey:</label>

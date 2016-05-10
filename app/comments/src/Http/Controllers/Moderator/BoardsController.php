@@ -84,7 +84,9 @@ class BoardsController extends BaseDashboardController
 
         $board->fill($request->input())->save();
 
-        return redirect()->route('moderator.boards.index');
+        $boards = \Auth::user()->moderator->boards;
+
+        return redirect()->back()->with('updatesuccess', 'Board details were updated successfully');
     }
 
     public function invites(Request $request)

@@ -93,12 +93,11 @@
             <div class="w-container rightcontainer">
                 <h2 class="boardnamhead">{{ $board->boardname }}</h2>
                 <div class="rnav2">
-                    <form class="search-container" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" >
-                        {{ csrf_field() }}
-                        <input id="board-search" placeholder="Enter a Board Passkey" type="text" class="search-box" name="pincode" data-name="Board Search" required="required" />
-                        <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
-                        <input type="submit" id="search-submit" />
-                    </form>
+                    @if($user && $user->isModerator($board->id))
+                        <a class="btn btn-primary greenbground" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                            Manage Board <i class="fa fa-cogs"></i>
+                        </a><div class="bnavlink">Passkey: {{ $board->pincode }}</div>
+                    @endif
                     @if(auth()->guest())
                     @else
                             <a class="bnavlink2 boardlink" href="{{ url('/auth/logout') }}">Logout</a>
@@ -107,21 +106,7 @@
             </div>
         </div>
         <!--Admin Panel-->
-        @if($user && $user->isModerator($board->id))
-        <div class="w-section boardheadersection">
-            <div class=" rightcontainer modsectionbground">
-            <div class="">
-                <div class="bnavlink2 Controlpannel">Moderator<br>Control Panel</div>
-                <a class="btn btn-primary greenbground" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
-                    Manage Board
-                </a>
-<div class="bnavlink2">
-                <div class="bnavlink floatright">Passkey: {{ $board->pincode }}</div>
-</div>
-                </div>
-            </div>
-            </div>
-        @endif
+
         @include('comments::display', ['pageId' => $board->id])
     </div>
 </div>
