@@ -98,8 +98,8 @@
                     </select>
                 </div>
                 <div class="form-group {{ $errors->first('email') ? 'has-error' : '' }}">
-                    <label for="email">Email a {{ $board->boardname }} board invite to:</label>
-                    <dfn data-info="A simple email is sent to the receiver with the board name and direct link.">?</dfn>
+                    <label for="email">Email a {{ $board->boardname }} board invite to<dfn data-info="A simple email is sent to the receiver with the board name and direct link.">?</dfn>:</label>
+                    
                     <input id="email" type="text" class="form-control" name="email" placeholder="Email..." value="{{ old('email') }}"/>
                     <p class="help-block">{{ $errors->first('email') }}</p>
                 </div>
@@ -110,10 +110,10 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th><dfn data-info="Invites are linked to your pincode, if you change your pincode the link becomes invalid. Keep an eye out as we are looking to include additional functionality">?</dfn>Sent at</th>
+                    <th>Sent at</th>
                     <th class="column-author">Sent To</th>
                     <th class="column-comment">Direct Link</th>
-                    <th class="column-comment">Active</th>
+                    <th class="column-comment">Active<dfn data-info="Invites are linked to your pincode, if you change your pincode the link becomes invalid. Keep an eye out as we are looking to include additional functionality">?</dfn></th>
                 </tr>
                 </thead>
                 <tbody>

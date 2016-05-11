@@ -409,7 +409,7 @@ dfn::after {
   display: inline;
   position: absolute;
   top: 22px;
-  left: 0;
+  right:-15px;
   opacity: 0;
   width: 230px;
   font-size: 13px;
