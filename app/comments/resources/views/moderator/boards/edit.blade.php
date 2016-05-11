@@ -105,14 +105,15 @@
                 </div>
                 <button class="btn btn-success" type="submit">Invite</button>
             </form>
-            <h3>Direct Link History</h3>
+            <h3>Direct Link History<dfn data-info="A record of all your invites & direct links generated.">?</dfn></h3>
+
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Sent at</th>
+                    <th><dfn data-info="Invites are linked to your pincode, if you change your pincode the link becomes invalid. Keep an eye out as we are looking to include additional functionality">?</dfn>Sent at</th>
                     <th class="column-author">Sent To</th>
                     <th class="column-comment">Direct Link</th>
-                    <th class="column-comment">Active<dfn data-info="Invites are linked to your pincode, if you change your pincode the link becomes invalid. Keep an eye out as we are looking to include additional functionality">?</dfn></th>
+                    <th class="column-comment">Active</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -148,6 +149,10 @@
                 @endif
                 </tbody>
             </table>
+            <form method="post" action="/link">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <button class="btn btn-success" type="submit">Add link</button>
+            </form>
             <h2 class="page-subheader" >
                 View Bans<a class="anchor" name="viewbans">.</a>
             </h2>
@@ -340,6 +345,7 @@
     </div>
 
     <script type="text/x-template" id="edit-modal-template">@include('comments::admin/partials/edit-modal')</script>
+            <br>
 
     {!!Form::open(['method' =>'DELETE','route'=>['board.destroy',$board->boardname]])!!}
 
@@ -350,5 +356,5 @@
     {!! Form::close() !!}
 
 
-
+    </div>
 @stop

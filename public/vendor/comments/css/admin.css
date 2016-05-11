@@ -60,6 +60,7 @@ z-index: 0;
 
 .h100{
   height: 100px;
+  width:100%;
 }
 .red{
   color: red;
@@ -350,6 +351,7 @@ input + input,
 }
 .table {
   border: 1px solid #ddd;
+  width:100%;
 }
 .table thead > tr > th {
   vertical-align: top;
