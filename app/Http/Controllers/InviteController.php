@@ -42,4 +42,16 @@ class InviteController extends Controller
 
         return redirect()->back()->with('success', 'Invite was sent successfully');
     }
+
+
+    /*public function destroy(Request $request, $boardId, $invite)
+    {
+        Board::findOrFail($boardId);
+
+        $invitedes = Invite::findOrFail($invite);
+
+        $invitedes->delete();
+    }*/
+
+
 }

@@ -25,7 +25,7 @@ class StoreInviteRequest extends Request
     {
         return [
             'board_id' => 'required|integer|exists:boards,id',
-            'email' => 'required|email'
+            'email' => 'required'
         ];
     }
 }

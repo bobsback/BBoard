@@ -142,6 +142,18 @@ p {
   font-weight: 500;
   padding: 10px;
 }
+.green{
+  color:#49ba56;
+}
+.lock{
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.textleft{
+  text-align: left;
+}
+
 .rnav2{
   bottom: auto;
   display: block;
@@ -1087,6 +1099,8 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   background-image: url('../images/top bar backgrounddarkers.png');
   background-position: 0px 0px;
   background-size: 512px;
+  padding-bottom: 60px;
+  overflow-y: auto;
 }
 
 .footer-central-colum {
@@ -1107,6 +1121,8 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   left: 0px;
   top: 0px;
   right: 0px;
+  max-width: 100%;
+  padding-left:10px;
 }
 
 .boardnamhead {
@@ -1215,8 +1231,11 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
   margin-left: 5px;
   margin-right: 5px;
   text-align: center;
+  word-wrap:break-word
 }
-
+.yourboardsalt{
+  display: none;
+}
 .boardformsection {
   position: fixed;
   left: 0px;
@@ -1269,6 +1288,7 @@ input[type="checkbox"]:checked ~ .reveal-if-active {
 
 .divblocklogin {
   margin-top: 20px;
+
 }
 
 .commenttscontainer {
@@ -1692,7 +1712,76 @@ dfn:hover::after {
 dfn:hover::before {
   top: 20px;
 }
+/* hover boxes*/
+dfnn {
+  top: 0px;
+  right: -5px;
+  display: block;
+  padding-right: 5px;
+  padding-left: 5px;
+  font-style: normal;
+  float: left;
+  clear: right;
+  border: 2px solid #49ba56;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: help;
+  position: relative;
+}
 
+dfnn::after {
+  content: attr(data-info);
+  display: inline;
+  position: absolute;
+  top: 22px;
+  left: -50px;
+  opacity: 0;
+  width: auto;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5em;
+  padding: 0.5em 0.8em;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  pointer-events: none;
+  /* This prevents the box from apearing when hovered. */
+  transition: opacity 250ms, top 250ms;
+}
+
+dfnn::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: solid transparent 5px;
+  border-bottom-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 250ms, top 250ms;
+}
+
+dfnn:hover {
+  z-index: 2;
+}
+
+
+/* Keeps the info boxes on top of other elements */
+
+dfnn:hover::after,
+dfnn:hover::before {
+  opacity: 1;
+}
+
+dfnn:hover::after {
+  top: 30px;
+}
+
+dfnn:hover::before {
+  top: 20px;
+}
 
 .namehover {
   position: relative;
@@ -2130,6 +2219,8 @@ html.w-mod-js *[data-ix="intial-hide"] {
     top: 0px;
     bottom: 0px;
     width: 18%;
+    padding-bottom: 60px;
+    overflow-y: scroll;
   }
   .menu-icon {
     float: none;
@@ -2219,6 +2310,15 @@ html.w-mod-js *[data-ix="intial-hide"] {
     right: 0px;
     bottom: 0px;
     width: 100%;
+    overflow-y: hidden;
+    padding-bottom: 0px;
+  }
+
+  .yourboards{
+    display:none;
+  }
+  .yourboardsalt{
+    display: inherit;;
   }
   .board-blurb {
     display: inline-block;
@@ -2227,7 +2327,8 @@ html.w-mod-js *[data-ix="intial-hide"] {
     text-align:center;
   }
   .board-div-block {
-    display: block;
+    display: none;
+
   }
   .myface {
     margin-left: 0px;
@@ -2412,3 +2513,7 @@ html.w-mod-js *[data-ix="intial-hide"] {
     margin-left: 0px;
   }
 }
+.passhover{
+
+}
+

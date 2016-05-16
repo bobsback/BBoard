@@ -26,6 +26,9 @@ Route::get('/', function () {
 
 Route::get('/Build', 'BoardController@create');
 
+Route::get('loginpls/{boardname}', 'BoardController@loginpls');
+Route::get('regpls/{boardname}', 'BoardController@regpls');
+
 Route::get('/about', function () {
     return view('about');
 });
@@ -33,6 +36,8 @@ Route::get('/about', function () {
 Route::get('board', 'BoardController@index');
 
 patch('board/{boardname}', 'BoardController@update');
+
+
 
 /*generate new board*/
 
@@ -48,17 +53,23 @@ get('board/{boardname}/save', ['as' => 'board.save', 'uses' => 'BoardController@
 
 Route::post('build','BoardController@store');
 
-Route::get('board/{boardname}', 'BoardController@show');
+Route::get('board/{boardname}', [
+    'as' => 'the.board',
+    'uses' => 'BoardController@show',
+]);
+/*Route::get('board/{boardname}', 'BoardController@show');*/
 
 /*Route delete board. Note: currently not working :(*/
 
-$router->resource('board','BoardController', [
-   'only'=>['destroy']
-]);
+Route::delete('boom/{board_id}',function($board_id){
+    $board = App\Board::destroy($board_id);
+
+    return Response::json($board);
+});
 
 /*Routes Home to Board. Note: Need to look at auth middleware to reroute to Board or redirect to previous page*/
 
-Route::get('home', 'BoardController@index');
+Route::get('home', 'BoardController@indexx');
 
 Route::get('/about', function () {
     return view('about');
@@ -72,6 +83,16 @@ Route::get('contact', ['as' => 'contact', 'uses' => 'AboutController@create']);
 Route::post('contact', ['as' => 'contact_store', 'uses' => 'AboutController@store']);
 /*Refer your boss*/
 Route::post('referboss', ['as' => 'referboss', 'uses' => 'ReferController@store']);
+
+Route::post('/remove/{user_id}/{board_id}', 'BoardController@remove');
+
+Route::delete('invites/{invite_id}',function($invite_id){
+    $invite = App\Invite::destroy($invite_id);
+
+    return Response::json($invite);
+});
+Route::post('Deactivate/{invite_id}', 'LinksController@Deactivate');
+Route::post('activate/{invite_id}', 'LinksController@Activate');
 
 Route::controller('invites', 'InviteController');
 Route::controller('link', 'LinksController');

@@ -20,7 +20,7 @@
 
 					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/register') }}">
 						{{ csrf_field() }}
-						<p>Dont worry your Alias and Email are private from other users.</p>
+						<p>Dont worry your Alias and Email are private from other users. Or <a href="{{ url('/auth/login') }}">login!</a></p>
 						<div class="form-group">
 							<label class="col-md-4 control-label">Alias</label>
 							<div class="col-md-6">

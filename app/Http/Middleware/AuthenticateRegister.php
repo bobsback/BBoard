@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
 
-class RedirectIfAuthenticated
+class AuthenticateRegister
 {
     /**
      * The Guard implementation.
@@ -34,9 +34,12 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next)
     {
-
-       if ($this->auth->check()) {
-            return view ('/board');
+        if ($this->auth->guest()) {
+            if ($request->ajax()) {
+                return response('Unauthorized.', 401);
+            } else {
+                return redirect()->guest('auth/register');
+            }
         }
 
         return $next($request);

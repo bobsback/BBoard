@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
+
+
+use App\Http\Requests;
+
+
 
 class AuthController extends Controller
 {
@@ -30,8 +37,10 @@ class AuthController extends Controller
      */
     public function __construct()
     {
+
         $this->middleware('guest', ['except' => 'getLogout']);
     }
+
 
     /**
      * Get a validator for an incoming registration request.
@@ -62,4 +71,5 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
 }

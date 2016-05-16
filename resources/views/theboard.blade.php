@@ -49,7 +49,6 @@
                 @if(!(Auth::user() && Auth::user()->boards->contains($board->id)))
                     <a class="w-button save @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
                         <i class="fa fa-check"></i>
-
                         Save Board
                     </a>
                 @endif
@@ -60,16 +59,17 @@
                     <div class="board-blurb">
                         Register to save this board so you can revisit it or log in to view your boards and save this one:
                     </div>
-
+                            <div>
                     @if(!Request::is('auth/login'))
-                        <a class="w-nav-link link"  href="{{ url('/auth/login') }}">Login</a>
+                        <a class="w-nav-link link"  href="{{ url('loginpls/' . $board->boardname) }}">Login</a>
                     @endif
 
                     @if(!Request::is('auth/register'))
-                        <a class="w-nav-link link" href="{{ url('/auth/register') }}">Register</a>
-                    @endif
+                        <a class="w-nav-link link" href="{{ url('regpls/' . $board->boardname) }}">Register</a>
+                    @endif  </div>
                 @else
                     @if($boards->count())
+                        <div class="yourboards">
                         @foreach($boards as $b)
                             <div>
                                 <a class="w-button link padtop active" href="{{ URL::to('board/' . $b->boardname) }}">
@@ -77,12 +77,19 @@
                                 </a>
 
                                 @if($user && $user->isModerator($b->id))
-                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
+                                    <a class="btn btn-primary btn-xs greenbground" href="{{ URL::route('moderator.boards.edit', $b->id) }}">
+
                                         <i class="fa fa-cogs "></i>
                                     </a>
-                                @endif
-                            </div>
+                                    @else
+                                    <button data-user-id="{{ $user->id }}" value="{{$b->id}}" class="btn-xs greenbground remove-board-toggle"><span class="white fa fa-times"></span></button>
+                                @endif</div>
                         @endforeach
+                        </div>
+                    <!--Alt Board selection-->
+                        <div class="yourboardsalt">
+                            <a href="{{ url('/board') }}"  class="w-nav-link link2">Your Boards</a>
+                        </div>
                     @endif
                 @endif
             </div>
@@ -92,16 +99,21 @@
         <div class="w-section boardheadersection">
             <div class="w-container rightcontainer">
                 <h2 class="boardnamhead">{{ $board->boardname }}</h2>
-                <div class="rnav2">
+                <div class="rnav2"><div>
+                    <div class="textleft"><dfnn data-info="{{ $board->boardblurb }}"><i class="green fa fa-question"></i></dfnn></div>
                     @if($user && $user->isModerator($board->id))
+                        <div class="lock">
+                            <dfnn data-info="Passkey: {{ $board->pincode }}"><i class="green fa fa-lock"></i></dfnn>
+                        </div>
                         <a class="btn btn-primary greenbground" href="{{ URL::route('moderator.boards.edit', $board->id) }}">
                             Manage Board <i class="fa fa-cogs"></i>
-                        </a><div class="bnavlink">Passkey: {{ $board->pincode }}</div>
+                        </a>
                     @endif
                     @if(auth()->guest())
                     @else
                             <a class="bnavlink2 boardlink" href="{{ url('/auth/logout') }}">Logout</a>
                     @endif
+                    </div>
                 </div>
             </div>
         </div>
@@ -135,6 +147,7 @@
             });
         });
     </script>
+
 
 </body>
 </html>

@@ -43,6 +43,7 @@ Route::group(['namespace' => 'Hazzard\Comments\Http\Controllers'], function ($ro
         $router->resource('boards.comments', 'Moderator\BoardsCommentsController');
 
         $router->resource('boards.bans', 'Moderator\BoardsBansController', ['only' => ['index', 'store', 'destroy']]);
+
     });
     $router->get('invites', [
         'as' => 'boards.invites',
@@ -57,4 +58,8 @@ Route::group(['namespace' => 'Hazzard\Comments\Http\Controllers'], function ($ro
         'as' => 'comments.vote',
         'uses' => 'CommentsController@vote',
     ]);
+
+
+
 });
+

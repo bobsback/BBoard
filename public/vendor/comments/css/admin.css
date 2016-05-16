@@ -29,6 +29,10 @@ code,
   padding-top: 5px;
 
 }
+.AccessBox{
+  width: 100%;
+  border-top: outset lightgrey ;
+}
 .white {
   color: white;
 }
@@ -300,9 +304,28 @@ color: #49ba56;
 .column-comment .content {
   word-break: break-word;
 }
+.column-page1 {
+  width: 5%;
+}
+.column-page2 {
+  width: 15%;
+}
+@media (max-width: 550px){
+  .column-page2 {
+    display: none;
+  }
+}
+@media (max-width: 450px){
+  .column-page1 {
+    display: none;
+  }
+}
 .page-com-count {
   opacity: 0.8;
   margin-right: 5px;
+}
+.green{
+  color: #49ba56;
 }
 .page-com-count:hover,
 .page-com-count:focus {
@@ -440,7 +463,9 @@ dfn::before {
 dfn:hover {
   z-index: 2;
 }
-
+.hidden{
+  visibility: hidden;
+}
 
 /* Keeps the info boxes on top of other elements */
 
@@ -455,4 +480,120 @@ dfn:hover::after {
 
 dfn:hover::before {
   top: 20px;
+}/*on-off button css*/
+#switch {
+  height: 25px;
+  width: 63px;
+
+  background-color: lightgreen;
+
+  border-radius: 50px;
+  margin: 0 auto;
+  position: relative;
+  top: 25px;
 }
+
+#toggle-on h1 {
+  color: black;
+  text-align: center;
+}
+
+#toggle-on {
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+
+  border: 1px solid silver;
+  background-color: white;
+
+  position: relative;
+  float: right;
+  top: 2px;
+  right: 5px;
+}
+
+#toggle-on:hover {
+  cursor: pointer;
+}
+
+#toggle-off {
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+  border: 1px solid silver;
+  background-color: white;
+  position: relative;
+  top: 2px;
+  left: 5px;
+  text-align: center;
+  display: none;
+}
+#toggle-off:hover {
+  cursor: pointer;
+}
+
+.onswitch {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: 'Amaranth', sans-serif;
+  margin-left: 2px;
+}
+dfnn {
+
+  cursor: help;
+
+}
+
+dfnn::after {
+  content: attr(data-info);
+  display: inline;
+  position: absolute;
+  top: 22px;
+  right:-15px;
+  opacity: 0;
+  width: 230px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.5em;
+  padding: 0.5em 0.8em;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  pointer-events: none;
+  /* This prevents the box from apearing when hovered. */
+  transition: opacity 250ms, top 250ms;
+}
+
+dfnn::before {
+
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  border: solid transparent 5px;
+  border-bottom-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 250ms, top 250ms;
+}
+
+dfnn:hover {
+  z-index: 2;
+}
+.hidden{
+  visibility: hidden;
+}
+
+/* Keeps the info boxes on top of other elements */
+
+dfnn:hover::after,
+dfnn:hover::before {
+  opacity: 1;
+}
+
+dfnn:hover::after {
+  top: 30px;
+}
+
+dfnn:hover::before {
+  top: 20px;}

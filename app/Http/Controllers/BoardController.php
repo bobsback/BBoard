@@ -6,8 +6,10 @@ use App\Board;
 use App\Moderator;
 use App\Http\Requests;
 use App\Services\AuthPinService;
+use App\User;
 use Auth;
 use Illuminate\Http\Request;
+use App\Http\Middleware\AuthenticateRegister;
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\CheckIfBanned;
 use App\Http\Requests\CreateBoardrequest;
@@ -31,8 +33,8 @@ class BoardController extends Controller
         $this->board = $board;
         $this->user = Auth::user();
         $this->authPinService = $authPinService;
-
-        $this->middleware(Authenticate::class, ['only' => ['index', 'create', 'save']]);
+        $this->middleware(AuthenticateRegister::class, ['only' => ['regpls', 'save', 'create']]);
+        $this->middleware(Authenticate::class, ['only' => ['index', 'loginpls']]);
         $this->middleware(CheckIfBanned::class, ['except' => ['index', 'update', 'store', 'save']]);
         $this->middleware(CheckIfBoardSaved::class, ['only' => ['show', 'save']]);
     }
@@ -47,6 +49,13 @@ class BoardController extends Controller
 
         return view('board', compact('boards'));
     }
+
+    /*routing logins*/
+    public function indexx()
+    {
+        return redirect()->intended('board');
+    }
+
 
     /**
      * Show.
@@ -91,7 +100,22 @@ class BoardController extends Controller
 
         return view('build');
     }
+    /**
+     * log in experiment.
+     *
+     */
+    public function loginpls (Board $board, Request $request)
+    {
+        $this->authPinService->login($board);
 
+        return redirect('board/' . $board->boardname);
+    }
+    public function regpls (Board $board, Request $request)
+    {
+        $this->authPinService->login($board);
+
+        return redirect('board/' . $board->boardname);
+    }
     /**
      * Store.
      *
@@ -104,15 +128,16 @@ class BoardController extends Controller
 
         $board->moderators()->attach(Moderator::findByUserIdOrCreate($this->user->id));
         return redirect('board/' . $board->boardname);
-        /*return redirect('board');*/
     }
 
     /**
      * Destroy.
      *
      */
-    public function destroy(Board $board)
+    public function destroy(Board $board, $id)
     {
+        $board = Board::findOrFail($id);
+
         $board->delete();
 
         return redirect('board');
@@ -168,6 +193,21 @@ class BoardController extends Controller
             $board->users()->attach($this->user);
         }
 
+        $this->authPinService->login($board);
+
+        return redirect('board/' . $board->boardname);
+    }
+    public function remove(Request $request, $user_id, $board_id)
+    {
+        $board = Board::find($board_id);
+           $board->users()->detach($user_id);
+
+
+        if($request->ajax())
+            return response()->json($user_id, 201);
+
+
         return redirect()->back();
+
     }
 }

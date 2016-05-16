@@ -40,7 +40,8 @@ class CheckIfBoardSaved
     {
         if($request->has('access_key') && $invite = Invite::whereAccessKey($request->get('access_key'))->first())
         {
-            if($invite->pincode === $invite->board->pincode)
+           /* if($invite->pincode === $invite->board->pincode)*/
+            if($invite->pincode === 'yes')
             {
                 $this->authPinService->login($invite->board);
 

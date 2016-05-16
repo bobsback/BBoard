@@ -18,20 +18,49 @@ class LinksController extends Controller
      * @param \App\Http\Requests\StoreInviteRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function postIndex(Request $request)
+    public function postIndex(StoreInviteRequest $request)
     {
         $board = Board::whereId($request->get('board_id'))->firstOrFail();
 
         $invite = Invite::firstOrCreate([
-            'email' => 'random',
-            'board_id' => $board->id
+            'email' => $request->get('email'),
+            'board_id' => $board->id,
+            'pincode'=> 'yes'
         ]);
-        $invite->load('board');
 
+       /* $invite->load('board');
         // update pincode on non-first invite
         $invite->pincode = $invite->board->pincode;
+        $invite->save();*/
+
+
+        if($request->ajax())
+            return response()->json($invite, 201);
+
+        return redirect()->back();
+    }
+    public function Deactivate(Request $request, $invite_id)
+    {
+        $invite = Invite::find($invite_id);
+
+        $invite->pincode = 'no';
         $invite->save();
 
+       /* return Response::json($invite);*/
+
+        if($request->ajax())
+            return response()->json($invite, 201);
+
+        return redirect()->back();
+    }
+    public function Activate(Request $request, $invite_id)
+    {
+        $invite = Invite::find($invite_id);
+
+        $invite->pincode = 'yes';
+        $invite->save();
+
+        /* return Response::json($invite);*/
 
         if($request->ajax())
             return response()->json($invite, 201);

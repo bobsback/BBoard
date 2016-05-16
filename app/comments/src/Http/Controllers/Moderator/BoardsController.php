@@ -37,6 +37,7 @@ class BoardsController extends BaseDashboardController
         Comment::$admin = true;
 
         $this->middleware(Moderator::class);
+        $this->middleware(BoardModerator::class);
     }
 
     /**

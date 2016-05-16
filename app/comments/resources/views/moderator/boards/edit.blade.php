@@ -18,7 +18,7 @@
                 View Bans
             </a>
                 <a class="btn btn-info" href="#inviteusers">
-                    Invite Users
+                    Invite People
                 </a>
 
 
@@ -38,105 +38,151 @@
     <h2 class="page-subheader">
         Edit Details<a class="anchor" name="editdetails">.</a>
     </h2>
-
+    <div class="AccessBox">
     <form style="z-index: 1" action="{{ URL::route('moderator.boards.update', $board->id) }}" method="POST">
         {{ csrf_field() }}
 
         <input name="_method" type="hidden" value="PUT">
 
         <div class="form-group">
-            {!! Form::label('boardname', 'Board Name', ['class' => 'w-form-label h3 checkboxtext']) !!}
+            {!! Form::label('boardname', 'Change board name:', ['class' => 'w-form-label h4 checkboxtext']) !!}
             <dfn data-info="Change your board name it must be 2 - 50 characters and unique.">?</dfn>
             <br>
             {!! Form::text('boardname', $board->boardname, ['class' => 'form-control']) !!}
         </div>
 
         <div class="form-group">
-            {!! Form::label('boardblurb', 'Board Blurb', ['class' => 'w-form-label h3 checkboxtext']) !!}
+            {!! Form::label('boardblurb', 'Chang board blurb:', ['class' => 'w-form-label h4 checkboxtext']) !!}
             <dfn data-info="A description of your board for all your users. Maximum 250 characters.">?</dfn>
             <br>
 
             {!! Form::textarea('boardblurb', $board->boardblurb, ['class' => 'h100']) !!}
         </div>
 
-        <div class="form-group">
-            {!! Form::label('pincode', 'Board Passkey', ['class' => 'w-form-label h3 checkboxtext']) !!}
-            <dfn data-info="The passkey is a way for people to enter the board. It must be 2 - 50 characters and unique.">?</dfn>
-
-            {!! Form::text('pincode', $board->pincode, ['class' => 'form-control']) !!}
-        </div>
-
-        {!! Form::submit('Update Board', ['class' => 'btn btn-success']) !!}
-    </form>
-
-
+        {!! Form::submit('Save Changes', ['class' => 'btn btn-success']) !!}
+    </form></div>
 
             <h2 class="page-subheader" >
-                Invite People<a class="anchor" name="inviteusers">.</a>
-            </h2>
-            <p> Anyone can enter your Bubble Board using the boards passkey (your passkey is <span style="font-weight: bold">{{ $board->pincode }}</span> hint hint nudge nudge).<br><br>
+                How People Enter Your Board<a class="anchor" name="inviteusers">.</a>
+            </h2><div class="AccessBox">
+        <div class="row">
+        <div class="col-md-9">
+            <h3>1. Passkey</h3>
+        </div>
+            <div class="col-md-3">
+                <div id="switch"><dfnn data-info="Turning off not available in beta :(">
+                    <div id="toggle-on"><div class="onswitch">On</div></div>
+                </div></dfnn>
+            </div>
+        </div>
+            <p> Anyone can enter your Bubble Board using the boards passkey (your passkey is <span style="font-weight: bold">{{ $board->pincode }}</span>).<br>
 
-            The passkey can be used on:
+    <form style="z-index: 1" action="{{ URL::route('moderator.boards.update', $board->id) }}" method="POST">
+        {{ csrf_field() }}
+
+        <input name="_method" type="hidden" value="PUT">
+    <div class="form-group">
+        {!! Form::label('pincode', 'Change passkey:', ['class' => 'w-form-label h4 checkboxtext']) !!}
+        <dfn data-info="The passkey is how people to enter the board. It must be 2 - 50 characters and unique.">?</dfn>
+
+        {!! Form::text('pincode', $board->pincode, ['class' => 'form-control']) !!}
+    </div>
+        {!! Form::submit('Save Changes', ['class' => 'btn btn-success']) !!}
+    </form><br>
+            People can enter the passkey on:
     <div class="row">
-        <div class="col-sm-4 linktitle">The website(duh)<br><a class="" href="{{ URL::to('/') }}">Bubbleboard.co</a></div>
+        <div class="col-sm-4 linktitle">The website<br><a class="" href="{{ URL::to('/') }}">Bubbleboard.co</a></div>
         <div class="col-sm-4 linktitle">Your boards page:<br><a class="" href="{{ url('/board/' . $board->boardname) }}">Bubbleboard.co/board/{{$board->boardname}}</a></div>
         <div class="col-sm-4 linktitle">{!!   HTML::image('images/appscomingsoon.png','apps coming soon',array('width'=>'150px')) !!}</div>
     </div>
-        <div class="col-md-8">
-            <h3>Invite via Direct Link</h3>
+    </div><div class="AccessBox">
+        <div class="row">
+            <div class="col-md-9">
+                <h3>2. Direct Link</h3>
+            </div>
+            <div class="col-md-3">
+                <div id="switch"><dfnn data-info="Turning off not available in beta :(">
+                    <div id="toggle-on"><div class="onswitch">On</div></div>
+                </div></dfnn>
+            </div>
+        </div>
             <p>A direct link by-passes the need for users to input the passkey.
             </p>
-
-            <form method="post" action="/invites">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <div class="form-group">
-                    <label for="board_id">Your Board:</label>
-                    <select id="board_id" class="form-control" name="board_id">
-
+            <div class="row">
+            <div class="col-md-6"><form method="post" action="/link">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="hidden form-group">
+                        <label for="board_id">Your Board:</label>
+                        <select id="board_id" class="form-control" name="board_id">
                             <option  value="{{ $board->id }}">{{ $board->boardname }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="h4" for="board_id">Link Name:</label>
+                        <input id="email" type="text" class="form-control" name="email" placeholder="Link name eg. Email signature">
+                        </input>
+                    </div>
+                    <button class="btn btn-success"  type="submit">Create link</button>
+                </form>
+        </div><div class="col-md-6">
+                    <form method="post" action="/invites">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="hidden form-group">
+                            <label for="board_id">Your Board:</label>
+                            <select id="board_id" class="form-control" name="board_id">
+                                <option  value="{{ $board->id }}">{{ $board->boardname }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group {{ $errors->first('email') ? 'has-error' : '' }}">
+                            <label class="h4" for="email">Email an board invite <dfn data-info="A simple email is sent to the receiver with the board name and direct link.">?</dfn>:</label>
 
-                    </select>
-                </div>
-                <div class="form-group {{ $errors->first('email') ? 'has-error' : '' }}">
-                    <label for="email">Email a {{ $board->boardname }} board invite to<dfn data-info="A simple email is sent to the receiver with the board name and direct link.">?</dfn>:</label>
-                    
-                    <input id="email" type="text" class="form-control" name="email" placeholder="Email..." value="{{ old('email') }}"/>
-                    <p class="help-block">{{ $errors->first('email') }}</p>
-                </div>
-                <button class="btn btn-success" type="submit">Invite</button>
-            </form>
-            <h3>Direct Link History<dfn data-info="A record of all your invites & direct links generated.">?</dfn></h3>
+                            <input id="email" type="text" class="form-control" name="email" placeholder="Email..." value="{{ old('email') }}"/>
+                            <p class="help-block">{{ $errors->first('email') }}</p>
+                        </div>
+                        <button class="btn btn-success" type="submit">Invite</button>
+                    </form>
+            </div>
+            </div>
 
-            <table class="table table-striped">
+            <h4>Direct Link Record<dfn data-info="Direct links can be turned on or off here. If a user has already saved the board they can still access it.">?</dfn></h4>
+
+        <div class="table-responsive">
+            <table id="myTable" class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Sent at</th>
-                    <th class="column-author">Sent To</th>
+                    <th class="column-comment">Name/Sent To</th>
                     <th class="column-comment">Direct Link</th>
-                    <th class="column-comment">Active<dfn data-info="Invites are linked to your pincode, if you change your pincode the link becomes invalid. Keep an eye out as we are looking to include additional functionality">?</dfn></th>
+                    <th class="column-comment">Active</th>
+                    <th class="column-page" >Sent at</th>
+                    <th class="column-page">Delete?</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="invites-list" name="invites-list">
                 @if($board->invites->count())
                     @foreach($board->invites as $invite)
-                        <tr>
-                            <td>
-                                {{ $invite->created_at }}
-                            </td>
-                            <td>
+                        <tr id="invite{{$invite->id}}">
+
+                            <td class="column-comment">
                                 {{ $invite->email }}
                             </td>
                             <td>
                                 <a class="" href="{{ url('/board/' . $board->boardname . '?access_key=' . $invite->access_key) }}">
-                                   Unique Link
+                                   Unique Link</a>
                             </td>
-                            <td>@if($invite->pincode == $board->pincode)
 
-                                <a>
+                            <td>@if($invite->pincode == 'yes')
+
+                                <button class="green btn  deactivate-link-toggle" value="{{$invite->id}}">
                                     Yes
-                                </a>@else
-                                    <a class="red">No</a>
+                                </button>@else
+                                    <button class="red btn activate-link-toggle" value="{{$invite->id}}">No</button>
                                     @endif
+                            </td>
+                            <td class="column-page">
+                                {{ $invite->created_at }}
+                            </td>
+                            <td>
+                                <button class="red btn delete-link-toggle"  value="{{$invite->id}}"><span style="text-align: center" class="glyphicon glyphicon-trash"></span></button>
                             </td>
                         </tr>
                     @endforeach
@@ -149,52 +195,57 @@
                 @endif
                 </tbody>
             </table>
-            <form method="post" action="/link">
-                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <button class="btn btn-success" type="submit">Add link</button>
-            </form>
-            <h2 class="page-subheader" >
-                View Bans<a class="anchor" name="viewbans">.</a>
-            </h2>
+        </div>
+    </div>
+    <meta name="_token" content="{!! csrf_token() !!}" />
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th class="column-author">IP Address</th>
-                    <th class="column-comment">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                @if($board->bans->count())
-                    @foreach($board->bans as $ban)
-                        <tr>
-                            <td>
-                                {{ $ban->id }}
-                            </td>
-                            <td>
-                                {{ long2ip($ban->ip_address) }}
-                            </td>
-                            <td>
-                                <a class="btn btn-danger delete-ban-toggle" href="{{ URL::route('moderator.boards.bans.destroy', [$board->id, $ban->id]) }}">
-                                    Unban
-                                </a>
-                            </td>
-                        </tr>
-                    @endforeach
-                @else
-                    <tr>
-                        <td colspan="3">
-                            No board bans found.
+    <h2 class="page-subheader" >
+        Users that have saved the board<a class="anchor" name="viewbans">.</a>
+    </h2>
+    <div class="AccessBox"></div>
+    <div class="table-responsive">
+        <table id="myTable" class="table table-striped">
+            <thead>
+            <tr>
+                <th class="column-comment">Email</th>
+                <th class="column-comment">Name</th>
+                <th class="column-comment">Remove?</th>
+            </tr>
+            </thead>
+            <tbody id="board-id" name="users-list" value="{{$board->id}}">
+            @if($board->users->count())
+                @foreach($board->users as $user)
+                    <tr id="invite{{$user->id}}">
+
+                        <td class="column-comment">
+                            {{ $user->email }}
+                        </td>
+                        <td>
+                            {{ $user->name }}
+                        </td>
+
+                        <td>@if ($user->name== auth()->user()->name) You :)
+                                @else
+                            <button data-board-id="{{ $board->id }}" value="{{$user->id}}" class="red btn remove-user-toggle"><span class="glyphicon glyphicon-trash"></span></button>
+                        @endif
                         </td>
                     </tr>
-                @endif
-                </tbody>
-            </table>
-            <h2 class="page-subheader" >
-                Advance Comment Moderation<a class="anchor" name="viewbans">.</a>
-            </h2>
+                @endforeach
+            @else
+                <tr>
+                    <td colspan="4">
+                        No one has saved your board :(
+                    </td>
+                </tr>
+            @endif
+            </tbody>
+        </table>
+    </div>
 
+            <h2 class="page-subheader" >
+                Advance Comment Analysis<a class="anchor" name="viewbans">.</a>
+            </h2>
+    <div class="AccessBox"></div>
     <div id="comments" v-show="init" style="display: none;">
         <ul class="status-filter">
             <li class="active">
@@ -345,16 +396,47 @@
     </div>
 
     <script type="text/x-template" id="edit-modal-template">@include('comments::admin/partials/edit-modal')</script>
-            <br>
+            <h2 class="page-subheader" >
+                View Bans<a class="anchor" name="viewbans">.</a>
+            </h2>
 
-    {!!Form::open(['method' =>'DELETE','route'=>['board.destroy',$board->boardname]])!!}
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="column-author">IP Address</th>
+                    <th class="column-comment">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @if($board->bans->count())
+                    @foreach($board->bans as $ban)
+                        <tr>
+                            <td>
+                                {{ $ban->id }}
+                            </td>
+                            <td>
+                                {{ long2ip($ban->ip_address) }}
+                            </td>
+                            <td>
+                                <a class="btn btn-danger delete-ban-toggle" href="{{ URL::route('moderator.boards.bans.destroy', [$board->id, $ban->id]) }}">
+                                    Unban
+                                </a>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    <tr>
+                        <td colspan="3">
+                            No board bans found.
+                        </td>
+                    </tr>
+                @endif
+                </tbody>
+            </table><br>
+
+    <button class=" btn btn-danger delete-board-toggle"  value="{{$board->id}}">Delete Your Board Permanently :( <span style="text-align: center" class="glyphicon glyphicon-trash"></span></button>
 
 
-    {!! Form::submit('Permanently Delete Board',['class'=> 'btn btn-danger']) !!}
 
-
-    {!! Form::close() !!}
-
-
-    </div>
 @stop
