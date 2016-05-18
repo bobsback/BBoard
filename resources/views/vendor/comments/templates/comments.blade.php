@@ -19,6 +19,27 @@
 </div>
 
 </div>
+<!--Pinned Blurb-->
+@if (!$board->boardblurb == null )
+<div class="blurbpin">
+    <ul class="comment-list fade-transition">
+    <li class="comment fade-transition">
+        <div class="comment-content clearfix">
+            <div class="avatar">
+                <a><i style="padding-left:10px; font-size: 30px;" class="green fa fa-question"></i></a>
+            </div>
+            <div class="comment-body">
+                <div class="comment-body-inner">
+                    <div class="comment-message">
+                        {{$board->boardblurb}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    </ul>
+</div>
+@endif
 
 <div v-if="!initialized" class="spinner">
     @lang('comments::all.loading')

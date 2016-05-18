@@ -23,7 +23,11 @@ class Gravatar
      */
     public static function image($email, $size = 200, $rating = 'g')
     {
-        $id = md5(strtolower(trim($email)));
+        if($email == null){
+        $id = md5(strtolower(trim('guest')));}
+        else{
+            $id = md5(strtolower(trim($email)));
+        }
 
         $default = config('comments.default_gravatar') ?: 'monsterid';
 

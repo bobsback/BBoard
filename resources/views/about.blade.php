@@ -128,7 +128,7 @@
                         Any feedback about bubble board use our bubble board password: 'bubble' at <a href="http://bubbleboard.co/board/bubbleboard"> Bubbles Board</a> or contact us directly:
                         <br>
                             @include ('about.contact')
-                        <p>Or hit me up directly at rob@bubbleboard.co.uk</p>
+                        <p>Or hit me up directly at rob@bubbleboard.co</p>
                     </div> <!-- cd-faq-content -->
                 </li>
             </ul>

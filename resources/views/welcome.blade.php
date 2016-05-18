@@ -44,7 +44,7 @@
                 <form name="wf-form-signup-form" data-name="Signup Form" action="{{ URL::route('board.access-via-pincode') }}" method="POST" class="w-clearfix">
                     {{ csrf_field() }}
 
-                    <input id="Board-Search" type="text" placeholder="Insert board passkey" name="pincode" data-name="Board Search" required="required" data-ix="load-from-left" class="w-input field">
+                    <input id="Board-Search" type="text" placeholder="Insert board passkey (try 'bubbleboard' hint hint)" name="pincode" data-name="Board Search" required="required" data-ix="load-from-left" class="w-input field">
                     <input type="submit" value="Find your board" data-wait="Please wait..." data-ix="load-from-right" class="w-button button">
                 </form>
                 @if($errors->any())
@@ -63,7 +63,7 @@
             <div class="w-row">
                 <div data-ix="load-from-left" class="w-col w-col-6">
                     <h1>What?</h1>
-                    <div class="desctext">A flexible anonymous private discussion platform for feedback, strategy and ideas.
+                    <div class="desctext">A flexible semi-anonymous private discussion platform for idea generation, feedback and strategy.
                     </div>
                     <div style="padding-top: 56.17021276595745%;" class="w-embed w-video video">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/IkUKFdacHvo" frameborder="0" allowfullscreen></iframe>
@@ -72,7 +72,7 @@
                 <div data-ix="load-from-right" class="w-col w-col-6">
                     <h1>Why?</h1>
                     <div class="desctext">
-                        Find out what your smartest employee and your quietest customer really thinks.
+                        Harvest the ideas of your smartest employee and your quietest customer.
                         </div>
                     <div style="padding-top: 56.17021276595745%;" class="w-embed w-video video">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/71CYF4wuaAk" frameborder="0" allowfullscreen></iframe>

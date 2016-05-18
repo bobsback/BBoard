@@ -46,7 +46,7 @@
                 </a>
                 <h5>Go beyond feedback</h5>
             </div>
-            <div class="w-clearfix board-div-block">
+            <div style="display:none" class="w-clearfix board-div-block">
                 <a href="#" class="w-button link active">
                     {{ $board->boardname }}
                 </a>
@@ -65,7 +65,7 @@
             <div class="divblocklogin">
                 @if(auth()->guest())
                     <div class="board-blurb">
-                        Register to save this board so you can revisit it or log in to view your boards and save this one:
+                        Register (or log in) to save this board and revisit it anytime! :)
                     </div>
                             <div>
                     @if(!Request::is('auth/login'))
