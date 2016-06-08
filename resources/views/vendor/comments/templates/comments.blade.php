@@ -8,9 +8,7 @@
                 <a href="#" v-on="click: sortBy($key, $event)">@{{ sortOptions[$key] }}</a>
             </li>
         </ul>
-        <div class="findaboartd">
-            @{{total === 0 ? 'The genius hasnt quite started to flow yet, why dont you get the ball rolling.' : ' '}}
-        </div>
+
     </div>
 
     <h3 class="total textalignright">
@@ -41,7 +39,9 @@
     </ul>
 </div>
 @endif
-
+<div class="findaboartd">
+    @{{total === 0 ? 'The genius hasnt quite started to flow yet, why dont you get the ball rolling.' : ' '}}
+</div>
 <div v-if="!initialized" class="spinner">
     @lang('comments::all.loading')
 </div>
