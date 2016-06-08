@@ -8,15 +8,16 @@
                 <a href="#" v-on="click: sortBy($key, $event)">@{{ sortOptions[$key] }}</a>
             </li>
         </ul>
+        <div class="findaboartd">
+            @{{total === 0 ? 'The genius hasnt quite started to flow yet, why dont you get the ball rolling.' : ' '}}
+        </div>
     </div>
 
     <h3 class="total textalignright">
         @{{ total }} @{{ total > 1 ? 'Thought Bubbles' : (total === 1 ? 'Thought Bubble' : ' thought bubbles :(') }}
     </h3>
     <!-- Invite Users if comments = 0 -->
-    <div class="findaboartd">
-@{{total === 0 ? 'The genius hasnt quite started to flow yet, why dont you get the ball rolling.' : ' '}}
-</div>
+
 
 </div>
 <!--Pinned Blurb-->
