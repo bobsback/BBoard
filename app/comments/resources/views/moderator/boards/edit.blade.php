@@ -35,6 +35,11 @@
     @if(Session::has('updatesuccess'))
         <div class="alert alert-success">{{ Session::get('updatesuccess') }}</div>
     @endif
+    <ul>
+        @foreach($errors->all() as $error)
+            <li><span class="red">{{ $error }}</span></li>
+        @endforeach
+    </ul>
     <h2 class="page-subheader">
         Edit Details<a class="anchor" name="editdetails">.</a>
     </h2>
@@ -60,8 +65,8 @@
         </div>
 
         {!! Form::submit('Save Changes', ['class' => 'btn btn-success']) !!}
-    </form></div>
 
+    </div>
             <h2 class="page-subheader" >
                 How People Enter Your Board<a class="anchor" name="inviteusers">.</a>
             </h2><div class="AccessBox">
@@ -77,18 +82,19 @@
         </div>
             <p> Anyone can enter your Bubble Board using the boards passkey (your passkey is <span style="font-weight: bold">{{ $board->pincode }}</span>).<br>
 
-    <form style="z-index: 1" action="{{ URL::route('moderator.boards.update', $board->id) }}" method="POST">
-        {{ csrf_field() }}
 
         <input name="_method" type="hidden" value="PUT">
     <div class="form-group">
         {!! Form::label('pincode', 'Change passkey:', ['class' => 'w-form-label h4 checkboxtext']) !!}
         <dfn data-info="The passkey is how people to enter the board. It must be 2 - 50 characters and unique.">?</dfn>
 
+
         {!! Form::text('pincode', $board->pincode, ['class' => 'form-control']) !!}
     </div>
         {!! Form::submit('Save Changes', ['class' => 'btn btn-success']) !!}
-    </form><br>
+    </form>
+
+        <br>
             People can enter the passkey on:
     <div class="row">
         <div class="col-sm-4 linktitle">The website<br><a class="" href="{{ URL::to('/') }}">Bubbleboard.co</a></div>

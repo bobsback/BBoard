@@ -39,7 +39,7 @@
                         <ul class="dropdown-menu">
                             <template v-if="moderate">
                                 <li><a href="@{{ comment.edit_link }}">@lang('comments::all.edit')</a></li>
-                                <li><a href="#" v-on="click: edit">@lang('comments::all.qedit')</a></li>
+                                <li><a href="#" v-on="click: edit">@lang('comments::all.edit')</a></li>
                             </template>
                             <li v-if="!moderate">
                                 <a href="#" class="quick-edit" v-on="click: edit">@lang('comments::all.edit')</a>
@@ -55,14 +55,10 @@
             </div>
 
             <!-- author name and reply -->
-            <footer v-if="!showEdit"><!--
-
-                -->
+            <footer v-if="!showEdit">
                 <a href="#!comment=@{{ comment.id }}" class="author time-ago" v-on="click: target = comment.id">
                     <time datetime="@{{ comment.created_at }}" title="@{{ comment.created_at }}"></time>
                 </a>
-
-
 
                 <a v-if="config.replies" v-on="click: reply" href="#" class="replycol reply">
                     @lang('comments::all.reply')
@@ -86,8 +82,7 @@
                         <span class="glyphicon glyphicon-share-alt"></span>
                         @{{ parent.author.name }}
                     </a>
-
-                    <a class="edit-comment" href="#" data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}">
+                            <a class="edit-comment" href="#" data-board-id="{{ $board->id }}" data-comment-id="@{{ comment.id }}">
                         Edit
                     </a>
 

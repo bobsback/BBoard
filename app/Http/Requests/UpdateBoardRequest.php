@@ -28,4 +28,13 @@ class UpdateBoardRequest extends Request
             'pincode'=>'required|max:20|min:3,pincode|unique:boards,pincode,' . Route::input('boards')
         ];
     }
+    public function messages()
+    {
+        return [
+            'boardname.required' => 'Please provide a brief name description',
+            'pincode.required' => 'Sorry you must provide a passkey :(',
+            'boardname.unique' => 'Sorry this name is already taken',
+            'pincode.unique' => 'Sorry this passkey is already taken',
+        ];
+    }
 }

@@ -71,9 +71,9 @@
 
     <post config="@{{ config }}" comment-list="@{{@ commentList }}" total="@{{@ total }}"></post>
 
-    </div>-->
+    </div>
 
-    <div class="clearfix"></div>
+    <div class="clearfix"></div>-->
     <div v-show="loading" class="spinner">@lang('comments::all.loading')</div>
 
     <ul class="comment-list" v-if="!loading" v-transition="fade">

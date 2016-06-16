@@ -4,6 +4,7 @@ namespace Hazzard\Comments\Http\Controllers\Moderator;
 
 use App\Board;
 use App\BoardBan;
+use App\Http\Requests\UpdateBoardRequest;
 use Illuminate\Http\Request;
 use Hazzard\Comments\Http\Middleware\Moderator;
 use Hazzard\Comments\Http\Controllers\BaseDashboardController;
@@ -79,7 +80,7 @@ class BoardsController extends BaseDashboardController
      * Update.
      *
      */
-    public function update(Request $request)
+    public function update(UpdateBoardRequest $request)
     {
         $board = Board::findOrFail($request->boards);
 
@@ -87,7 +88,10 @@ class BoardsController extends BaseDashboardController
 
         $boards = \Auth::user()->moderator->boards;
 
+
         return redirect()->back()->with('updatesuccess', 'Board details were updated successfully');
+
+
     }
 
     public function invites(Request $request)
