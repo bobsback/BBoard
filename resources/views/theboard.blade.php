@@ -46,13 +46,13 @@
                 </a>
                 <h5>Go beyond feedback</h5>
             </div>
-            <div style="display:none" class="w-clearfix board-div-block">
-                <a href="#" class="w-button link active">
+            <div style="" class="w-clearfix board-div-block">
+                <!--<a href="#" class="w-button link active">
                     {{ $board->boardname }}
                 </a>
 
                 <br>
-                <div class="board-blurb">{{ $board->boardblurb }}</div>
+                <div class="board-blurb">{{ $board->boardblurb }}</div>-->
 
                 @if(!(Auth::user() && Auth::user()->boards->contains($board->id)))
                     <a class="w-button save @if(!Auth::user()) save-board-guest-toggle @endif" href="{{ URL::route('board.save', $board->boardname) }}">
