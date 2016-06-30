@@ -142,6 +142,7 @@ return [
         Hazzard\Comments\CommentsServiceProvider::class,
         Marwelln\Recaptcha\RecaptchaServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        Vinkla\Pusher\PusherServiceProvider::class,
 
         /*
          * Application Service Providers...

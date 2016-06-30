@@ -3,7 +3,7 @@
 $(document).on('click', '.edit-comment', function(e) {
     e.preventDefault();
 
-    var modal = $(this).parents('.comment').find('.moderator-edit-modal');
+    var modal = $(this).closest('.comment').find('.moderator-edit-modal').first();
 
     modal.find('form #status').val(modal.find('form').data('comment-status'));
 

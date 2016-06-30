@@ -370,6 +370,6 @@ return [
     |
     */
 
-    'reply_email' => false,
+    'reply_email' => true,
 
 ];

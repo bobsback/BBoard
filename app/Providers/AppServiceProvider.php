@@ -6,6 +6,13 @@ use App\Invite;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Log;
 
+
+class LaravelLoggerProxy {
+    public function log( $msg ) {
+        Log::info($msg);
+    }
+}
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
         {
             $invite->access_key = str_random(60);
         });
-
+        $pusher = $this->app->make('pusher');
+        $pusher->set_logger( new LaravelLoggerProxy() );
 
 
     }
