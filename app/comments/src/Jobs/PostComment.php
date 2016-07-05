@@ -76,4 +76,5 @@ class PostComment extends Job implements SelfHandling
 
         return $comment;
     }
+
 }
