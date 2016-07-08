@@ -66,7 +66,7 @@
                     <div class="desctext">A flexible semi-anonymous private discussion platform for idea generation, feedback and strategy.
                     </div>
                     <div style="padding-top: 56.17021276595745%;" class="w-embed w-video video">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/ouVzjuntgxo" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/7JiDHuDnzFA" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
                 <div data-ix="load-from-right" class="w-col w-col-6">
