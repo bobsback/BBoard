@@ -10,7 +10,7 @@
  */
 
 namespace Hazzard\Comments\Events;
-require "pusher.php";
+/*require "pusher.php";*/
 
 use Hazzard\Comments\Comments\Comment;
 
@@ -30,7 +30,7 @@ class CommentWasPosted
     {
         $this->comment = $comment;
     }
-    public function pushercomments (Comment $comment){
+   /* public function pushercomments (Comment $comment){
         $options = array(
             'cluster' => 'eu',
             'encrypted' => true
@@ -45,5 +45,5 @@ class CommentWasPosted
         $data['message'] = 'hello world';
         $pusher->trigger('comments_channel', 'newcomment', $comment->toJson());
 
-    }
+    }*/
 }
