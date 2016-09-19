@@ -15,7 +15,8 @@
         "guzzlehttp/guzzle": "~5.3|~6.0",
         "tymon/jwt-auth": "^0.5.9",
         "sendgrid/sendgrid": "^4.0",
-        "vinkla/pusher": "^2.3"
+        "vinkla/pusher": "^2.3",
+        "spatie/laravel-analytics": "^2.2"
 
     },
     "require-dev": {

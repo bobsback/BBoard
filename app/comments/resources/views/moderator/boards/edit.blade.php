@@ -11,13 +11,13 @@
         </li>
         <li>
 
-            <a class="btn btn-primary" href="#editdetails">
+            <a class="" href="#editdetails">
                 Edit Details
             </a>
-            <a class="btn btn-danger" href="#viewbans">
+            <a class="" href="#viewbans">
                 View Bans
             </a>
-                <a class="btn btn-info" href="#inviteusers">
+                <a class="" href="#inviteusers">
                     Invite People
                 </a>
 

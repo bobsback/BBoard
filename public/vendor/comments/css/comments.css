@@ -446,10 +446,7 @@ li.comment {
 }
 .flr{
   float: right;
-  background-color: rgba(255, 0, 0, 0.15);
-  padding: 3px;
-  border: 1px solid #49ba56;
-  border-radius:5px;
+
 }
 
 .comment-body .glyphicon {
@@ -642,10 +639,11 @@ li.comment {
 .comment-body .edit-comment {
     font-weight: bold;
     margin-left: 15px;
+  color: red !important;
 }
 
 .comment-body .delete-comment {
-    color: red;
+  color: red !important;
     font-weight: bold;
     margin-left: 15px;
 }
